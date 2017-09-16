@@ -1,38 +1,19 @@
 package pl.my.quickcash.controllers;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-
-import javafx.scene.Parent;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-
-import pl.my.quickcash.Main;
 import pl.my.quickcash.data.ClientKey;
 import pl.my.quickcash.data.ClientsDatabase;
 
-
 public class ClientLoginPanelController {
 
-    private final ObjectProperty<ClientKey> clientKey = new SimpleObjectProperty<>();
-
-    public final ObjectProperty<ClientKey> clientKeyProperty() {
-        return this.clientKey;
-    }
-
-    public final ClientKey getClientKey() {
-        return this.clientKeyProperty().get();
-    }
-
-    public final void setClientKey(final ClientKey clientKey) {
-        this.clientKeyProperty().set(clientKey);
-    }
-
+    @FXML
+    private Pane clientLoginPanel;
 
     @FXML
     private TextField loginTextField;
@@ -41,43 +22,42 @@ public class ClientLoginPanelController {
     private TextField passwordTextField;
 
     @FXML
+    private Button loginButton;
+
+    @FXML
+    private Button cancelButton;
+
+    @FXML
     private Label statusLabel;
 
-    @FXML
-    private void ok() {
-        String login = loginTextField.getText();
-        String password = passwordTextField.getText();
-        if (authenticate(login, password)) {
-            setClientKey(new ClientKey(login, password));
-            statusLabel.setText("Correct");
+
+    public void initialize() {
+
+    }
+
+    public void initManager(final LoginController loginController) {
+
+        loginButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ClientKey clientKey = authorize();
+                if (clientKey != null) {
+                    loginController.authenticated(clientKey);
+                }else {
+                    statusLabel.setText("Incorrect login or password!");
+                }
+            }
+        });
+    }
+
+
+    private ClientKey authorize() {
+        ClientKey clientKey = new ClientKey(loginTextField.getText(), passwordTextField.getText());
+        if (ClientsDatabase.getInstance().containsKey(clientKey)) {
+            return clientKey;
         } else {
-            statusLabel.setText("Incorrect login or password!");
+            return null;
         }
-        clearFields();
     }
-
-    @FXML
-    private void cancel() {
-        setClientKey(null);
-        clearFields();
-        statusLabel.setText("");
-    }
-
-    private boolean authenticate(String login, String password) {
-        setClientKey(new ClientKey(login, password));
-        return ClientsDatabase.getInstance().containsKey(getClientKey());
-    }
-
-    private void clearFields() {
-        loginTextField.setText("");
-        passwordTextField.setText("");
-    }
-
-
-
-
-
-
-
 
 }

@@ -1,4 +1,4 @@
-package pl.my.quickcash.controllers;
+package pl.my.quickcash.dataloading;
 
 import pl.my.quickcash.data.*;
 
@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class FileManager {
 
-    private static final String fileName = "UsersDatabase";
+    private static final String fileName = "ClientsDatabase";
 
 //    public void writeDatabaseToFile() {
 //

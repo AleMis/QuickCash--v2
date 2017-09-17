@@ -3,46 +3,44 @@ package pl.my.quickcash.dataloading;
 import pl.my.quickcash.data.*;
 
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
 
 public class FileManager {
 
     private static final String fileName = "ClientsDatabase";
 
-//    public void writeDatabaseToFile() {
-//
-//        File file = new File(fileName);
-//        boolean fileExists = file.exists();
-//
-//        if(!fileExists) {
-//            try {
-//                fileExists = file.createNewFile();
-//            } catch(IOException o) {
-//                System.out.println("Program could not create the file!");
-//            }
-//        }
-//        if(fileExists) {
-//            try(
-//                    FileWriter fileWriter = new FileWriter(fileName);
-//                    BufferedWriter writer = new BufferedWriter(fileWriter);
-//            ) {
-//
-//                for(Map.Entry<ClientKey, ClientData> entry : clientsDatabase.entrySet())  {
-//                    writer.write(entry.getKey() + "" + entry.getValue());
-//                    writer.newLine();
-//                }
-//            } catch (FileNotFoundException e) {
-//                System.out.println("Program could not find the file: " + fileName);
-//            }catch (IOException e) {
-//                System.out.println("Error during saving the data " + fileName);
-//
-//            }
-//        }
-//    }
+    public void writeDatabaseToFile() {
+
+        File file = new File(fileName);
+        boolean fileExists = file.exists();
+
+        if(!fileExists) {
+            try {
+                fileExists = file.createNewFile();
+            } catch(IOException o) {
+                System.out.println("Program could not create the file!");
+            }
+        }
+        if(fileExists) {
+            try(
+                    FileWriter fileWriter = new FileWriter(fileName);
+                    BufferedWriter writer = new BufferedWriter(fileWriter);
+            ) {
+
+                for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet())  {
+                    writer.write(entry.getKey() + "" + entry.getValue());
+                    writer.newLine();
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("Program could not find the file: " + fileName);
+            }catch (IOException e) {
+                System.out.println("Error during saving the data " + fileName);
+
+            }
+        }
+    }
 
     public static HashMap<ClientKey, ClientData> readDatabaseFromFile() throws IOException {
         HashMap<ClientKey, ClientData> database = new HashMap<ClientKey, ClientData>();
@@ -96,7 +94,7 @@ public class FileManager {
                         flatNumberCD);
 
                 Double accountBalanceAsDouble = Double.parseDouble(parts[18]);
-                Long accountNumber = Long.parseLong(parts[19]);
+                String accountNumber = parts[19];
                 ClientAccount clientAccount = new ClientAccount(accountBalanceAsDouble, accountNumber);
 
                 ClientData clientData = new ClientData(userPD, userCD, clientAccount);

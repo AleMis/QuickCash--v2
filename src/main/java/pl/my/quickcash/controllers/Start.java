@@ -11,18 +11,17 @@ import java.io.IOException;
 public class Start {
 
     public static Scene scene;
-
     public Start() {
       Start.scene = new Scene(new StackPane());
     }
 
-    public void showStarterPanel() {
+    public void showStarterPanel(Stage stage) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/StarterPanel.fxml"));
             Start.scene.setRoot((Parent) loader.load());
             StarterPanelController controller = loader.<StarterPanelController>getController();
-            controller.runAsClient();
-            controller.runAsAdmin();
+            controller.runAsClient(stage);
+            controller.runAsAdmin(stage);
         }catch(IOException ex) {
             ex.printStackTrace();
         }

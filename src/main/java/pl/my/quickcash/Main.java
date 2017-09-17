@@ -25,7 +25,7 @@ public class Main extends Application{
         ClientsDatabase.getInstance();
         
         Start start = new Start();
-        start.showStarterPanel();
+        start.showStarterPanel(primaryStage);
         primaryStage.setScene(Start.scene);
         primaryStage.show();
 

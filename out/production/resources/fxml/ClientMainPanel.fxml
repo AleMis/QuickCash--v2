@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.ClientMainPanelController">
+<BorderPane fx:id="clientBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.ClientMainPanelController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -45,6 +46,35 @@
                </VBox.margin>
             </TextField>
          </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
       </VBox>
    </right>
+   <left>
+      <VBox prefHeight="375.0" prefWidth="146.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="makeTransferButton" mnemonicParsing="false" onAction="#initMakeTransfer" prefHeight="80.0" prefWidth="150.0" text="Make a transfer">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="putMoneyButton" mnemonicParsing="false" onAction="#initPutMoney" prefHeight="80.0" prefWidth="150.0" text="Put the money">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="withdrawMoneyButton" mnemonicParsing="false" onAction="#initWithdrawMoney" prefHeight="80.0" prefWidth="150.0" text="Withdraw the money">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="personalData" mnemonicParsing="false" onAction="#initCheckPersonalData" prefHeight="80.0" prefWidth="150.0" text="Personal Data">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </left>
 </BorderPane>

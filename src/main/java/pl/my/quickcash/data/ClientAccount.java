@@ -3,11 +3,11 @@ package pl.my.quickcash.data;
 public class ClientAccount {
 
     private Double accountBalance;
-    private Long accountNumberL;
+    private String accountNumber;
 
-    public ClientAccount(Double accountBalance, Long accountNumberL) {
+    public ClientAccount(Double accountBalance, String accountNumber) {
         this.accountBalance = accountBalance;
-        this.accountNumberL = accountNumberL;
+        this.accountNumber = accountNumber;
     }
 
     public Double getAccountBalance() {
@@ -18,12 +18,12 @@ public class ClientAccount {
         this.accountBalance = accountBalance;
     }
 
-    public Long getAccountNumberL() {
-        return accountNumberL;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setAccountNumberL(Long accountNumberL) {
-        this.accountNumberL = accountNumberL;
+    public void setAccountNumber(String accountNumberL) {
+        this.accountNumber = accountNumberL;
     }
 
     @Override
@@ -34,13 +34,13 @@ public class ClientAccount {
         ClientAccount that = (ClientAccount) o;
 
         if (!getAccountBalance().equals(that.getAccountBalance())) return false;
-        return getAccountNumberL().equals(that.getAccountNumberL());
+        return getAccountNumber().equals(that.getAccountNumber());
     }
 
     @Override
     public int hashCode() {
         int result = getAccountBalance().hashCode();
-        result = 31 * result + getAccountNumberL().hashCode();
+        result = 31 * result + getAccountNumber().hashCode();
         return result;
     }
 
@@ -49,7 +49,7 @@ public class ClientAccount {
         StringBuilder print = new StringBuilder(32);
         print.append(accountBalance);
         print.append("; ");
-        print.append(accountNumberL);
+        print.append(accountNumber);
         print.append("; ");
 
         return print.toString();

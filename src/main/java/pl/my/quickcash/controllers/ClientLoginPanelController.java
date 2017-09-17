@@ -12,8 +12,6 @@ import pl.my.quickcash.data.ClientsDatabase;
 
 public class ClientLoginPanelController {
 
-    @FXML
-    private Pane clientLoginPanel;
 
     @FXML
     private TextField loginTextField;
@@ -31,11 +29,12 @@ public class ClientLoginPanelController {
     private Label statusLabel;
 
 
+
     public void initialize() {
 
     }
 
-    public void initManager(final LoginController loginController) {
+    public void initClientKey(final LoginController loginController) {
 
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override

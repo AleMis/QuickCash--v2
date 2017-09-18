@@ -1,12 +1,18 @@
 package pl.my.quickcash.controllers;
 
+import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import pl.my.quickcash.data.ClientKey;
 import pl.my.quickcash.data.ClientsDatabase;
+import pl.my.quickcash.dialogs.DialogUtils;
+
+import java.util.Optional;
 
 public class ClientMainPanelController {
 
@@ -25,32 +31,25 @@ public class ClientMainPanelController {
         this.clientKey = clientKey;
     }
 
-    @FXML
-    private BorderPane clientBorderPane;
+    @FXML private BorderPane clientBorderPane;
 
-    @FXML
-    private TextField accountBalanceTextField;
+    @FXML private TextField accountBalanceTextField;
 
-    @FXML
-    private Button makeTransferButton;
+    public TextField getAccountBalanceTextField() {
+        return accountBalanceTextField;
+    }
 
-    @FXML
-    private Button putMoneyButton;
-
-    @FXML
-    private Button withdrawMoneyButton;
-
-    @FXML
-    private Button personalData;
-
+    public void setAccountBalanceTextField(TextField accountBalanceTextField) {
+        this.accountBalanceTextField = accountBalanceTextField;
+    }
 
     public void initialize() {
 
     }
 
-    public void initSession(final LoginController loginController, ClientKey clientKey) {
-        accountBalanceTextField.setText(String.valueOf(ClientsDatabase.getInstance().get(clientKey).getClientAccounts().getAccountBalance()));
-
+    public void initSession() {
+        initializeAccountBalance();
+        setCaspian();
     }
 
     @FXML
@@ -60,7 +59,7 @@ public class ClientMainPanelController {
             clientBorderPane.setCenter(loader.load());
             MakeTransferPanelController controller = loader.<MakeTransferPanelController>getController();
             controller.setClientKey(getClientKey());
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.getStackTrace();
         }
     }
@@ -72,7 +71,7 @@ public class ClientMainPanelController {
             clientBorderPane.setCenter(loader.load());
             PutMoneyPanelController controller = loader.<PutMoneyPanelController>getController();
             controller.setClientKey(getClientKey());
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.getStackTrace();
         }
     }
@@ -84,7 +83,8 @@ public class ClientMainPanelController {
             clientBorderPane.setCenter(loader.load());
             WithdrawMoneyPanelController controller = loader.<WithdrawMoneyPanelController>getController();
             controller.setClientKey(getClientKey());
-        }catch (Exception e) {
+            clientBorderPane.getStylesheets().add(getClass().getClassLoader().getResource("/fxml/ClientDataPanel.css").toString());
+        } catch (Exception e) {
             e.getStackTrace();
         }
     }
@@ -96,14 +96,34 @@ public class ClientMainPanelController {
             clientBorderPane.setCenter(loader.load());
             ClientDataPanelController controller = loader.<ClientDataPanelController>getController();
             controller.setClientKey(getClientKey());
-        }catch (Exception e) {
+            controller.initClientPersonalInformation();
+        } catch (Exception e) {
             e.getStackTrace();
         }
 
     }
+    public void closeApplication() {
+        Optional<ButtonType> result = DialogUtils.confirmationDialogForCloseApp();
+        if(result.get()==ButtonType.OK){
+            Platform.exit();
+            System.exit(0);
+        }
+    }
 
+    public void setCaspian() {
+        Application.setUserAgentStylesheet(Application.STYLESHEET_CASPIAN);
+    }
 
+    public void setModena() {
+        Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+    }
 
+    public void about() {
+        DialogUtils.dialogAboutApplication();
+    }
 
-
+    public void initializeAccountBalance() {
+        accountBalanceTextField.setText(String.valueOf(ClientsDatabase.getInstance().get(getClientKey()).getClientAccounts().getAccountBalance()));
+        accountBalanceTextField.setEditable(false);
+    }
 }

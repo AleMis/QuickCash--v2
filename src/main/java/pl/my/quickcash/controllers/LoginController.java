@@ -34,7 +34,7 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ClientLoginPanel.fxml"));
             scene.setRoot((Parent) loader.load());
             ClientLoginPanelController controller = loader.<ClientLoginPanelController>getController();
-            controller.initClientKey(this);
+                controller.initClientKey(this);
             stage.setHeight(250.0);
             stage.setWidth(400.0);
         }catch(IOException ex) {
@@ -47,10 +47,10 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ClientMainPanel.fxml"));
             Start.scene.setRoot((Parent) loader.load());
             ClientMainPanelController controller = loader.<ClientMainPanelController>getController();
-            controller.initSession(this,clientKey);
             controller.setClientKey(clientKey);
+            controller.initSession();
             stage.setHeight(450.0);
-            stage.setWidth(850.0);
+            stage.setWidth(700.0);
         }catch (IOException ex ) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

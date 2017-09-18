@@ -27,6 +27,7 @@ public class Main extends Application{
         Start start = new Start();
         start.showStarterPanel(primaryStage);
         primaryStage.setScene(Start.scene);
+        primaryStage.setTitle("QUICK CASH APPLICATION");
         primaryStage.show();
 
 

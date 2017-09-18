@@ -11,238 +11,238 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.ClientDataPanelController">
+   <padding>
+      <Insets top="20.0" />
+   </padding>
    <children>
-      <TabPane prefHeight="250.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Personal Information">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane prefHeight="270.0" prefWidth="498.0">
                      <children>
-                        <HBox layoutX="6.0" />
-                        <VBox layoutY="1.0" prefHeight="220.0" prefWidth="125.0">
-                           <padding>
-                              <Insets left="15.0" top="10.0" />
-                           </padding>
+                        <HBox prefHeight="271.0" prefWidth="498.0">
                            <children>
-                              <Label text="First Name">
-                                 <VBox.margin>
-                                    <Insets left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="ID Number">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="25.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Country">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="25.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="City">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="25.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Building No.">
-                                 <VBox.margin>
-                                    <Insets left="5.0" top="25.0" />
-                                 </VBox.margin>
-                              </Label>
+                              <VBox prefHeight="200.0" prefWidth="125.0">
+                                 <children>
+                                    <Label text="FirstName">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="ID Number">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Country">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="City">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Building No.">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="125.0">
+                                 <children>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="firstNameTextField">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="idNumberTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="countryTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="cityTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="buildingNoTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="125.0">
+                                 <children>
+                                    <Label text="Last Name">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="PESEL">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Voivodeship">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Street">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Flat No.">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="125.0">
+                                 <children>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="lastNameTextField">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="peselTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="voivodeshipTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="streetTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="flatNoTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox layoutX="125.0" prefHeight="220.0" prefWidth="125.0">
-                           <children>
-                              <TextField fx:id="firstNameTextField">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="idNumberTextField">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="countryTextField">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="cityTextField">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="buildingNoTextField">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                           </children>
-                           <padding>
-                              <Insets right="5.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox layoutX="250.0" prefHeight="220.0" prefWidth="125.0">
-                           <padding>
-                              <Insets left="15.0" top="10.0" />
-                           </padding>
-                           <children>
-                              <Label text="Last Name">
-                                 <VBox.margin>
-                                    <Insets left="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="PESEL">
-                                 <VBox.margin>
-                                    <Insets left="10.0" top="25.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Voivodeship">
-                                 <VBox.margin>
-                                    <Insets left="10.0" top="25.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Street">
-                                 <VBox.margin>
-                                    <Insets left="10.0" top="25.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Flat No.">
-                                 <VBox.margin>
-                                    <Insets left="10.0" top="25.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox layoutX="375.0" prefHeight="220.0" prefWidth="125.0">
-                           <children>
-                              <TextField fx:id="lastNameTextField">
-                                 <padding>
-                                    <Insets top="10.0" />
-                                 </padding>
-                              </TextField>
-                              <TextField fx:id="peselTextField">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="voivodeshipTextField">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="streetTextField">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="flatNoTextField">
-                                 <VBox.margin>
-                                    <Insets top="15.0" />
-                                 </VBox.margin>
-                              </TextField>
-                           </children>
-                           <padding>
-                              <Insets right="5.0" top="10.0" />
-                           </padding>
-                        </VBox>
+                        </HBox>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
           <Tab text="Contact Details">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane>
                      <children>
-                        <HBox prefHeight="150.0" prefWidth="500.0">
+                        <HBox prefHeight="175.0" prefWidth="498.0">
                            <children>
-                              <VBox prefHeight="150.0" prefWidth="125.0">
+                              <VBox prefHeight="100.0" prefWidth="125.0">
                                  <children>
-                                    <Label text="Country" />
+                                    <Label text="Country">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
                                     <Label text="City">
                                        <VBox.margin>
-                                          <Insets top="25.0" />
+                                          <Insets left="10.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="Building No.">
                                        <VBox.margin>
-                                          <Insets top="25.0" />
+                                          <Insets left="10.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                  </children>
-                                 <HBox.margin>
-                                    <Insets left="15.0" top="10.0" />
-                                 </HBox.margin>
                               </VBox>
                               <VBox prefHeight="150.0" prefWidth="125.0">
                                  <children>
-                                    <TextField fx:id="countryCDTextField" />
-                                    <TextField fx:id="cityCDTextField">
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="countryCDTextField">
                                        <VBox.margin>
                                           <Insets top="15.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="buildingNoCDTextField">
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="cityCDTextField">
                                        <VBox.margin>
-                                          <Insets top="15.0" />
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="buildingNoCDTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
                                  </children>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
                               </VBox>
-                              <VBox prefHeight="150.0" prefWidth="125.0">
+                              <VBox prefHeight="200.0" prefWidth="125.0">
                                  <children>
                                     <Label text="Voivodeship">
                                        <VBox.margin>
-                                          <Insets left="15.0" />
+                                          <Insets left="20.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="Street">
                                        <VBox.margin>
-                                          <Insets left="15.0" top="25.0" />
+                                          <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="Flat No.">
                                        <VBox.margin>
-                                          <Insets left="15.0" top="25.0" />
+                                          <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                  </children>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
                               </VBox>
-                              <VBox prefHeight="150.0" prefWidth="125.0">
+                              <VBox prefHeight="200.0" prefWidth="125.0">
                                  <children>
-                                    <TextField fx:id="voivodeshipCDTextField" />
-                                    <TextField fx:id="streetCDTextField">
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="voivodeshipCDTextField">
                                        <VBox.margin>
                                           <Insets top="15.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="flatNoCDTextField">
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="streetCDTextField">
                                        <VBox.margin>
-                                          <Insets top="15.0" />
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField alignment="BASELINE_RIGHT" fx:id="flatNoCDTextField">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
                                  </children>
-                                 <HBox.margin>
-                                    <Insets right="5.0" top="10.0" />
-                                 </HBox.margin>
                               </VBox>
                            </children>
                         </HBox>
-                        <Button fx:id="saveButton" layoutX="142.0" layoutY="158.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Save" />
-                        <Button fx:id="cancelButton" layoutX="276.0" layoutY="158.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Cancel" />
+                        <Button fx:id="saveButton1" layoutX="149.0" layoutY="175.0" mnemonicParsing="false" onAction="#approveChangingContactDetails" prefHeight="75.0" prefWidth="100.0" text="Change contact details" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="saveButton" layoutX="269.0" layoutY="175.0" mnemonicParsing="false" onAction="#approveChangesInContactDetails" prefHeight="75.0" prefWidth="100.0" text="Save" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
         </tabs>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
       </TabPane>
    </children>
 </Pane>

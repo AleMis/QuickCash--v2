@@ -4,12 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import pl.my.quickcash.data.ClientData;
 import pl.my.quickcash.data.ClientKey;
 import pl.my.quickcash.data.ClientsDatabase;
-import pl.my.quickcash.dataloading.FileManager;
+import pl.my.quickcash.datamanagement.FileManager;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 public class WithdrawMoneyPanelController {
@@ -43,16 +43,17 @@ public class WithdrawMoneyPanelController {
         }
     }
 
-    public Double getAmount() {
-        Double amountToTransfer = Double.parseDouble(amountTextField.getText());
+    public BigDecimal getAmount() {
+        BigDecimal amountToTransfer = new BigDecimal(amountTextField.getText()).setScale(2, BigDecimal.ROUND_CEILING);
         return amountToTransfer;
     }
 
     public void checkAccountBalance(ClientKey clientKey) {
-        Double accountBalance = ClientsDatabase.getInstance().get(clientKey).getClientAccounts().getAccountBalance();
-        if(accountBalance == 0.0) {
+        BigDecimal accountBalance = ClientsDatabase.getInstance().get(clientKey).getClientAccounts().getAccountBalance();
+        Double subtractResult = accountBalance.subtract(getAmount()).doubleValue();
+        if(accountBalance.equals("0.00")) {
             statusLabel.setText("Account Balance equal 0.0 PLN");
-        }else if (accountBalance.equals(getAmount()) || accountBalance < getAmount()) {
+        }else if (accountBalance.equals(getAmount()) || subtractResult < 0.0) {
             statusLabel.setText("You could transfer only " + accountBalance + " PLN");
         }else {
             updateClientAccountBalance(clientKey, getAmount());
@@ -61,10 +62,11 @@ public class WithdrawMoneyPanelController {
 
     }
 
-    public void updateClientAccountBalance(ClientKey clientKey, Double amount) {
+    public void updateClientAccountBalance(ClientKey clientKey, BigDecimal amount) {
         for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet()) {
             if(entry.getKey().equals(clientKey)) {
-                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue().getClientAccounts().getAccountBalance() - amount);
+                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue().getClientAccounts()
+                        .getAccountBalance().subtract(amount));
             }
         }
     }

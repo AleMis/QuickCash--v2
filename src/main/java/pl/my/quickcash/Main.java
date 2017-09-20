@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import pl.my.quickcash.controllers.LoginController;
 import pl.my.quickcash.controllers.Start;
 import pl.my.quickcash.data.ClientsDatabase;
+import pl.my.quickcash.data.EmployeesDatabase;
 
 import static javafx.application.Application.launch;
 
@@ -23,6 +24,7 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         ClientsDatabase.getInstance();
+        EmployeesDatabase.getInstance();
         
         Start start = new Start();
         start.showStarterPanel(primaryStage);

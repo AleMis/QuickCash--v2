@@ -1,21 +1,23 @@
 package pl.my.quickcash.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import pl.my.quickcash.data.ClientData;
 import pl.my.quickcash.data.ClientKey;
 import pl.my.quickcash.data.ClientsDatabase;
-import pl.my.quickcash.dataloading.FileManager;
+import pl.my.quickcash.datamanagement.FileManager;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 public class MakeTransferPanelController {
 
     private ClientKey clientKey;
     private FileManager fileManager = new FileManager();
+    private ClientMainPanelController clientMainPanelController;
+
+
 
     public ClientKey getClientKey() {
         return clientKey;
@@ -24,9 +26,6 @@ public class MakeTransferPanelController {
     public void setClientKey(ClientKey clientKey) {
         this.clientKey = clientKey;
     }
-
-    @FXML
-    private Pane makeTransferPane;
 
     @FXML
     private TextField accountNumberTextField;
@@ -50,6 +49,7 @@ public class MakeTransferPanelController {
          }else {
               checkAccountBalance(clientKey);
               fileManager.writeDatabaseToFile();
+//              clientMainPanelController.getAccountBalanceTextField().setText("100");
          }
 
     }
@@ -59,8 +59,8 @@ public class MakeTransferPanelController {
         return accountNumber;
     }
 
-    public Double getAmountToTransfer() {
-        Double amountToTransfer = Double.parseDouble(amountTextField.getText());
+    public BigDecimal getAmountToTransfer() {
+        BigDecimal amountToTransfer = new BigDecimal(amountTextField.getText()).setScale(2, BigDecimal.ROUND_CEILING);
         return amountToTransfer;
     }
 
@@ -68,7 +68,7 @@ public class MakeTransferPanelController {
         boolean check = false;
         String accountNumberToCheck = getAccountNumber();
         for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet()) {
-            if(entry.getValue().getClientAccounts().getAccountBalance().equals(accountNumberToCheck)) {
+            if(entry.getValue().getClientAccounts().getAccountNumber().equals(accountNumberToCheck)) {
                 check = true;
             }
         }
@@ -76,10 +76,11 @@ public class MakeTransferPanelController {
     }
 
     public void checkAccountBalance(ClientKey clientKey) {
-        Double accountBalance = ClientsDatabase.getInstance().get(clientKey).getClientAccounts().getAccountBalance();
-        if(accountBalance == 0.0) {
+        BigDecimal accountBalance = ClientsDatabase.getInstance().get(clientKey).getClientAccounts().getAccountBalance();
+        Double subtractResult = accountBalance.subtract(getAmountToTransfer()).doubleValue();
+        if(accountBalance.equals("0.00")) {
             statusLabel.setText("Account Balance equal 0.0 PLN");
-        }else if (accountBalance.equals(getAmountToTransfer()) || accountBalance < getAmountToTransfer()) {
+        }else if (accountBalance.equals(getAmountToTransfer()) || subtractResult < 0.0) {
                 statusLabel.setText("You could transfer only " + accountBalance + " PLN");
         }else {
             updateClientAccountBalance(clientKey, getAmountToTransfer());
@@ -89,18 +90,20 @@ public class MakeTransferPanelController {
 
     }
 
-    public void updateClientAccountBalance(ClientKey clientKey, Double amount) {
+    public void updateClientAccountBalance(ClientKey clientKey, BigDecimal amount) {
         for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet()) {
             if(entry.getKey().equals(clientKey)) {
-                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue().getClientAccounts().getAccountBalance() - amount);
+                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue()
+                        .getClientAccounts().getAccountBalance().subtract(amount));
             }
         }
     }
 
-    public void updateSecondPartyAccountBalance(String accountNumber, Double amount) {
+    public void updateSecondPartyAccountBalance(String accountNumber, BigDecimal amount) {
         for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet()) {
             if(entry.getValue().getClientAccounts().getAccountNumber().equals(accountNumber)) {
-                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue().getClientAccounts().getAccountBalance() + amount);
+                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue()
+                        .getClientAccounts().getAccountBalance().add(amount));
             }
         }
     }

@@ -1,19 +1,21 @@
-package pl.my.quickcash.dataloading;
+package pl.my.quickcash.datamanagement;
 
 import pl.my.quickcash.data.*;
 
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FileManager {
 
-    private static final String fileName = "ClientsDatabase";
+    private static final String clientsFileName = "ClientsDatabase";
+    private static final String employeesFileName = "Employeesdatabase";
 
     public void writeDatabaseToFile() {
 
-        File file = new File(fileName);
+        File file = new File(clientsFileName);
         boolean fileExists = file.exists();
 
         if(!fileExists) {
@@ -25,7 +27,7 @@ public class FileManager {
         }
         if(fileExists) {
             try(
-                    FileWriter fileWriter = new FileWriter(fileName);
+                    FileWriter fileWriter = new FileWriter(clientsFileName);
                     BufferedWriter writer = new BufferedWriter(fileWriter);
             ) {
 
@@ -33,10 +35,12 @@ public class FileManager {
                     writer.write(entry.getKey() + "" + entry.getValue());
                     writer.newLine();
                 }
+                writer.flush();
+
             } catch (FileNotFoundException e) {
-                System.out.println("Program could not find the file: " + fileName);
+                System.out.println("Program could not find the file: " + clientsFileName);
             }catch (IOException e) {
-                System.out.println("Error during saving the data " + fileName);
+                System.out.println("Error during saving the data " + clientsFileName);
 
             }
         }
@@ -46,7 +50,7 @@ public class FileManager {
         HashMap<ClientKey, ClientData> database = new HashMap<ClientKey, ClientData>();
 
         try(
-                FileReader fileReader = new FileReader(fileName);
+                FileReader fileReader = new FileReader(clientsFileName);
                 BufferedReader reader = new BufferedReader(fileReader);
         ) {
             String nextLine = null;
@@ -93,7 +97,7 @@ public class FileManager {
                         buildingNumberCD,
                         flatNumberCD);
 
-                Double accountBalanceAsDouble = Double.parseDouble(parts[18]);
+                BigDecimal accountBalanceAsDouble = new BigDecimal(parts[18]).setScale(2, BigDecimal.ROUND_CEILING);
                 String accountNumber = parts[19];
                 ClientAccount clientAccount = new ClientAccount(accountBalanceAsDouble, accountNumber);
 
@@ -106,10 +110,47 @@ public class FileManager {
             reader.close();
 
         }catch (FileNotFoundException e) {
-            System.err.println("Program could not find the file: " + fileName);
+            System.err.println("Program could not find the file: " + clientsFileName);
             throw e;
         } catch (IOException e) {
-            System.err.println("Error during saving the data " + fileName);
+            System.err.println("Error during saving the data " + clientsFileName);
+            throw e;
+        }
+        return database;
+    }
+
+    public static HashMap<EmployeeKey, EmployeeData> readEmployeesDatabaseFromFile() throws IOException {
+        HashMap<EmployeeKey, EmployeeData> database = new HashMap<>();
+
+        try(
+                FileReader fileReader = new FileReader(employeesFileName);
+                BufferedReader reader = new BufferedReader(fileReader);
+        ) {
+            String nextLine = null;
+            int lines = 0;
+            while((nextLine = reader.readLine()) != null) {
+                String[] parts = nextLine.split("; ");
+
+                String login = parts[0];
+                String password = parts[1];
+                EmployeeKey employeeKey = new EmployeeKey(login,password);
+
+                String firstName = parts[2];
+                String lastName = parts[3];
+                String position = parts[4];
+
+                EmployeeData employeeData = new EmployeeData(firstName, lastName, position);
+
+                database.put(employeeKey, employeeData);
+                lines++;
+            }
+            reader.close();
+
+        }catch (FileNotFoundException e) {
+            System.err.println("Program could not find the  file: " + employeesFileName);
+            throw e;
+        } catch (IOException e) {
+            System.err.println("Error during saving the data " + employeesFileName);
             throw e;
         }
         return database;

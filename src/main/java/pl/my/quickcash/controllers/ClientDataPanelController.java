@@ -5,7 +5,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import pl.my.quickcash.data.ClientKey;
 import pl.my.quickcash.data.ClientsDatabase;
-import pl.my.quickcash.dataloading.FileManager;
+import pl.my.quickcash.datamanagement.FileManager;
 import pl.my.quickcash.dialogs.DialogUtils;
 
 import java.util.Optional;
@@ -14,7 +14,6 @@ public class ClientDataPanelController {
 
     private ClientKey clientKey;
     private FileManager fileManager = new FileManager();
-    private ClientMainPanelController clientMainPanelController;
 
     public ClientKey getClientKey() {
         return clientKey;
@@ -104,8 +103,10 @@ public class ClientDataPanelController {
 
     @FXML
     public void approveChangingContactDetails() {
-        enableEditCDTextField();
-
+        Optional<ButtonType> result = DialogUtils.confirmationDialogForContactDetails();
+        if(result.get()==ButtonType.OK){
+            enableEditCDTextField();
+        }
     }
 
 
@@ -118,10 +119,8 @@ public class ClientDataPanelController {
         ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().setBuildingNumberCD(buildingNoCDTextField.getText());
         ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().setFlatNumberCD(flatNoCDTextField.getText());
 
-        disableEditCDTextFields();
         fileManager.writeDatabaseToFile();
-        clientMainPanelController.initializeAccountBalance();
-
+        disableEditCDTextFields();
     }
 
     @FXML

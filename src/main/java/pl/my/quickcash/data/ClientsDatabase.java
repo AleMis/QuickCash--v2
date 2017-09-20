@@ -2,7 +2,7 @@ package pl.my.quickcash.data;
 
 
 
-import pl.my.quickcash.dataloading.FileManager;
+import pl.my.quickcash.datamanagement.FileManager;
 
 import java.io.IOException;
 import java.util.HashMap;

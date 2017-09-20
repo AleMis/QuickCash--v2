@@ -1,20 +1,22 @@
 package pl.my.quickcash.data;
 
+import java.math.BigDecimal;
+
 public class ClientAccount {
 
-    private Double accountBalance;
+    private BigDecimal accountBalance;
     private String accountNumber;
 
-    public ClientAccount(Double accountBalance, String accountNumber) {
-        this.accountBalance = accountBalance;
+    public ClientAccount(BigDecimal accountBalance, String accountNumber) {
+        this.accountBalance = accountBalance.setScale(2, BigDecimal.ROUND_CEILING);
         this.accountNumber = accountNumber;
     }
 
-    public Double getAccountBalance() {
+    public BigDecimal getAccountBalance() {
         return accountBalance;
     }
 
-    public void setAccountBalance(Double accountBalance) {
+    public void setAccountBalance(BigDecimal accountBalance) {
         this.accountBalance = accountBalance;
     }
 

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class DialogUtils {
 
-    public static Optional<ButtonType> confirmationDialogForContactDetails() {
+    public static Optional<ButtonType> confirmationDialogForContactDetailsSaving() {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Changes in contact details");
         confirmationAlert.setHeaderText("Do you want to save changes?");
@@ -30,5 +30,13 @@ public class DialogUtils {
         informationAlert.setHeaderText("QuickCash Appliaction 1.0");
         informationAlert.setContentText("Application is developing by JavaSzaman!");
         informationAlert.showAndWait();
+    }
+
+    public static Optional<ButtonType> confirmationDialogForContactDetails() {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Changes in contact details");
+        confirmationAlert.setHeaderText("Allow for changes in contact details?");
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+        return result;
     }
 }

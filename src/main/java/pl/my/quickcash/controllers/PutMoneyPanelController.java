@@ -8,8 +8,9 @@ import javafx.scene.layout.Pane;
 import pl.my.quickcash.data.ClientData;
 import pl.my.quickcash.data.ClientKey;
 import pl.my.quickcash.data.ClientsDatabase;
-import pl.my.quickcash.dataloading.FileManager;
+import pl.my.quickcash.datamanagement.FileManager;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 public class PutMoneyPanelController {
@@ -39,7 +40,7 @@ public class PutMoneyPanelController {
 
     @FXML
     public void putMoney() {
-        if (getAmount().equals(0.0) || getAmount().equals(null)) {
+        if (getAmount().equals("0.00") || getAmount().equals(null)) {
             statusLabel.setText("Put the amount!");
         } else {
             updateClientAccountBalance(getClientKey(), getAmount());
@@ -48,16 +49,16 @@ public class PutMoneyPanelController {
         }
     }
 
-    public Double getAmount() {
-        Double amountToTransfer = Double.parseDouble(amountTextField.getText());
+    public BigDecimal getAmount() {
+        BigDecimal amountToTransfer = new BigDecimal(amountTextField.getText()).setScale(2, BigDecimal.ROUND_CEILING);
         return amountToTransfer;
     }
 
 
-    public void updateClientAccountBalance(ClientKey clientKey, Double amount) {
+    public void updateClientAccountBalance(ClientKey clientKey, BigDecimal amount) {
         for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet()) {
             if(entry.getKey().equals(clientKey)) {
-                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue().getClientAccounts().getAccountBalance() - amount);
+                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue().getClientAccounts().getAccountBalance().add(amount));
             }
         }
     }

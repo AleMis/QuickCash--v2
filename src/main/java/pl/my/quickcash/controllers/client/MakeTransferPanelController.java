@@ -1,4 +1,4 @@
-package pl.my.quickcash.controllers;
+package pl.my.quickcash.controllers.client;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -49,7 +49,6 @@ public class MakeTransferPanelController {
          }else {
               checkAccountBalance(clientKey);
               fileManager.writeDatabaseToFile();
-//              clientMainPanelController.getAccountBalanceTextField().setText("100");
          }
 
     }

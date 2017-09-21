@@ -1,11 +1,8 @@
 package pl.my.quickcash;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import pl.my.quickcash.controllers.LoginController;
-import pl.my.quickcash.controllers.Start;
+import pl.my.quickcash.controllers.general.Start;
 import pl.my.quickcash.data.ClientsDatabase;
 import pl.my.quickcash.data.EmployeesDatabase;
 

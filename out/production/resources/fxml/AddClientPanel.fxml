@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.client.ClientDataPanelController">
+<Pane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.employee.AddClientPanelController">
    <padding>
       <Insets top="20.0" />
    </padding>
@@ -55,27 +55,27 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="125.0">
                                  <children>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="firstNameTextField">
+                                    <TextField fx:id="firstNameTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="15.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="idNumberTextField">
+                                    <TextField fx:id="idNumberTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="countryTextField">
+                                    <TextField fx:id="countryTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="cityTextField">
+                                    <TextField fx:id="cityTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="buildingNoTextField">
+                                    <TextField fx:id="buildingNoTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -113,27 +113,27 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="125.0">
                                  <children>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="lastNameTextField">
+                                    <TextField fx:id="lastNameTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="15.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="peselTextField">
+                                    <TextField fx:id="peselTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="voivodeshipTextField">
+                                    <TextField fx:id="voivodeshipTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="streetTextField">
+                                    <TextField fx:id="streetTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="flatNoTextField">
+                                    <TextField fx:id="flatNoTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -176,17 +176,17 @@
                               </VBox>
                               <VBox prefHeight="150.0" prefWidth="125.0">
                                  <children>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="countryCDTextField">
+                                    <TextField fx:id="countryCDTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="15.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="cityCDTextField">
+                                    <TextField fx:id="cityCDTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="buildingNoCDTextField">
+                                    <TextField fx:id="buildingNoCDTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -214,17 +214,17 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="125.0">
                                  <children>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="voivodeshipCDTextField">
+                                    <TextField fx:id="voivodeshipCDTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="15.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="streetCDTextField">
+                                    <TextField fx:id="streetCDTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField alignment="BASELINE_RIGHT" fx:id="flatNoCDTextField">
+                                    <TextField fx:id="flatNoCDTextField" alignment="BASELINE_RIGHT">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -233,8 +233,8 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <Button fx:id="saveButton1" layoutX="149.0" layoutY="175.0" mnemonicParsing="false" onAction="#approveChangingContactDetails" prefHeight="75.0" prefWidth="100.0" text="Change contact details" textAlignment="CENTER" wrapText="true" />
-                        <Button fx:id="saveButton" layoutX="269.0" layoutY="175.0" mnemonicParsing="false" onAction="#approveChangesInContactDetails" prefHeight="75.0" prefWidth="100.0" text="Save" />
+                        <Button fx:id="saveButton1" layoutX="149.0" layoutY="175.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="100.0" text="Add New Client" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="saveButton" layoutX="269.0" layoutY="175.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="100.0" text="Clear Fields" />
                      </children>
                   </AnchorPane>
             </content>

@@ -1,4 +1,4 @@
-package pl.my.quickcash.controllers;
+package pl.my.quickcash.controllers.employee;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,11 +7,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import pl.my.quickcash.data.ClientKey;
-import pl.my.quickcash.data.ClientsDatabase;
+import pl.my.quickcash.controllers.general.LoginController;
+import pl.my.quickcash.data.EmployeeKey;
+import pl.my.quickcash.data.EmployeesDatabase;
 
-public class ClientLoginPanelController {
+public class EmployeeLoginPanelController {
 
+    @FXML
+    private Pane employeeLoginPanel;
 
     @FXML
     private TextField loginTextField;
@@ -28,35 +31,27 @@ public class ClientLoginPanelController {
     @FXML
     private Label statusLabel;
 
-
-
-    public void initialize() {
-
-    }
-
-    public void initClientKey(final LoginController loginController) {
-
+    public void initEmployeeKey(LoginController loginController) {
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ClientKey clientKey = authorize();
-                if (clientKey != null) {
-                    loginController.authenticated(clientKey);
+                EmployeeKey employeeKey = authorize();
+                if (employeeKey != null) {
+                    loginController.employeeAuthenticated(employeeKey);
                 }else {
                     statusLabel.setText("Incorrect login or password!");
                 }
             }
         });
+
     }
 
-
-    private ClientKey authorize() {
-        ClientKey clientKey = new ClientKey(loginTextField.getText(), passwordTextField.getText());
-        if (ClientsDatabase.getInstance().containsKey(clientKey)) {
-            return clientKey;
+    private EmployeeKey authorize() {
+        EmployeeKey employeeKey = new EmployeeKey(loginTextField.getText(), passwordTextField.getText());
+        if (EmployeesDatabase.getInstance().containsKey(employeeKey)) {
+            return employeeKey;
         } else {
             return null;
         }
     }
-
 }

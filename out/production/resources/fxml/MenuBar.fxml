@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+
+<MenuBar fx:id="mainMenuBar" prefHeight="25.0" prefWidth="142.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.general.MenuBarController">
+  <menus>
+    <Menu mnemonicParsing="false" text="File">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#closeApplication" text="Close" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Edit">
+      <items>
+            <RadioMenuItem mnemonicParsing="false" onAction="#setCaspian" text="Caspian">
+               <toggleGroup>
+                  <ToggleGroup fx:id="styleGroup" />
+               </toggleGroup>
+            </RadioMenuItem>
+            <RadioMenuItem mnemonicParsing="false" onAction="#setModena" text="Modena" toggleGroup="$styleGroup" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Help">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+      </items>
+    </Menu>
+  </menus>
+</MenuBar>

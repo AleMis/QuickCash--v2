@@ -1,4 +1,4 @@
-package pl.my.quickcash.controllers;
+package pl.my.quickcash.controllers.general;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,7 +21,7 @@ public class Start {
             Start.scene.setRoot((Parent) loader.load());
             StarterPanelController controller = loader.<StarterPanelController>getController();
             controller.runAsClient(stage);
-            controller.runAsAdmin(stage);
+            controller.runAsEmployee(stage);
         }catch(IOException ex) {
             ex.printStackTrace();
         }

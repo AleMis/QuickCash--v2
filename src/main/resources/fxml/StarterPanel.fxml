@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="starterPane" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.StarterPanelController">
+<Pane fx:id="starterPane" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.general.StarterPanelController">
    <children>
       <HBox spacing="10.0">
          <children>
-            <Button fx:id="clientButton" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" text="Sign In As Client" />
-            <Button fx:id="adminButton" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" text="Sign In As Admin" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" text="Cancel" />
+            <Button fx:id="clientButton" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" text="Sign In As Client" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="employeeButton" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" text="Sign In As Employee" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeApplication" prefHeight="120.0" prefWidth="120.0" text="Close Application" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

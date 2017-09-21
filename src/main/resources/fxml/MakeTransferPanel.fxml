@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="makeTransferPane" prefHeight="220.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.MakeTransferPanelController">
+<Pane fx:id="makeTransferPane" prefHeight="220.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.client.MakeTransferPanelController">
    <children>
       <TextField fx:id="accountNumberTextField" layoutX="121.0" layoutY="61.0" />
       <TextField fx:id="amountTextField" layoutX="121.0" layoutY="98.0" />

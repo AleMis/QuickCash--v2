@@ -1,10 +1,9 @@
-package pl.my.quickcash.controllers;
+package pl.my.quickcash.controllers.client;
 
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -23,6 +22,11 @@ public class ClientMainPanelController {
 
     private ClientKey clientKey;
 
+
+    private void initialize() {
+    }
+
+
     public ClientKey getClientKey() {
         return clientKey;
     }
@@ -35,21 +39,9 @@ public class ClientMainPanelController {
 
     @FXML private TextField accountBalanceTextField;
 
-    public TextField getAccountBalanceTextField() {
-        return accountBalanceTextField;
-    }
-
-    public void setAccountBalanceTextField(TextField accountBalanceTextField) {
-        this.accountBalanceTextField = accountBalanceTextField;
-    }
-
-    public void initialize() {
-
-    }
 
     public void initSession() {
         initializeAccountBalance();
-        setCaspian();
     }
 
     @FXML

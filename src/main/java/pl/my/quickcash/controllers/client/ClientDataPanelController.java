@@ -1,4 +1,4 @@
-package pl.my.quickcash.controllers;
+package pl.my.quickcash.controllers.client;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;

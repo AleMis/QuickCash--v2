@@ -8,8 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import pl.my.quickcash.controllers.general.LoginController;
-import pl.my.quickcash.data.EmployeeKey;
-import pl.my.quickcash.data.EmployeesDatabase;
+import pl.my.quickcash.data.employee.EmployeeKey;
+import pl.my.quickcash.data.employee.EmployeesDatabase;
 
 public class EmployeeLoginPanelController {
 

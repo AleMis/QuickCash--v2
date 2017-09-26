@@ -7,8 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pl.my.quickcash.controllers.general.LoginController;
-import pl.my.quickcash.data.ClientKey;
-import pl.my.quickcash.data.ClientsDatabase;
+import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.client.ClientsDatabase;
 
 public class ClientLoginPanelController {
 

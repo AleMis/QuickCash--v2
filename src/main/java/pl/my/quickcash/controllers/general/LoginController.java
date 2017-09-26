@@ -1,21 +1,17 @@
 package pl.my.quickcash.controllers.general;
 ;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import pl.my.quickcash.controllers.client.ClientLoginPanelController;
 import pl.my.quickcash.controllers.client.ClientMainPanelController;
 import pl.my.quickcash.controllers.employee.EmployeeLoginPanelController;
 import pl.my.quickcash.controllers.employee.EmployeeMainPanelController;
-import pl.my.quickcash.data.ClientKey;
-import pl.my.quickcash.data.EmployeeKey;
-import pl.my.quickcash.dialogs.DialogUtils;
+import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.employee.EmployeeKey;
 
 import java.io.IOException;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

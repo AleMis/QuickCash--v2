@@ -3,8 +3,8 @@ package pl.my.quickcash.controllers.client;
 import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import pl.my.quickcash.data.ClientKey;
-import pl.my.quickcash.data.ClientsDatabase;
+import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.client.ClientsDatabase;
 import pl.my.quickcash.datamanagement.FileManager;
 import pl.my.quickcash.dialogs.DialogUtils;
 

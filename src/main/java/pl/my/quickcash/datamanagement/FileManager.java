@@ -1,6 +1,8 @@
 package pl.my.quickcash.datamanagement;
 
-import pl.my.quickcash.data.*;
+import pl.my.quickcash.data.client.*;
+import pl.my.quickcash.data.employee.EmployeeData;
+import pl.my.quickcash.data.employee.EmployeeKey;
 
 
 import java.io.*;

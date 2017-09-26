@@ -7,8 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import pl.my.quickcash.data.ClientKey;
-import pl.my.quickcash.data.ClientsDatabase;
+import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.client.ClientsDatabase;
 import pl.my.quickcash.dialogs.DialogUtils;
 
 import java.util.Optional;

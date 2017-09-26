@@ -1,4 +1,4 @@
-package pl.my.quickcash.data;
+package pl.my.quickcash.data.client;
 
 
 

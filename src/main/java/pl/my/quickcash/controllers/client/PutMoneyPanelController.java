@@ -5,9 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import pl.my.quickcash.data.ClientData;
-import pl.my.quickcash.data.ClientKey;
-import pl.my.quickcash.data.ClientsDatabase;
+import pl.my.quickcash.data.client.ClientData;
+import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.client.ClientsDatabase;
 import pl.my.quickcash.datamanagement.FileManager;
 
 import java.math.BigDecimal;

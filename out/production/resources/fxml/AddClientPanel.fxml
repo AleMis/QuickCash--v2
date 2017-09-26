@@ -2,7 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
@@ -11,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.employee.AddClientPanelController">
+<Pane prefHeight="325.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.employee.AddClientPanelController">
    <padding>
       <Insets top="20.0" />
    </padding>
@@ -20,35 +22,35 @@
         <tabs>
           <Tab text="Personal Information">
             <content>
-              <AnchorPane prefHeight="270.0" prefWidth="498.0">
+              <AnchorPane prefHeight="265.0" prefWidth="498.0">
                      <children>
-                        <HBox prefHeight="271.0" prefWidth="498.0">
+                        <HBox prefHeight="190.0" prefWidth="498.0">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="125.0">
+                              <VBox prefHeight="2.0" prefWidth="121.0">
                                  <children>
                                     <Label text="FirstName">
                                        <VBox.margin>
-                                          <Insets left="10.0" top="15.0" />
+                                          <Insets left="20.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="ID Number">
                                        <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
+                                          <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="Country">
                                        <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
+                                          <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="City">
                                        <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
+                                          <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="Building No.">
                                        <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
+                                          <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                  </children>
@@ -145,6 +147,8 @@
                               </VBox>
                            </children>
                         </HBox>
+                        <Button fx:id="addClientButton" layoutX="128.0" layoutY="217.0" mnemonicParsing="false" onAction="#addNewClient" prefHeight="50.0" prefWidth="100.0" text="Add New Client" />
+                        <Button fx:id="clearFieldsButton" layoutX="272.0" layoutY="217.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Clear fields" />
                      </children>
                   </AnchorPane>
             </content>
@@ -153,23 +157,23 @@
             <content>
               <AnchorPane>
                      <children>
-                        <HBox prefHeight="175.0" prefWidth="498.0">
+                        <HBox prefHeight="140.0" prefWidth="498.0">
                            <children>
                               <VBox prefHeight="100.0" prefWidth="125.0">
                                  <children>
                                     <Label text="Country">
                                        <VBox.margin>
-                                          <Insets left="10.0" top="15.0" />
+                                          <Insets left="20.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="City">
                                        <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
+                                          <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label text="Building No.">
                                        <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
+                                          <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
                                  </children>
@@ -233,12 +237,82 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <Button fx:id="saveButton1" layoutX="149.0" layoutY="175.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="100.0" text="Add New Client" textAlignment="CENTER" wrapText="true" />
-                        <Button fx:id="saveButton" layoutX="269.0" layoutY="175.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="100.0" text="Clear Fields" />
+                        <CheckBox fx:id="copyContactDetailsCheckBox" layoutX="14.0" layoutY="140.0" mnemonicParsing="false" onAction="#setContactDetails" text="Contact details are the same as registration data " />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Client Account Detials">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="-3.0" layoutY="1.0" prefHeight="200.0" prefWidth="500.0">
+                           <children>
+                              <VBox prefWidth="125.0">
+                                 <children>
+                                    <Label text="Login">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Account Number">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="25.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="125.0">
+                                 <children>
+                                    <TextField fx:id="loginTextField">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="accountNumberTextField">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefWidth="125.0">
+                                 <children>
+                                    <Label text="Password">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Account Balance">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="25.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="125.0">
+                                 <children>
+                                    <PasswordField fx:id="passwordTextField">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </PasswordField>
+                                    <TextField fx:id="accountBalanceTextField">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Button fx:id="changePasswordButton" layoutX="199.0" layoutY="201.0" mnemonicParsing="false" onAction="#generateClientAccountDetails" prefHeight="50.0" prefWidth="100.0" text="Generate Client Account Details" textAlignment="CENTER" wrapText="true" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
         </tabs>
          <padding>
             <Insets top="20.0" />

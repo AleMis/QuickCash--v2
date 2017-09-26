@@ -7,9 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import pl.my.quickcash.controllers.client.MakeTransferPanelController;
-import pl.my.quickcash.data.EmployeeKey;
-import pl.my.quickcash.data.EmployeesDatabase;
+import pl.my.quickcash.data.employee.EmployeeKey;
+import pl.my.quickcash.data.employee.EmployeesDatabase;
 import pl.my.quickcash.dialogs.DialogUtils;
 
 import java.util.Optional;
@@ -60,6 +59,7 @@ public class EmployeeMainPanelController {
             employeeBorderPane.setCenter(loader.load());
             AddClientPanelController controller = loader.<AddClientPanelController>getController();
             controller.setEmployeeKey(getEmployeeKey());
+            controller.disableClientAccountDetailsTextFields();
         } catch (Exception e) {
             e.getStackTrace();
         }

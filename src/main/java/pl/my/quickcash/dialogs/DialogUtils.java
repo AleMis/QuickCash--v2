@@ -39,4 +39,36 @@ public class DialogUtils {
         Optional<ButtonType> result = confirmationAlert.showAndWait();
         return result;
     }
+
+
+    public static Optional<ButtonType> confirmationDialogForAddingNewClient() {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Adding New Client");
+        confirmationAlert.setHeaderText("Do you want to add new client?");
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+        return result;
+    }
+
+    public static void dialogNewClienAdded() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Adding New Client");
+        informationAlert.setHeaderText("New client was add!");
+        informationAlert.setContentText("Click on Login Data to check client's login and password");
+        informationAlert.showAndWait();
+    }
+
+    public static void dialogCheckPersonalInformation() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Adding New Client");
+        informationAlert.setHeaderText("You have to fill in all fields with personal information!");
+        informationAlert.showAndWait();
+    }
+
+    public static void dialogCheckContactDetails() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Adding New Client");
+        informationAlert.setHeaderText("You have to fill contact details!");
+        informationAlert.setContentText("Select check box if Contact Details are the same ase registered data.");
+        informationAlert.showAndWait();
+    }
 }

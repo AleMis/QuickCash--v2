@@ -1,11 +1,10 @@
-package pl.my.quickcash.data;
+package pl.my.quickcash.data.client;
 
-public class EmployeeKey {
-
+public class ClientKey {
     private String login;
     private String password;
 
-    public EmployeeKey(String login, String password) {
+    public ClientKey(String login, String password) {
         this.login = login;
         this.password = password;
     }
@@ -15,32 +14,35 @@ public class EmployeeKey {
     }
 
     public void setLogin(String login) {
+
         this.login = login;
     }
 
     public String getPassword() {
+
         return password;
     }
 
     public void setPassword(String password) {
+
         this.password = password;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof ClientKey)) return false;
 
-        EmployeeKey that = (EmployeeKey) o;
+        ClientKey clientKey = (ClientKey) o;
 
-        if (!login.equals(that.login)) return false;
-        return password.equals(that.password);
+        if (!getLogin().equals(clientKey.getLogin())) return false;
+        return getPassword().equals(clientKey.getPassword());
     }
 
     @Override
     public int hashCode() {
-        int result = login.hashCode();
-        result = 31 * result + password.hashCode();
+        int result = getLogin().hashCode();
+        result = 31 * result + getPassword().hashCode();
         return result;
     }
 
@@ -55,3 +57,4 @@ public class EmployeeKey {
         return print.toString();
     }
 }
+

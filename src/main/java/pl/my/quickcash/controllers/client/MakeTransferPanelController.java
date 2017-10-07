@@ -44,13 +44,12 @@ public class MakeTransferPanelController {
     @FXML
     public void makeTransfer() {
         ClientKey clientKey = getClientKey();
-        if(checkAccountNumber()) {
+        if(!checkAccountNumber()) {
                 statusLabel.setText("Incorrect account number, please try again!");
          }else {
               checkAccountBalance(clientKey);
               fileManager.writeDatabaseToFile();
          }
-
     }
 
     public String getAccountNumber() {
@@ -76,17 +75,18 @@ public class MakeTransferPanelController {
 
     public void checkAccountBalance(ClientKey clientKey) {
         BigDecimal accountBalance = ClientsDatabase.getInstance().get(clientKey).getClientAccounts().getAccountBalance();
-        Double subtractResult = accountBalance.subtract(getAmountToTransfer()).doubleValue();
-        if(accountBalance.equals("0.00")) {
-            statusLabel.setText("Account Balance equal 0.0 PLN");
-        }else if (accountBalance.equals(getAmountToTransfer()) || subtractResult < 0.0) {
-                statusLabel.setText("You could transfer only " + accountBalance + " PLN");
+        BigDecimal noMoney = new BigDecimal(0.00);
+        int result = accountBalance.compareTo(getAmountToTransfer());
+
+        if(accountBalance.equals(noMoney)) {
+            statusLabel.setText("Account Balance equal 0.00 PLN");
+        }else if (result == -1) {
+            statusLabel.setText("Not enough funds on your account!" + "\n Account Balance: " + accountBalance + " PLN");
         }else {
             updateClientAccountBalance(clientKey, getAmountToTransfer());
             updateSecondPartyAccountBalance(getAccountNumber(), getAmountToTransfer());
             statusLabel.setText("Transfer completed!");
         }
-
     }
 
     public void updateClientAccountBalance(ClientKey clientKey, BigDecimal amount) {

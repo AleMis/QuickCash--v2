@@ -20,7 +20,7 @@ public class EmployeeLoginPanelController {
     private TextField loginTextField;
 
     @FXML
-    private TextField passwordTextField;
+    private TextField passwordField;
 
     @FXML
     private Button loginButton;
@@ -32,6 +32,7 @@ public class EmployeeLoginPanelController {
     private Label statusLabel;
 
     public void initEmployeeKey(LoginController loginController) {
+        passwordField.cacheProperty();
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -47,7 +48,7 @@ public class EmployeeLoginPanelController {
     }
 
     private EmployeeKey authorize() {
-        EmployeeKey employeeKey = new EmployeeKey(loginTextField.getText(), passwordTextField.getText());
+        EmployeeKey employeeKey = new EmployeeKey(loginTextField.getText(), passwordField.getText());
         if (EmployeesDatabase.getInstance().containsKey(employeeKey)) {
             return employeeKey;
         } else {

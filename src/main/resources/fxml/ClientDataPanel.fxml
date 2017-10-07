@@ -233,7 +233,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <Button fx:id="saveButton1" layoutX="149.0" layoutY="175.0" mnemonicParsing="false" onAction="#approveChangingContactDetails" prefHeight="75.0" prefWidth="100.0" text="Change contact details" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="saveButton1" layoutX="149.0" layoutY="175.0" mnemonicParsing="false" onAction="#approveChangesContactDetails" prefHeight="75.0" prefWidth="100.0" text="Change contact details" textAlignment="CENTER" wrapText="true" />
                         <Button fx:id="saveButton" layoutX="269.0" layoutY="175.0" mnemonicParsing="false" onAction="#approveChangesInContactDetails" prefHeight="75.0" prefWidth="100.0" text="Save" />
                      </children>
                   </AnchorPane>

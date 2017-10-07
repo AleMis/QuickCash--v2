@@ -32,14 +32,13 @@ public class FileManager {
                     FileWriter fileWriter = new FileWriter(clientsFileName);
                     BufferedWriter writer = new BufferedWriter(fileWriter);
             ) {
-
                 for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet())  {
                     writer.write(entry.getKey() + "" + entry.getValue());
                     writer.newLine();
                 }
                 writer.flush();
 
-            } catch (FileNotFoundException e) {
+            }catch (FileNotFoundException e) {
                 System.out.println("Program could not find the file: " + clientsFileName);
             }catch (IOException e) {
                 System.out.println("Error during saving the data " + clientsFileName);

@@ -34,13 +34,8 @@ public class WithdrawMoneyPanelController {
     private Button wihdrawMoneyButton;
 
     @FXML
-    public void witdrawMoney() {
-        if (getAmount().equals(0.0) || getAmount().equals(null)) {
-            statusLabel.setText("Put the amount!");
-        } else {
+    public void withdrawMoney() {
             checkAccountBalance(getClientKey());
-            fileManager.writeDatabaseToFile();
-        }
     }
 
     public BigDecimal getAmount() {
@@ -50,13 +45,16 @@ public class WithdrawMoneyPanelController {
 
     public void checkAccountBalance(ClientKey clientKey) {
         BigDecimal accountBalance = ClientsDatabase.getInstance().get(clientKey).getClientAccounts().getAccountBalance();
-        Double subtractResult = accountBalance.subtract(getAmount()).doubleValue();
-        if(accountBalance.equals("0.00")) {
-            statusLabel.setText("Account Balance equal 0.0 PLN");
-        }else if (accountBalance.equals(getAmount()) || subtractResult < 0.0) {
-            statusLabel.setText("You could transfer only " + accountBalance + " PLN");
+        BigDecimal noMoney = new BigDecimal(0.00);
+        int result = accountBalance.compareTo(getAmount());
+
+        if(accountBalance.equals(noMoney)) {
+            statusLabel.setText("Account Balance equal 0.00 PLN");
+        }else if (result == -1) {
+            statusLabel.setText("Not enough funds on your account!" + "\n Account Balance: " + accountBalance + " PLN");
         }else {
             updateClientAccountBalance(clientKey, getAmount());
+            fileManager.writeDatabaseToFile();
             statusLabel.setText("Transfer completed!");
         }
 

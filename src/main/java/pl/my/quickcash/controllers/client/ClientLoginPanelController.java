@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import pl.my.quickcash.controllers.general.LoginController;
 import pl.my.quickcash.data.client.ClientKey;
@@ -17,7 +18,7 @@ public class ClientLoginPanelController {
     private TextField loginTextField;
 
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordField;
 
     @FXML
     private Button loginButton;
@@ -35,7 +36,7 @@ public class ClientLoginPanelController {
     }
 
     public void initClientKey(final LoginController loginController) {
-
+        passwordField.cacheProperty();
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -51,7 +52,7 @@ public class ClientLoginPanelController {
 
 
     private ClientKey authorize() {
-        ClientKey clientKey = new ClientKey(loginTextField.getText(), passwordTextField.getText());
+        ClientKey clientKey = new ClientKey(loginTextField.getText(), passwordField.getText());
         if (ClientsDatabase.getInstance().containsKey(clientKey)) {
             return clientKey;
         } else {

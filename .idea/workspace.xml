@@ -2,56 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df39d7b3-4b6c-4538-91ff-de0010a19ca5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/ClientAccount.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/ClientContactDetails.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/ClientData.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/ClientKey.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/ClientPersonalData.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/ClientsDatabase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/EmployeeData.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/EmployeeKey.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/data/EmployeesDatabase.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/ClientAccount.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientAccount.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/ClientContactDetails.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientContactDetails.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/ClientData.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/ClientKey.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientKey.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/ClientPersonalData.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientPersonalData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/ClientsDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientsDatabase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/EmployeeData.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/employee/EmployeeData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/EmployeeKey.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/employee/EmployeeKey.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/EmployeesDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/employee/EmployeesDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/Main.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/Main.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/ClientsDatabasePanel2Controller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ClientsDatabasePanel.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ClientsDatabasePanel2.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/ClientDataPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/ClientDataPanelController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/ClientLoginPanelController$1.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/ClientLoginPanelController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/ClientLoginPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/ClientLoginPanelController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/ClientMainPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/ClientMainPanelController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/MakeTransferPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/MakeTransferPanelController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/PutMoneyPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/PutMoneyPanelController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/employee/AddClientPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/employee/AddClientPanelController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController$1.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/general/LoginController.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/controllers/general/LoginController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/datamanagement/FileManager.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/datamanagement/FileManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/dialogs/DialogUtils.class" afterPath="$PROJECT_DIR$/out/production/classes/pl/my/quickcash/dialogs/DialogUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ClientsDatabase" afterPath="$PROJECT_DIR$/ClientsDatabase" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/fxml/AddClientPanel.fxml" afterPath="$PROJECT_DIR$/out/production/resources/fxml/AddClientPanel.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/Main.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/fxml/ClientDataPanel.fxml" afterPath="$PROJECT_DIR$/out/production/resources/fxml/ClientDataPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/fxml/ClientLoginPanel.fxml" afterPath="$PROJECT_DIR$/out/production/resources/fxml/ClientLoginPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/fxml/EmployeeLoginPanel.fxml" afterPath="$PROJECT_DIR$/out/production/resources/fxml/EmployeeLoginPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/fxml/MakeTransferPanel.fxml" afterPath="$PROJECT_DIR$/out/production/resources/fxml/MakeTransferPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/fxml/PutMoneyPanel.fxml" afterPath="$PROJECT_DIR$/out/production/resources/fxml/PutMoneyPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/fxml/WithdrawMoneyPanel.fxml" afterPath="$PROJECT_DIR$/out/production/resources/fxml/WithdrawMoneyPanel.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientMainPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientMainPanelController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/PutMoneyPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/PutMoneyPanelController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/LoginController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/datamanagement/FileManager.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/datamanagement/FileManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/AddClientPanel.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/AddClientPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/ClientDataPanel.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ClientDataPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/ClientLoginPanel.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ClientLoginPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/EmployeeLoginPanel.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/EmployeeLoginPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/EmployeeMainPanel.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/EmployeeMainPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/MakeTransferPanel.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MakeTransferPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/PutMoneyPanel.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PutMoneyPanel.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/WithdrawMoneyPanel.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/WithdrawMoneyPanel.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -78,63 +61,44 @@
       <file leaf-file-name="EmployeeMainPanelController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="61" column="63" lean-forward="true" selection-start-line="61" selection-start-column="63" selection-end-line="61" selection-end-column="63" />
-              <folding>
-                <element signature="e#1826#1852#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="357">
+              <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddClientPanelController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java">
+      <file leaf-file-name="EmployeeLoginPanelController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-196">
-              <caret line="104" column="13" lean-forward="false" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+            <state relative-caret-position="200">
+              <caret line="50" column="89" lean-forward="false" selection-start-line="50" selection-start-column="89" selection-end-line="50" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientsDatabasePanel2.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ClientsDatabasePanel2.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientsDatabasePanel2Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/ClientsDatabasePanel2Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#841#842#0" expanded="true" />
-                <element signature="e#873#874#0" expanded="true" />
-                <element signature="e#927#928#0" expanded="true" />
-                <element signature="e#969#970#0" expanded="true" />
-                <element signature="e#1030#1031#0" expanded="true" />
-                <element signature="e#1073#1074#0" expanded="true" />
-                <element signature="e#1270#1271#0" expanded="true" />
-                <element signature="e#1306#1307#0" expanded="true" />
-                <element signature="e#1371#1372#0" expanded="true" />
-                <element signature="e#1421#1422#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StarterPanelController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/StarterPanelController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="60" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientsDatabase" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientsDatabase">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="165" lean-forward="false" selection-start-line="2" selection-start-column="165" selection-end-line="2" selection-end-column="165" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/datamanagement/FileManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -142,18 +106,18 @@
       <file leaf-file-name="DialogUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="62" column="96" lean-forward="false" selection-start-line="62" selection-start-column="96" selection-end-line="62" selection-end-column="96" />
+            <state relative-caret-position="102">
+              <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientData.java">
+      <file leaf-file-name="ClientDataPanelController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-225">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="276">
+              <caret line="127" column="93" lean-forward="false" selection-start-line="127" selection-start-column="93" selection-end-line="127" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -459,12 +423,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/WitdrawnMoneyPanel.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/ClientLoginPanelController.java" />
-        <option value="C:/Program Files/Java/jdk1.8.0_144/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/ClientData.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/ClientDataPanel.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/ClientDataPanelv2.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/ClientDataPanel.css" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/ClientDataPanel.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/ClientMainPanelController.java" />
@@ -478,14 +436,12 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/AdminData.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/EmployeeData.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/EmployeesDatabase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/datamanagement/FileManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/EmployeeLoginPanel.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/EmployeeLoginPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/StarterPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/EmployeeMainPanelController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/StarterPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/EmployeeKey.java" />
@@ -496,7 +452,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/fxml/ClientMainPanel.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientMainPanelController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientsDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/employee/EmployeesDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/AddClientPanelv2.fxml" />
@@ -507,9 +462,18 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelContactDetailsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelPersonalInformationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/ClientDatabasePanel.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/datamanagement/FileManager.java" />
         <option value="$PROJECT_DIR$/ClientsDatabase" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/ClientsDatabasePanel2Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/ClientsDatabasePanel2.fxml" />
       </list>
     </option>
   </component>
@@ -557,7 +521,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -697,14 +660,15 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../QuickQashApp10" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/MojaBiblioteczka-master" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.detected.package.jscs" value="true" />
@@ -871,12 +835,13 @@
       <workItem from="1505930882944" duration="5883000" />
       <workItem from="1506012727671" duration="13992000" />
       <workItem from="1506093700643" duration="2322000" />
-      <workItem from="1506096106471" duration="37548000" />
+      <workItem from="1506096106471" duration="39866000" />
+      <workItem from="1507384778639" duration="12053000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136180000" />
+    <option name="totallyTimeSpent" value="150551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -890,14 +855,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26833072" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26833072" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0873635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2605304" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28477305" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -910,6 +874,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -925,26 +890,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/bundles/messages.properties" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/bundles/messages_eng.properties" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/WitdrawnMoneyPanel.fxml" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/WithdrawMoneyPanel.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/MakeTransferPanel.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -992,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,14 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1079,17 +1015,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/MenuBarController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EmployeeLoginPanel.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EmployeeMainPanel.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1101,16 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/AddClientPanel.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1118,22 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="50" column="48" lean-forward="false" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1194,36 +1093,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/AddClientPanelPersonalInformation.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/AddClientPanelContactDetails.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/AddClientPanelPersonalInformation.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/AddClientPanelContactDetails.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1235,30 +1106,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelContactDetailsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelPersonalInformationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="49" column="32" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="137" column="42" lean-forward="false" selection-start-line="137" selection-start-column="42" selection-end-line="137" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelContactDetailsController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelPersonalInformationController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientMainPanelController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
@@ -1267,35 +1116,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientData.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ClientsDatabasePanel.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-225">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="10" column="51" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="62" column="96" lean-forward="false" selection-start-line="62" selection-start-column="96" selection-end-line="62" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/datamanagement/FileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientsDatabase">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="165" lean-forward="false" selection-start-line="2" selection-start-column="165" selection-end-line="2" selection-end-column="165" />
-          <folding />
+        <state relative-caret-position="493">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1307,33 +1145,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="61" column="63" lean-forward="true" selection-start-line="61" selection-start-column="63" selection-end-line="61" selection-end-column="63" />
+        <state relative-caret-position="17">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientsDatabase">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="122" lean-forward="false" selection-start-line="0" selection-start-column="122" selection-end-line="0" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
-            <element signature="e#1826#1852#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/datamanagement/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-196">
-          <caret line="104" column="13" lean-forward="false" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+        <state relative-caret-position="-1003">
+          <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="127" column="93" lean-forward="false" selection-start-line="127" selection-start-column="93" selection-end-line="127" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EmployeeLoginPanel.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/FxTableViewExample1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-393">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="50" column="89" lean-forward="false" selection-start-line="50" selection-start-column="89" selection-end-line="50" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-426">
+          <caret line="66" column="57" lean-forward="false" selection-start-line="66" selection-start-column="57" selection-end-line="66" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/ClientsDatabasePanel2Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#969#970#0" expanded="true" />
-            <element signature="e#1030#1031#0" expanded="true" />
-            <element signature="e#1073#1074#0" expanded="true" />
-            <element signature="e#1270#1271#0" expanded="true" />
-            <element signature="e#1306#1307#0" expanded="true" />
-            <element signature="e#1371#1372#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ClientsDatabasePanel2.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

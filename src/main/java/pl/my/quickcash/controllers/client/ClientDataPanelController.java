@@ -102,7 +102,7 @@ public class ClientDataPanelController {
     }
 
     @FXML
-    public void approveChangingContactDetails() {
+    public void approveChangesContactDetails() {
         Optional<ButtonType> result = DialogUtils.confirmationDialogForContactDetails();
         if(result.get()==ButtonType.OK){
             enableEditCDTextField();
@@ -125,13 +125,11 @@ public class ClientDataPanelController {
 
     @FXML
     public void approveChangesInContactDetails() {
-        Optional<ButtonType> result = DialogUtils.confirmationDialogForContactDetails();
+        Optional<ButtonType> result = DialogUtils.confirmationDialogForContactDetailsSaving();
         if(result.get() == ButtonType.OK) {
-           saveChangesInContactDetails();
-        }else {
+            saveChangesInContactDetails();
             disableEditCDTextFields();
         }
-
     }
 
 

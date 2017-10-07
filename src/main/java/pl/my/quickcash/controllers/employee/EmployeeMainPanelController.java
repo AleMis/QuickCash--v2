@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import pl.my.quickcash.controllers.modelfx.ControllFx;
+import pl.my.quickcash.data.client.ClientsDatabase;
 import pl.my.quickcash.data.employee.EmployeeKey;
 import pl.my.quickcash.data.employee.EmployeesDatabase;
 import pl.my.quickcash.dialogs.DialogUtils;
@@ -32,6 +34,8 @@ public class EmployeeMainPanelController {
     public void setEmployeeKey(EmployeeKey employeeKey) {
         this.employeeKey = employeeKey;
     }
+
+    private ControllFx controllFx = new ControllFx();
 
     @FXML
     private BorderPane employeeBorderPane;
@@ -77,7 +81,9 @@ public class EmployeeMainPanelController {
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.show();
-
+        controllFx.addToDatabase();
+        ClientsDatabasePanel2Controller controller = loader.getController();
+        controller.setControllFx(controllFx);
     }
 
     public void setCaspian() {

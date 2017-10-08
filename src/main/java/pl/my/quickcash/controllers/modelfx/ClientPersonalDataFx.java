@@ -135,4 +135,10 @@ public class ClientPersonalDataFx {
     public void setFlatNumber(String flatNumber) {
         this.flatNumber.set(flatNumber);
     }
+
+    @Override
+    public String toString() {
+        return firstName + "" + lastName + "" + pesel + "" + idCard + "" + country + "" + voivodeship + "" + city +
+                "" + street + "" + buildingNumber + "" + flatNumber;
+    }
 }

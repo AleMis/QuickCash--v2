@@ -32,4 +32,9 @@ public class ClientKeyFx {
     public void setPassword(String password) {
         this.password.set(password);
     }
+
+    @Override
+    public String toString() {
+        return login.get() + "" + password.get();
+    }
 }

@@ -83,4 +83,9 @@ public class ClientContactDetailsFx {
     public void setFlatNumberCD(String flatNumberCD) {
         this.flatNumberCD.set(flatNumberCD);
     }
+
+    @Override
+    public String toString() {
+        return countryCD + "" + voivodeshipCD + "" + cityCD + "" + streetCD + "" + buildingNumberCD + "" + flatNumberCD;
+    }
 }

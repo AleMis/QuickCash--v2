@@ -35,4 +35,9 @@ public class ClientAccountFx {
     public void setAccountNumber(String accountNumber) {
         this.accountNumber.set(accountNumber);
     }
+
+    @Override
+    public String toString() {
+        return accountBalance + "" + accountNumber;
+    }
 }

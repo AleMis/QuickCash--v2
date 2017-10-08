@@ -22,7 +22,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
         ClientsDatabase.getInstance();
         EmployeesDatabase.getInstance();
-        
+
         Start start = new Start();
         start.showStarterPanel(primaryStage);
         primaryStage.setScene(Start.scene);

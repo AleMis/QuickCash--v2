@@ -48,4 +48,9 @@ public class ClientDataFx {
     public void setClientAccounts(ClientAccountFx clientAccounts) {
         this.clientAccounts.set(clientAccounts);
     }
+
+    @Override
+    public String toString() {
+        return personalData + "" + contactDetails + "" + clientAccounts;
+    }
 }

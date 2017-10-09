@@ -12,8 +12,8 @@ public class ClientAccountConverter {
 
     public static ClientAccountFx convertToAccountFx(ClientAccount clientAccount) {
         ClientAccountFx clientAccountFx = new ClientAccountFx();
-        clientAccount.setAccountBalance(clientAccount.getAccountBalance());
-        clientAccount.setAccountNumber(clientAccount.getAccountNumber());
+        clientAccountFx.setAccountBalance(clientAccount.getAccountBalance());
+        clientAccountFx.setAccountNumber(clientAccount.getAccountNumber());
         return clientAccountFx;
     }
 }

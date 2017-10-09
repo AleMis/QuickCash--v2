@@ -83,6 +83,7 @@ public class EmployeeMainPanelController {
         controllFx.initDatabase();
         ClientsDatabasePanelController controller = loader.getController();
         controller.setControllFx(controllFx);
+
     }
 
     public void setCaspian() {

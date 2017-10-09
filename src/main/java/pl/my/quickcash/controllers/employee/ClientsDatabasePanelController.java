@@ -2,6 +2,10 @@ package pl.my.quickcash.controllers.employee;
 
 import com.sun.javafx.scene.control.skin.TableColumnHeader;
 import com.sun.javafx.scene.control.skin.VirtualScrollBar;
+import com.sun.rowset.internal.Row;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Orientation;
@@ -17,7 +21,9 @@ import pl.my.quickcash.controllers.modelfx.ClientFx;
 import pl.my.quickcash.controllers.modelfx.ClientKeyFx;
 import pl.my.quickcash.controllers.modelfx.ControllFx;
 
+import java.awt.print.Book;
 import java.math.BigDecimal;
+import java.util.Set;
 
 
 public class ClientsDatabasePanelController {
@@ -49,6 +55,7 @@ public class ClientsDatabasePanelController {
     public void setControllFx(ControllFx controllFx) {
         this.controllFx = controllFx;
         tableView.setItems(controllFx.getClientsObservableFxList());
+
     }
 
     public ClientsDatabasePanelController() {
@@ -57,6 +64,10 @@ public class ClientsDatabasePanelController {
 
 
     public void initialize() {
+        tableView.setPrefHeight(520);
+        tableView.setPrefWidth(1200);
+        tableView.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
+
         loginColumn.setCellValueFactory(cellData -> cellData.getValue().clientKeyFxProperty().getValue().loginProperty());
         passwordColumn.setCellValueFactory(cellData -> cellData.getValue().clientKeyFxProperty().getValue().passwordProperty());
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().personalDataProperty().getValue().firstNameProperty());
@@ -75,10 +86,7 @@ public class ClientsDatabasePanelController {
         streetCDColumn.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().contactDetailsProperty().getValue().streetCDProperty());
         buildingNumberCD.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().contactDetailsProperty().getValue().buildingNumberCDProperty());
         flatNumberCD.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().contactDetailsProperty().getValue().flatNumberCDProperty());
-        accountBalanceColumn.setCellValueFactory(cellData -> cellData.getValue().getClientDataFx().clientAccountsProperty().getValue().accountBalanceProperty());
-        accountNumberColumn.setCellValueFactory(cellData -> cellData.getValue().getClientDataFx().clientAccountsProperty().getValue().accountNumberProperty());
-
-
+        accountBalanceColumn.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().clientAccountsProperty().getValue().accountBalanceProperty());
+        accountNumberColumn.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().clientAccountsProperty().getValue().accountNumberProperty());
     }
-
 }

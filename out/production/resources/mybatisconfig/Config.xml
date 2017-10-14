@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias alias="EmployeeKey" type="pl.my.quickcash.data.employee.EmployeeKey"/>
+        <typeAlias alias="EmployeeData" type="pl.my.quickcash.data.employee.EmployeeData"/>
+        <typeAlias alias="ClientKey" type="pl.my.quickcash.data.client.ClientKey"/>
+        <typeAlias alias="ClientPersonalData" type="pl.my.quickcash.data.client.ClientPersonalData"/>
+        <typeAlias alias="ClientAccount" type="pl.my.quickcash.data.client.ClientAccount"/>
+        <typeAlias alias="ClientContactDetails" type="pl.my.quickcash.data.client.ClientContactDetails"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--  connecting to Local MySql -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost/quickcash"/>
+                <property name="username" value="root"/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatisconfig/EmployeeKey.xml"/>
+        <mapper resource="mybatisconfig/EmployeeData.xml"/>
+        <mapper resource="mybatisconfig/ClientKey.xml"/>
+        <mapper resource="mybatisconfig/ClientPersonalData.xml"/>
+        <mapper resource="mybatisconfig/ClientAccount.xml"/>
+        <mapper resource="mybatisconfig/ClientContactDetails.xml"/>
+    </mappers>
+</configuration>

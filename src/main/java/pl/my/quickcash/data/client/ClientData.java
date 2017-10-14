@@ -4,7 +4,6 @@ public class ClientData {
     private ClientPersonalData personalData;
     private ClientContactDetails contactDetails;
     private ClientAccount clientAccounts;
-    private Integer userNumber = 0;
 
     public ClientData(ClientPersonalData personalData, ClientContactDetails contactDetails, ClientAccount clientAccounts) {
         this.personalData = personalData;
@@ -36,17 +35,10 @@ public class ClientData {
         this.clientAccounts = clientAccounts;
     }
 
-    public Integer getUserNumber() {
-        return userNumber;
-    }
-
-    public void setUserNumber(Integer userNumber) {
-        this.userNumber = userNumber;
-    }
 
     @Override
     public String toString() {
-        return  personalData + "" +contactDetails + "" + clientAccounts + "" + userNumber;
+        return  personalData + "" +contactDetails + "" + clientAccounts;
     }
 }
 

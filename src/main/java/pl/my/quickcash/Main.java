@@ -2,16 +2,16 @@ package pl.my.quickcash;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import pl.my.quickcash.controllers.general.Start;
-import pl.my.quickcash.data.client.ClientsDatabase;
-import pl.my.quickcash.data.employee.EmployeesDatabase;
+import pl.my.quickcash.dao.clients.ClientDatabaseDAO;
+import pl.my.quickcash.dao.employee.EmployeeDatabaseDAO;
+import pl.my.quickcash.data.client.Client;
+import pl.my.quickcash.data.client.ClientData;
+import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.employee.EmployeeData;
+import pl.my.quickcash.data.employee.EmployeeKey;
 
-import java.io.IOException;
-import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
 
 import static javafx.application.Application.launch;
 
@@ -27,15 +27,25 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        ClientsDatabase.getInstance();
-        EmployeesDatabase.getInstance();
+//        ClientsDatabase.getInstance();
+//        EmployeesDatabase.getInstance();
+//
+//        Start start = new Start();
+//        start.showStarterPanel(primaryStage);
+//        primaryStage.setScene(Start.scene);
+//        primaryStage.setTitle("QUICK CASH APPLICATION");
+//        primaryStage.show();
 
-        Start start = new Start();
-        start.showStarterPanel(primaryStage);
-        primaryStage.setScene(Start.scene);
-        primaryStage.setTitle("QUICK CASH APPLICATION");
-        primaryStage.show();
+        HashMap<EmployeeKey, EmployeeData> data = EmployeeDatabaseDAO.getInstance();
 
+        for(Map.Entry<EmployeeKey, EmployeeData> entry : data.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
 
+        HashMap<ClientKey, ClientData> clients = ClientDatabaseDAO.getInstance();
+
+        for(Map.Entry<ClientKey, ClientData> entry : clients.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
     }
 }

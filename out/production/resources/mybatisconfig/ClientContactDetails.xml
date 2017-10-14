@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ClientContactDetails">
+
+    <resultMap id="result" type="ClientContactDetails">
+        <result property="countryCD" column="COUNTRY_CD"/>
+        <result property="voivodeshipCD" column="VOIVODESHIP_CD"/>
+        <result property="cityCD" column="CITY_CD"/>
+        <result property="streetCD" column="STREET_CD"/>
+        <result property="buildingNumberCD" column="BUILDING_NUMBER_CD"/>
+        <result property="flatNumberCD" column="FLAT_NUMBER_CD"/>
+    </resultMap>
+
+    <select id="selectClientContactDetails" resultMap="result">
+        SELECT COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD FROM clientcontactdetails
+    </select>
+</mapper>

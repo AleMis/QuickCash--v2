@@ -51,7 +51,6 @@ public class EmployeeKey {
         print.append("; ");
         print.append(password);
         print.append("; ");
-
         return print.toString();
     }
 }

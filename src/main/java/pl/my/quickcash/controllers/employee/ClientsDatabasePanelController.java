@@ -55,7 +55,6 @@ public class ClientsDatabasePanelController {
     public void setControllFx(ControllFx controllFx) {
         this.controllFx = controllFx;
         tableView.setItems(controllFx.getClientsObservableFxList());
-
     }
 
     public ClientsDatabasePanelController() {

@@ -19,6 +19,14 @@
     </resultMap>
 
     <select id="selectClientPersonalData" resultMap="result">
-        SELECT FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER FROM clientpersonaldata
+        SELECT FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER
+        FROM clientpersonaldata
+        WHERE CLIENT_KEY_ID =#{client_key_id}
     </select>
+
+    <select id="selectAllClientPersonalData" resultMap="result">
+        SELECT FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER
+        FROM clientpersonaldata
+    </select>
+
 </mapper>

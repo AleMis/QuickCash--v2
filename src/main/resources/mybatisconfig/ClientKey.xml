@@ -6,11 +6,26 @@
 <mapper namespace="ClientKey">
 
     <resultMap id="result" type="ClientKey">
+        <result property="client_key_id" column="CLIENT_KEY_ID"/>
         <result property="login" column="LOGIN"/>
         <result property="password" column="PASSWORD"/>
     </resultMap>
 
-    <select id="selectLoginAndPassword" resultMap="result">
-        SELECT LOGIN,PASSWORD FROM clientkey
+    <select id="selectLogin" resultMap="result">
+        SELECT LOGIN FROM clientkey WHERE LOGIN =#{login}
     </select>
+
+    <select id="selectPassword" resultMap="result">
+        SELECT PASSWORD FROM clientkey WHERE PASSWORD =#{password}
+    </select>
+
+    <select id="selectClientKey" resultMap="result">
+        SELECT * FROM clientkey WHERE  LOGIN =#{login}
+    </select>
+
+    <select id="selectAllClientKey" resultMap="result">
+        SELECT CLIENT_KEY_ID, LOGIN, PASSWORD FROM clientkey
+    </select>
+
+
 </mapper>

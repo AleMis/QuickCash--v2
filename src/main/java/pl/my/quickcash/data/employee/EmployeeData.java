@@ -12,6 +12,9 @@ public class EmployeeData {
         this.position = position;
     }
 
+    public EmployeeData() {
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -23,6 +26,8 @@ public class EmployeeData {
     public String getPosition() {
         return position;
     }
+
+
 
 
     @Override

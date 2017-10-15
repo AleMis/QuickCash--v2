@@ -13,7 +13,8 @@ public class ClientContactDetailsConverter {
                                                                             clientContactDetailsFx.getCityCD(),
                                                                             clientContactDetailsFx.getStreetCD(),
                                                                             clientContactDetailsFx.getBuildingNumberCD(),
-                                                                            clientContactDetailsFx.getFlatNumberCD());
+                                                                            clientContactDetailsFx.getFlatNumberCD(),
+                                                                            1);
         return clientContactDetails;
     }
 

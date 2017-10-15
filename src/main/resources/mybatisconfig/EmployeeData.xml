@@ -12,6 +12,6 @@
     </resultMap>
 
     <select id="selectEmployeeData" resultMap="result">
-        SELECT FIRST_NAME, LAST_NAME, EMPLOYEE_POSITION FROM employessdata
+        SELECT FIRST_NAME, LAST_NAME, EMPLOYEE_POSITION FROM employessdata WHERE EMPLOYEE_KEY_ID =#{employee_key_id}
     </select>
 </mapper>

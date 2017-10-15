@@ -8,6 +8,18 @@ public class ClientContactDetails {
     private String streetCD;
     private String buildingNumberCD;
     private String flatNumberCD;
+    private int client_key_id;
+
+    public ClientContactDetails(String countryCD, String voivodeshipCD, String cityCD, String streetCD, String buildingNumberCD, String flatNumberCD, int client_key_id) {
+        this.countryCD = countryCD;
+        this.voivodeshipCD = voivodeshipCD;
+        this.cityCD = cityCD;
+        this.streetCD = streetCD;
+        this.buildingNumberCD = buildingNumberCD;
+        this.flatNumberCD = flatNumberCD;
+        this.client_key_id = client_key_id;
+    }
+
 
     public ClientContactDetails(String countryCD, String voivodeshipCD, String cityCD, String streetCD, String buildingNumberCD, String flatNumberCD) {
         this.countryCD = countryCD;
@@ -16,6 +28,10 @@ public class ClientContactDetails {
         this.streetCD = streetCD;
         this.buildingNumberCD = buildingNumberCD;
         this.flatNumberCD = flatNumberCD;
+    }
+
+    public int getClient_key_id() {
+        return client_key_id;
     }
 
     public String getCountryCD() {

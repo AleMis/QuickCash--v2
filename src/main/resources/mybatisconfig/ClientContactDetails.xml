@@ -12,9 +12,29 @@
         <result property="streetCD" column="STREET_CD"/>
         <result property="buildingNumberCD" column="BUILDING_NUMBER_CD"/>
         <result property="flatNumberCD" column="FLAT_NUMBER_CD"/>
+        <result property="client_key_id" column="CLIENT_KEY_ID"/>
     </resultMap>
 
     <select id="selectClientContactDetails" resultMap="result">
-        SELECT COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD FROM clientcontactdetails
+        SELECT COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD, CLIENT_KEY_ID
+        FROM clientcontactdetails
+        WHERE CLIENT_KEY_ID =#{client_key_id}
     </select>
+
+    <select id="selectAllClientContactDetails" resultMap="result">
+        SELECT COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD
+        FROM clientcontactdetails
+    </select>
+
+
+    <update id="updateClientContactDetails" parameterType="ClientContactDetails">
+        UPDATE clientcontactdetails
+        SET COUNTRY_CD = #{countryCD},
+        VOIVODESHIP_CD = #{voivodeshipCD},
+        CITY_CD = #{cityCD},
+        STREET_CD = #{streetCD},
+        BUILDING_NUMBER_CD = #{buildingNumberCD},
+        FLAT_NUMBER_CD = #{flatNumberCD}
+        WHERE CLIENT_KEY_ID =#{client_key_id}
+    </update>
 </mapper>

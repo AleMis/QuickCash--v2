@@ -1,6 +1,5 @@
 package pl.my.quickcash.controllers.general;
 
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,20 +13,11 @@ import java.util.Optional;
 
 public class StarterPanelController {
 
-
-
-    @FXML
-    private Button clientButton;
-
-    @FXML
-    private Button employeeButton;
-
-    @FXML
-    private Button cancelButton;
-
+    @FXML private Button clientButton;
+    @FXML private Button employeeButton;
+    @FXML private Button cancelButton;
 
     private void initialize() {
-
     }
 
     public void runAsClient(Stage stage) {
@@ -60,10 +50,6 @@ public class StarterPanelController {
             System.exit(0);
         }
     }
-
-
-
-
 }
 
 

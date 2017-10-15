@@ -15,17 +15,16 @@ public class EmployeeDataDAO {
     }
 
     @SuppressWarnings("unchecked")
-    public List<EmployeeData> selectEmployeeData() {
-        List<EmployeeData> list = null;
+    public EmployeeData selectEmployeeData(int employee_key_id) {
+        EmployeeData employeeData = null;
         SqlSession session = sqlSessionFactory.openSession();
 
         try {
-            list = session.selectList("EmployeeData.selectEmployeeData");
+            employeeData = session.selectOne("EmployeeData.selectEmployeeData", employee_key_id);
         }finally {
             session.close();
         }
-        System.out.println("selectEmployeeData() --> " + list);
-        return list;
+        return employeeData;
     }
 
 }

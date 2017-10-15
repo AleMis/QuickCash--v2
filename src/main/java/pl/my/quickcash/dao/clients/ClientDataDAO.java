@@ -19,17 +19,17 @@ public class ClientDataDAO {
     private static ClientPersonalDataDAO clientPersonalDataDAO = new ClientPersonalDataDAO(MyBatisConnectionFactory.getSqlSessionFactory());
     private static ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
 
-    public static List<ClientData> getClientDataDAO() {
-
-        List<ClientPersonalData> clientPersonalDataList = clientPersonalDataDAO.selectClientPersonalData();
-        List<ClientContactDetails> clientContactDetailsList = clientContactDetailsDAO.selectClientContactDetails();
-        List<ClientAccount> clientAccountList = clientAccountDAO.selectClientAccount();
-        List<ClientData> clientDataList = new ArrayList<>();
-
-        for (int i = 0; i<clientPersonalDataList.size(); i++) {
-            clientDataList.add(new ClientData(clientPersonalDataList.get(i), clientContactDetailsList.get(i), clientAccountList.get(i)));
-        }
-
-        return clientDataList;
-    }
+//    public static List<ClientData> getClientDataDAO() {
+//
+//        List<ClientPersonalData> clientPersonalDataList = clientPersonalDataDAO.selectClientPersonalData();
+//        List<ClientContactDetails> clientContactDetailsList = clientContactDetailsDAO.selectClientContactDetails();
+//        List<ClientAccount> clientAccountList = clientAccountDAO.selectClientAccount();
+//        List<ClientData> clientDataList = new ArrayList<>();
+//
+//        for (int i = 0; i<clientPersonalDataList.size(); i++) {
+//            clientDataList.add(new ClientData(clientPersonalDataList.get(i), clientContactDetailsList.get(i), clientAccountList.get(i)));
+//        }
+//
+//        return clientDataList;
+//    }
 }

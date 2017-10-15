@@ -3,6 +3,9 @@ package pl.my.quickcash.controllers.client;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import pl.my.quickcash.dao.MyBatisConnectionFactory;
+import pl.my.quickcash.dao.clients.ClientAccountDAO;
+import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientData;
 import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.data.client.ClientsDatabase;
@@ -13,11 +16,12 @@ import java.util.Map;
 
 public class MakeTransferPanelController {
 
+    @FXML private TextField accountNumberTextField;
+    @FXML private TextField amountTextField;
+    @FXML private Label statusLabel;
+
     private ClientKey clientKey;
-    private FileManager fileManager = new FileManager();
     private ClientMainPanelController clientMainPanelController;
-
-
 
     public ClientKey getClientKey() {
         return clientKey;
@@ -27,28 +31,16 @@ public class MakeTransferPanelController {
         this.clientKey = clientKey;
     }
 
-    @FXML
-    private TextField accountNumberTextField;
-
-    @FXML
-    private TextField amountTextField;
-
-    @FXML
-    private Label statusLabel;
-
-
     public void initialize() {
 
     }
 
     @FXML
     public void makeTransfer() {
-        ClientKey clientKey = getClientKey();
         if(!checkAccountNumber()) {
                 statusLabel.setText("Incorrect account number, please try again!");
          }else {
-              checkAccountBalance(clientKey);
-              fileManager.writeDatabaseToFile();
+              checkAccountBalance();
          }
     }
 
@@ -63,50 +55,41 @@ public class MakeTransferPanelController {
     }
 
     public boolean checkAccountNumber() {
+        ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        ClientAccount clientAccount = clientAccountDAO.selectClientAccountByAccountNumber(getAccountNumber());
         boolean check = false;
-        String accountNumberToCheck = getAccountNumber();
-        for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet()) {
-            if(entry.getValue().getClientAccounts().getAccountNumber().equals(accountNumberToCheck)) {
-                check = true;
-            }
+        if(!clientAccount.getAccountNumber().equals(null)) {
+            check = true;
         }
         return check;
     }
 
-    public void checkAccountBalance(ClientKey clientKey) {
-        BigDecimal accountBalance = ClientsDatabase.getInstance().get(clientKey).getClientAccounts().getAccountBalance();
-        BigDecimal noMoney = new BigDecimal(0.00);
-        int result = accountBalance.compareTo(getAmountToTransfer());
+    public void checkAccountBalance() {
+        ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        ClientAccount payer = clientAccountDAO.selectClientAccount(getClientKey().getClient_key_id());
+        ClientAccount reciever = clientAccountDAO.selectClientAccountByAccountNumber(getAccountNumber());
 
-        if(accountBalance.equals(noMoney)) {
+        BigDecimal payerBalance = payer.getAccountBalance();
+        BigDecimal recieverBalance = reciever.getAccountBalance();
+
+        BigDecimal noMoney = new BigDecimal(0.00);
+
+        int result = payerBalance.compareTo(getAmountToTransfer());
+
+        if(payerBalance.equals(noMoney)) {
             statusLabel.setText("Account Balance equal 0.00 PLN");
         }else if (result == -1) {
-            statusLabel.setText("Not enough funds on your account!" + "\n Account Balance: " + accountBalance + " PLN");
+            statusLabel.setText("Not enough funds on your account!" + "\n Account Balance: " + payerBalance + " PLN");
         }else {
-            updateClientAccountBalance(clientKey, getAmountToTransfer());
-            updateSecondPartyAccountBalance(getAccountNumber(), getAmountToTransfer());
+            BigDecimal payerAcctualBalance = payerBalance.subtract(getAmountToTransfer());
+            payer.setAccountBalance(payerAcctualBalance);
+            clientAccountDAO.updateClientAccountBalance(payer);
+
+            BigDecimal recieverAcctualBalance = recieverBalance.add(getAmountToTransfer());
+            reciever.setAccountBalance(recieverAcctualBalance);
+            clientAccountDAO.updateClientAccountBalance(reciever);
+
             statusLabel.setText("Transfer completed!");
         }
     }
-
-    public void updateClientAccountBalance(ClientKey clientKey, BigDecimal amount) {
-        for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet()) {
-            if(entry.getKey().equals(clientKey)) {
-                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue()
-                        .getClientAccounts().getAccountBalance().subtract(amount));
-            }
-        }
-    }
-
-    public void updateSecondPartyAccountBalance(String accountNumber, BigDecimal amount) {
-        for(Map.Entry<ClientKey, ClientData> entry : ClientsDatabase.getInstance().entrySet()) {
-            if(entry.getValue().getClientAccounts().getAccountNumber().equals(accountNumber)) {
-                entry.getValue().getClientAccounts().setAccountBalance(entry.getValue()
-                        .getClientAccounts().getAccountBalance().add(amount));
-            }
-        }
-    }
-
-
-
 }

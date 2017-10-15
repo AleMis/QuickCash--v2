@@ -121,7 +121,7 @@ public class AddClientPanelController {
                         clientPersonalData.getCity(),
                         clientPersonalData.getStreet(),
                         clientPersonalData.getBuildingNumber(),
-                        clientPersonalData.getFlatNumber());
+                        clientPersonalData.getFlatNumber(), 1);
 
                 countryCDTextField.setText(clientPersonalData.getCountry());
                 voivodeshipCDTextField.setText(clientPersonalData.getVoivodeship());
@@ -182,7 +182,7 @@ public class AddClientPanelController {
         String flatNO = flatNoCDTextField.getText();
 
         ClientContactDetails clientContactDetails = new ClientContactDetails(countryCD,voivodeshipCD,cityCD,streetCD,
-                buildingCD,flatNO);
+                buildingCD,flatNO, 1);
 
         return clientContactDetails;
     }

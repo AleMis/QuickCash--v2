@@ -6,10 +6,22 @@ public class ClientAccount {
 
     private BigDecimal accountBalance;
     private String accountNumber;
+    private int client_key_id;
+
+    public ClientAccount(BigDecimal accountBalance, String accountNumber, int client_key_id) {
+        this.accountBalance = accountBalance.setScale(2, BigDecimal.ROUND_CEILING);
+        this.accountNumber = accountNumber;
+        this.client_key_id = client_key_id;
+    }
 
     public ClientAccount(BigDecimal accountBalance, String accountNumber) {
         this.accountBalance = accountBalance.setScale(2, BigDecimal.ROUND_CEILING);
         this.accountNumber = accountNumber;
+    }
+
+
+    public int getClieny_key_id() {
+        return client_key_id;
     }
 
     public BigDecimal getAccountBalance() {

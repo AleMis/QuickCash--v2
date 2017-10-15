@@ -6,13 +6,21 @@
 <mapper namespace="EmployeeKey">
 
     <resultMap id="result" type="EmployeeKey">
+        <result property="employee_key_id" column="EMPLOYEE_KEY_ID"/>
         <result property="login" column="LOGIN"/>
         <result property="password" column="PASSWORD"/>
     </resultMap>
 
-    <select id="selectLoginAndPassword" resultMap="result">
-        SELECT LOGIN,PASSWORD FROM employeeskey
+    <select id="selectLogin" resultMap="result">
+        SELECT LOGIN FROM employeeskey WHERE LOGIN =#{login}
     </select>
 
+    <select id="selectPassword" resultMap="result">
+        SELECT PASSWORD FROM employeeskey WHERE PASSWORD =#{password}
+    </select>
+
+    <select id="selectEmployeeKey" resultMap="result">
+        SELECT * FROM employeeskey WHERE  LOGIN =#{login}
+    </select>
 
 </mapper>

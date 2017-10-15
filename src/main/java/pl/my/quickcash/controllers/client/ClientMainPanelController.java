@@ -7,6 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import pl.my.quickcash.dao.MyBatisConnectionFactory;
+import pl.my.quickcash.dao.clients.ClientAccountDAO;
+import pl.my.quickcash.dao.clients.ClientKeyDAO;
+import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.data.client.ClientsDatabase;
 import pl.my.quickcash.dialogs.DialogUtils;
@@ -22,10 +26,8 @@ public class ClientMainPanelController {
 
     private ClientKey clientKey;
 
-
     private void initialize() {
     }
-
 
     public ClientKey getClientKey() {
         return clientKey;
@@ -36,7 +38,6 @@ public class ClientMainPanelController {
     }
 
     @FXML private BorderPane clientBorderPane;
-
     @FXML private TextField accountBalanceTextField;
 
 
@@ -115,7 +116,9 @@ public class ClientMainPanelController {
     }
 
     public void initializeAccountBalance() {
-        accountBalanceTextField.setText(String.valueOf(ClientsDatabase.getInstance().get(getClientKey()).getClientAccounts().getAccountBalance()));
+        ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        ClientAccount clientAccount = clientAccountDAO.selectClientAccount(getClientKey().getClient_key_id());
+        accountBalanceTextField.setText(String.valueOf(clientAccount.getAccountBalance()));
         accountBalanceTextField.setEditable(false);
     }
 }

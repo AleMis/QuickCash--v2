@@ -8,28 +8,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import pl.my.quickcash.controllers.general.LoginController;
+import pl.my.quickcash.dao.MyBatisConnectionFactory;
+import pl.my.quickcash.dao.employee.EmployeeKeyDAO;
 import pl.my.quickcash.data.employee.EmployeeKey;
-import pl.my.quickcash.data.employee.EmployeesDatabase;
 
 public class EmployeeLoginPanelController {
 
-    @FXML
-    private Pane employeeLoginPanel;
-
-    @FXML
-    private TextField loginTextField;
-
-    @FXML
-    private TextField passwordField;
-
-    @FXML
-    private Button loginButton;
-
-    @FXML
-    private Button cancelButton;
-
-    @FXML
-    private Label statusLabel;
+    @FXML private Pane employeeLoginPanel;
+    @FXML private TextField loginTextField;
+    @FXML private TextField passwordField;
+    @FXML private Button loginButton;
+    @FXML private Button cancelButton;
+    @FXML private Label statusLabel;
 
     public void initEmployeeKey(LoginController loginController) {
         passwordField.cacheProperty();
@@ -44,12 +34,16 @@ public class EmployeeLoginPanelController {
                 }
             }
         });
-
     }
 
     private EmployeeKey authorize() {
-        EmployeeKey employeeKey = new EmployeeKey(loginTextField.getText(), passwordField.getText());
-        if (EmployeesDatabase.getInstance().containsKey(employeeKey)) {
+        EmployeeKeyDAO employeeKeyDAO = new EmployeeKeyDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+
+        String login = employeeKeyDAO.getLoginFromMySQL(loginTextField.getText());
+        String password = employeeKeyDAO.getPasswordFromMySQL(passwordField.getText());
+
+        if (!login.equals(null) && !password.equals(null)) {
+            EmployeeKey employeeKey = employeeKeyDAO.getEmployeeKey(login);
             return employeeKey;
         } else {
             return null;

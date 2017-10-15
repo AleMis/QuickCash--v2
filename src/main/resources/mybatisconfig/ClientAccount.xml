@@ -8,9 +8,29 @@
     <resultMap id="result" type="ClientAccount">
         <result property="accountBalance" column="ACCOUNT_BALANCE"/>
         <result property="accountNumber" column="ACCOUNT_NUMBER"/>
+        <result property="client_key_id" column="CLIENT_KEY_ID"/>
     </resultMap>
 
     <select id="selectClientAccount" resultMap="result">
-        SELECT ACCOUNT_BALANCE, ACCOUNT_NUMBER FROM clientaccountbalance
+        SELECT ACCOUNT_BALANCE, ACCOUNT_NUMBER, CLIENT_KEY_ID
+        FROM clientaccountbalance
+        WHERE CLIENT_KEY_ID=#{client_key_id}
     </select>
+
+    <select id="selectClientAccountByAccountNumber" resultMap="result">
+        SELECT ACCOUNT_BALANCE, ACCOUNT_NUMBER, CLIENT_KEY_ID
+        FROM clientaccountbalance
+        WHERE ACCOUNT_NUMBER=#{accountNumber}
+    </select>
+
+    <select id="selectAllClientAccountB" resultMap="result">
+        SELECT ACCOUNT_BALANCE, ACCOUNT_NUMBER
+        FROM clientaccountbalance
+    </select>
+
+    <update id="updateClientAccountBalance" parameterType="ClientAccount">
+        UPDATE clientaccountbalance
+        SET ACCOUNT_BALANCE =#{accountBalance}
+        WHERE CLIENT_KEY_ID=#{client_key_id}
+    </update>
 </mapper>

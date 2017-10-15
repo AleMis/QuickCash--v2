@@ -3,8 +3,11 @@ package pl.my.quickcash.controllers.client;
 import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import pl.my.quickcash.data.client.ClientKey;
-import pl.my.quickcash.data.client.ClientsDatabase;
+import pl.my.quickcash.dao.MyBatisConnectionFactory;
+import pl.my.quickcash.dao.clients.ClientAccountDAO;
+import pl.my.quickcash.dao.clients.ClientContactDetailsDAO;
+import pl.my.quickcash.dao.clients.ClientPersonalDataDAO;
+import pl.my.quickcash.data.client.*;
 import pl.my.quickcash.datamanagement.FileManager;
 import pl.my.quickcash.dialogs.DialogUtils;
 
@@ -12,8 +15,24 @@ import java.util.Optional;
 
 public class ClientDataPanelController {
 
+    @FXML private TextField firstNameTextField;
+    @FXML private TextField idNumberTextField;
+    @FXML private TextField countryTextField;
+    @FXML private TextField cityTextField;
+    @FXML private TextField buildingNoTextField;
+    @FXML private TextField lastNameTextField;
+    @FXML private TextField peselTextField;
+    @FXML private TextField voivodeshipTextField;
+    @FXML private TextField streetTextField;
+    @FXML private TextField flatNoTextField;
+    @FXML private TextField countryCDTextField;
+    @FXML private TextField cityCDTextField;
+    @FXML private TextField buildingNoCDTextField;
+    @FXML private TextField voivodeshipCDTextField;
+    @FXML private TextField streetCDTextField;
+    @FXML private TextField flatNoCDTextField;
+
     private ClientKey clientKey;
-    private FileManager fileManager = new FileManager();
 
     public ClientKey getClientKey() {
         return clientKey;
@@ -23,54 +42,28 @@ public class ClientDataPanelController {
         this.clientKey = clientKey;
     }
 
-    @FXML private TextField firstNameTextField;
-
-    @FXML private TextField idNumberTextField;
-
-    @FXML private TextField countryTextField;
-
-    @FXML private TextField cityTextField;
-
-    @FXML private TextField buildingNoTextField;
-
-    @FXML private TextField lastNameTextField;
-
-    @FXML private TextField peselTextField;
-
-    @FXML private TextField voivodeshipTextField;
-
-    @FXML private TextField streetTextField;
-
-    @FXML private TextField flatNoTextField;
-
-    @FXML private TextField countryCDTextField;
-
-    @FXML private TextField cityCDTextField;
-
-    @FXML private TextField buildingNoCDTextField;
-
-    @FXML private TextField voivodeshipCDTextField;
-
-    @FXML private TextField streetCDTextField;
-
-    @FXML private TextField flatNoCDTextField;
-
     public void initialize() {
-
     }
 
     public void initClientPersonalInformation() {
+      initClientPersonalData();
+      initClientContactDetails();
+    }
 
-        String firstName = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getFirstName();
-        String lastName = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getLastName();
-        String pesel = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getPesel();
-        String idCard = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getIdCard();
-        String country = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getCountry();
-        String voivodeship = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getVoivodeship();
-        String city = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getCity();
-        String street = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getStreet();
-        String buildingNumber = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getBuildingNumber();
-        String flatNumber = ClientsDatabase.getInstance().get(getClientKey()).getPersonalData().getFlatNumber();
+    public void initClientPersonalData() {
+        ClientPersonalDataDAO clientPersonalDataDAO = new ClientPersonalDataDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        ClientPersonalData clientPersonalData = clientPersonalDataDAO.selectClientPersonalData(getClientKey().getClient_key_id());
+
+        String firstName = clientPersonalData.getFirstName();
+        String lastName = clientPersonalData.getLastName();
+        String pesel = clientPersonalData.getPesel();
+        String idCard = clientPersonalData.getIdCard();
+        String country = clientPersonalData.getCountry();
+        String voivodeship = clientPersonalData.getVoivodeship();
+        String city = clientPersonalData.getCity();
+        String street = clientPersonalData.getStreet();
+        String buildingNumber = clientPersonalData.getBuildingNumber();
+        String flatNumber = clientPersonalData.getFlatNumber();
 
         firstNameTextField.setText(firstName);
         lastNameTextField.setText(lastName);
@@ -84,13 +77,18 @@ public class ClientDataPanelController {
         flatNoTextField.setText(flatNumber);
 
         disableEditPersonalInformatioTextFields();
+    }
 
-        String countryCD = ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().getCountryCD();
-        String voivodeshipCD = ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().getVoivodeshipCD();
-        String cityCD = ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().getCityCD();
-        String streetCD = ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().getStreetCD();
-        String buildingNumberCD = ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().getBuildingNumberCD();
-        String flatNumberCD = ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().getFlatNumberCD();
+    public void initClientContactDetails() {
+        ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        ClientContactDetails clientContactDetails = clientContactDetailsDAO.selectClientContactDetails(getClientKey().getClient_key_id());
+
+        String countryCD = clientContactDetails.getCountryCD();
+        String voivodeshipCD = clientContactDetails.getVoivodeshipCD();
+        String cityCD = clientContactDetails.getCityCD();
+        String streetCD = clientContactDetails.getStreetCD();
+        String buildingNumberCD = clientContactDetails.getBuildingNumberCD();
+        String flatNumberCD = clientContactDetails.getFlatNumberCD();
 
         countryCDTextField.setText(countryCD);
         voivodeshipCDTextField.setText(voivodeshipCD);
@@ -109,20 +107,6 @@ public class ClientDataPanelController {
         }
     }
 
-
-    public void saveChangesInContactDetails() {
-
-        ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().setCountryCD(countryCDTextField.getText());
-        ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().setVoivodeshipCD(voivodeshipCDTextField.getText());
-        ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().setCityCD(cityCDTextField.getText());
-        ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().setStreetCD(streetCDTextField.getText());
-        ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().setBuildingNumberCD(buildingNoCDTextField.getText());
-        ClientsDatabase.getInstance().get(getClientKey()).getContactDetails().setFlatNumberCD(flatNoCDTextField.getText());
-
-        fileManager.writeDatabaseToFile();
-        disableEditCDTextFields();
-    }
-
     @FXML
     public void approveChangesInContactDetails() {
         Optional<ButtonType> result = DialogUtils.confirmationDialogForContactDetailsSaving();
@@ -132,6 +116,20 @@ public class ClientDataPanelController {
         }
     }
 
+    public void saveChangesInContactDetails() {
+        ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        ClientContactDetails clientContactDetails = clientContactDetailsDAO.selectClientContactDetails(getClientKey().getClient_key_id());
+
+        clientContactDetails.setCountryCD(countryCDTextField.getText());
+        clientContactDetails.setVoivodeshipCD(voivodeshipCDTextField.getText());
+        clientContactDetails.setCityCD(cityCDTextField.getText());
+        clientContactDetails.setStreetCD(streetCDTextField.getText());
+        clientContactDetails.setBuildingNumberCD(buildingNoCDTextField.getText());
+        clientContactDetails.setFlatNumberCD(flatNoCDTextField.getText());
+
+        clientContactDetailsDAO.updateClientContactDetails(clientContactDetails);
+        disableEditCDTextFields();
+    }
 
     public void disableEditCDTextFields() {
         countryCDTextField.setEditable(false);
@@ -150,7 +148,6 @@ public class ClientDataPanelController {
         buildingNoCDTextField.setEditable(true);
         flatNoCDTextField.setEditable(true);
         voivodeshipTextField.setEditable(false);
-
     }
 
     public void disableEditPersonalInformatioTextFields() {
@@ -164,5 +161,4 @@ public class ClientDataPanelController {
         buildingNoTextField.setEditable(false);
         flatNoTextField.setEditable(false);
     }
-
 }

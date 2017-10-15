@@ -3,6 +3,7 @@ package pl.my.quickcash.dao.clients;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import pl.my.quickcash.data.client.ClientContactDetails;
+import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.data.client.ClientPersonalData;
 
 import java.util.List;
@@ -16,16 +17,37 @@ public class ClientContactDetailsDAO {
     }
 
     @SuppressWarnings("unchecked")
-    public List<ClientContactDetails> selectClientContactDetails() {
+    public ClientContactDetails selectClientContactDetails(int client_key_id) {
+        ClientContactDetails clientContactDetails = null;
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            clientContactDetails = session.selectOne("ClientContactDetails.selectClientContactDetails", client_key_id);
+        } finally {
+            session.close();
+        }
+        return clientContactDetails;
+    }
+
+    public void updateClientContactDetails(ClientContactDetails clientContactDetails) {
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            session.update("ClientContactDetails.updateClientContactDetails", clientContactDetails);
+        } finally {
+            session.commit();
+            session.close();
+        }
+    }
+
+    public List<ClientContactDetails> selectAllClientContactDetails() {
         List<ClientContactDetails> list = null;
         SqlSession session = sqlSessionFactory.openSession();
 
         try {
-            list = session.selectList("ClientContactDetails.selectClientContactDetails");
+            list = session.selectList("ClientContactDetails.selectAllClientContactDetails");
         } finally {
             session.close();
         }
-        System.out.println("selectClientContactDetails() --> " + list);
         return list;
     }
 }

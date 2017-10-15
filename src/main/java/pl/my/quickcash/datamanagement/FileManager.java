@@ -96,7 +96,7 @@ public class FileManager {
                         cityCD,
                         streetCD,
                         buildingNumberCD,
-                        flatNumberCD);
+                        flatNumberCD, 1);
 
                 BigDecimal accountBalanceAsDouble = new BigDecimal(parts[18]).setScale(2, BigDecimal.ROUND_CEILING);
                 String accountNumber = parts[19];
@@ -134,7 +134,7 @@ public class FileManager {
 
                 String login = parts[0];
                 String password = parts[1];
-                EmployeeKey employeeKey = new EmployeeKey(login,password);
+                EmployeeKey employeeKey = new EmployeeKey(1,login,password);
 
                 String firstName = parts[2];
                 String lastName = parts[3];

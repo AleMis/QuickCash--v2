@@ -2,6 +2,8 @@ package pl.my.quickcash.dao.clients;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import pl.my.quickcash.data.client.Client;
+import pl.my.quickcash.data.client.ClientContactDetails;
 import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.data.client.ClientPersonalData;
 
@@ -16,16 +18,27 @@ public class ClientPersonalDataDAO {
     }
 
     @SuppressWarnings("unchecked")
-    public List<ClientPersonalData> selectClientPersonalData() {
+    public ClientPersonalData selectClientPersonalData(int client_key_id) {
+        ClientPersonalData clientPersonalData = null;
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            clientPersonalData = session.selectOne("ClientPersonalData.selectClientPersonalData", client_key_id);
+        } finally {
+            session.close();
+        }
+        return clientPersonalData;
+    }
+
+    public List<ClientPersonalData> selectAllClientPersonalData() {
         List<ClientPersonalData> list = null;
         SqlSession session = sqlSessionFactory.openSession();
 
         try {
-            list = session.selectList("ClientPersonalData.selectClientPersonalData");
+            list = session.selectList("ClientPersonalData.selectAllClientPersonalData");
         } finally {
             session.close();
         }
-        System.out.println("selectClientPersonalData() --> " + list);
         return list;
     }
 }

@@ -9,10 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import pl.my.quickcash.dao.MyBatisConnectionFactory;
 import pl.my.quickcash.dao.clients.ClientAccountDAO;
-import pl.my.quickcash.dao.clients.ClientKeyDAO;
 import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientKey;
-import pl.my.quickcash.data.client.ClientsDatabase;
 import pl.my.quickcash.dialogs.DialogUtils;
 
 import java.util.Optional;

@@ -33,4 +33,9 @@
         SET ACCOUNT_BALANCE =#{accountBalance}
         WHERE CLIENT_KEY_ID=#{client_key_id}
     </update>
+
+    <insert id="insertClientAccount" parameterType="ClientAccount">
+        INSERT INTO clientaccountbalance (ACCOUNT_BALANCE, ACCOUNT_NUMBER, CLIENT_KEY_ID)
+        VALUES (#{accountBalance}, #{accountNumber}, #{client_key_id});
+    </insert>
 </mapper>

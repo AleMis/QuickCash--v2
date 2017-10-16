@@ -50,4 +50,15 @@ public class ClientContactDetailsDAO {
         }
         return list;
     }
+
+    public void insertClientContactDetails(ClientContactDetails clientContactDetails) {
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            session.insert("ClientContactDetails.insertClientContactDetails", clientContactDetails);
+        } finally {
+            session.commit();
+            session.close();
+        }
+    }
 }

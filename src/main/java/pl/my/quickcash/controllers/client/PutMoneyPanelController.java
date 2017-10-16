@@ -8,23 +8,15 @@ import javafx.scene.layout.Pane;
 import pl.my.quickcash.dao.MyBatisConnectionFactory;
 import pl.my.quickcash.dao.clients.ClientAccountDAO;
 import pl.my.quickcash.data.client.ClientAccount;
-import pl.my.quickcash.data.client.ClientData;
 import pl.my.quickcash.data.client.ClientKey;
-import pl.my.quickcash.data.client.ClientsDatabase;
-import pl.my.quickcash.datamanagement.FileManager;
-
 import java.math.BigDecimal;
-import java.util.Map;
 
 public class PutMoneyPanelController {
 
-    @FXML private Pane putMoneyPane;
     @FXML private TextField amountTextField;
     @FXML private Label statusLabel;
-    @FXML private Button putMoneyButton;
 
     private ClientKey clientKey;
-    private FileManager fileManager = new FileManager();
 
     public ClientKey getClientKey() {
         return clientKey;
@@ -33,7 +25,6 @@ public class PutMoneyPanelController {
     public void setClientKey(ClientKey clientKey) {
         this.clientKey = clientKey;
     }
-
 
     @FXML
     public void putMoney() {

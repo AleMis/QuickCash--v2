@@ -24,6 +24,10 @@ public class ClientAccount {
         return client_key_id;
     }
 
+    public void setClient_key_id(int client_key_id) {
+        this.client_key_id = client_key_id;
+    }
+
     public BigDecimal getAccountBalance() {
         return accountBalance;
     }

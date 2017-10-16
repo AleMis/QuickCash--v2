@@ -26,6 +26,10 @@
     <select id="selectAllClientKey" resultMap="result">
         SELECT CLIENT_KEY_ID, LOGIN, PASSWORD FROM clientkey
     </select>
-
+    
+    <insert id="insertClientKey" parameterType="ClientKey">
+        INSERT INTO clientkey (LOGIN, PASSWORD)
+        VALUES (#{login}, #{password});
+    </insert>
 
 </mapper>

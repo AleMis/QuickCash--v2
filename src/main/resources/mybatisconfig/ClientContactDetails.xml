@@ -26,7 +26,6 @@
         FROM clientcontactdetails
     </select>
 
-
     <update id="updateClientContactDetails" parameterType="ClientContactDetails">
         UPDATE clientcontactdetails
         SET COUNTRY_CD = #{countryCD},
@@ -37,4 +36,9 @@
         FLAT_NUMBER_CD = #{flatNumberCD}
         WHERE CLIENT_KEY_ID =#{client_key_id}
     </update>
+
+    <insert id="insertClientContactDetails" parameterType="ClientContactDetails">
+        INSERT INTO clientcontactdetails (COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD, CLIENT_KEY_ID)
+        VALUES (#{countryCD}, #{voivodeshipCD}, #{cityCD}, #{streetCD}, #{buildingNumberCD}, #{flatNumberCD}, #{client_key_id});
+    </insert>
 </mapper>

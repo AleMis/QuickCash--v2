@@ -29,4 +29,9 @@
         FROM clientpersonaldata
     </select>
 
+    <insert id="insertClientPersonalData" parameterType="ClientPersonalData">
+        INSERT INTO clientpersonaldata (FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER, CLIENT_KEY_ID)
+        VALUES (#{firstName}, #{lastName}, #{pesel}, #{idCard}, #{country}, #{voivodeship}, #{city}, #{street}, #{buildingNumber}, #{flatNumber}, #{client_key_id});
+    </insert>
+
 </mapper>

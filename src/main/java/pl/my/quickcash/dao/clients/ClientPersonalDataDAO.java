@@ -41,4 +41,15 @@ public class ClientPersonalDataDAO {
         }
         return list;
     }
+
+    public void insertClientPersonalData(ClientPersonalData clientPersonalData) {
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            session.insert("ClientPersonalData.insertClientPersonalData", clientPersonalData);
+        } finally {
+            session.commit();
+            session.close();
+        }
+    }
 }

@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import pl.my.quickcash.data.client.Client;
 import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientContactDetails;
+import pl.my.quickcash.data.client.ClientKey;
 
 
 import java.math.BigDecimal;
@@ -64,5 +65,16 @@ public class ClientAccountDAO {
             session.close();
         }
         return list;
+    }
+
+    public void insertClientAccount(ClientAccount clientAccount) {
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            session.insert("ClientAccount.insertClientAccount", clientAccount);
+        } finally {
+            session.commit();
+            session.close();
+        }
     }
 }

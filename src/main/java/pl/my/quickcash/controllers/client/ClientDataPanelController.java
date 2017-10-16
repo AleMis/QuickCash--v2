@@ -4,11 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientAccountDAO;
 import pl.my.quickcash.dao.clients.ClientContactDetailsDAO;
 import pl.my.quickcash.dao.clients.ClientPersonalDataDAO;
 import pl.my.quickcash.data.client.*;
-import pl.my.quickcash.datamanagement.FileManager;
 import pl.my.quickcash.dialogs.DialogUtils;
 
 import java.util.Optional;

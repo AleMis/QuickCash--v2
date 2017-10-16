@@ -11,6 +11,7 @@ public class ClientPersonalData {
     private String street;
     private String buildingNumber;
     private String flatNumber;
+    private int client_key_id;
 
     public ClientPersonalData(String firstName, String lastName, String pesel, String idCard, String country, String voivodeship, String city, String street, String buildingNumber, String flatNumber) {
         this.firstName = firstName;
@@ -23,6 +24,19 @@ public class ClientPersonalData {
         this.street = street;
         this.buildingNumber = buildingNumber;
         this.flatNumber = flatNumber;
+    }
+    public ClientPersonalData(String firstName, String lastName, String pesel, String idCard, String country, String voivodeship, String city, String street, String buildingNumber, String flatNumber, int client_key_id) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.pesel = pesel;
+        this.idCard = idCard;
+        this.country = country;
+        this.voivodeship = voivodeship;
+        this.city = city;
+        this.street = street;
+        this.buildingNumber = buildingNumber;
+        this.flatNumber = flatNumber;
+        this.client_key_id = client_key_id;
     }
 
     public String getFirstName() {
@@ -105,6 +119,14 @@ public class ClientPersonalData {
     public void setFlatNumber(String flatNumber) {
 
         this.flatNumber = flatNumber;
+    }
+
+    public int getClient_key_id() {
+        return client_key_id;
+    }
+
+    public void setClient_key_id(int client_key_id) {
+        this.client_key_id = client_key_id;
     }
 
     @Override

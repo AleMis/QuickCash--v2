@@ -82,4 +82,15 @@ public class ClientKeyDAO {
         }
         return list;
     }
+
+    public void insertClientKey(ClientKey clientKey) {
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            session.insert("ClientKey.insertClientKey", clientKey);
+        } finally {
+            session.commit();
+            session.close();
+        }
+    }
 }

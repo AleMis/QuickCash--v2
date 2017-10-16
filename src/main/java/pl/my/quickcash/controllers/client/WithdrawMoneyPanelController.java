@@ -7,18 +7,13 @@ import javafx.scene.control.TextField;
 import pl.my.quickcash.dao.MyBatisConnectionFactory;
 import pl.my.quickcash.dao.clients.ClientAccountDAO;
 import pl.my.quickcash.data.client.ClientAccount;
-import pl.my.quickcash.data.client.ClientData;
 import pl.my.quickcash.data.client.ClientKey;
-import pl.my.quickcash.data.client.ClientsDatabase;
-import pl.my.quickcash.datamanagement.FileManager;
 
 import java.math.BigDecimal;
-import java.util.Map;
 
 public class WithdrawMoneyPanelController {
     @FXML private TextField amountTextField;
     @FXML private Label statusLabel;
-    @FXML private Button wihdrawMoneyButton;
 
     private ClientKey clientKey;
 

@@ -53,7 +53,6 @@ public class DialogUtils {
         Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
         informationAlert.setTitle("Adding New Client");
         informationAlert.setHeaderText("New client was add!");
-        informationAlert.setContentText("Click on Login Data to check client's login and password");
         informationAlert.showAndWait();
     }
 

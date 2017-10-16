@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df39d7b3-4b6c-4538-91ff-de0010a19ca5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ClientsDatabase" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/EmployeesDatabase" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientDataDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientDatabaseDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientsDatabase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/datamanagement/FileManager.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/database_scheme/create_schema.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/database_scheme/insert_test_data.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/Main.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientMainPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientMainPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/PutMoneyPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/PutMoneyPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientAccountDAO.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientAccountDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientContactDetailsDAO.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientContactDetailsDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientKeyDAO.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientKeyDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientPersonalDataDAO.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientPersonalDataDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientAccount.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientAccount.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientContactDetails.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientContactDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientPersonalData.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientPersonalData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientAccount.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientAccount.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientContactDetails.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientContactDetails.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientKey.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientKey.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientPersonalData.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientPersonalData.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -63,7 +40,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -72,6 +49,26 @@
                 <element signature="e#542#543#0" expanded="true" />
                 <element signature="e#570#571#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_schema.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/database_scheme/create_schema.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="159" lean-forward="false" selection-start-line="5" selection-start-column="146" selection-end-line="5" selection-end-column="159" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insert_test_data.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/database_scheme/insert_test_data.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="116" lean-forward="true" selection-start-line="2" selection-start-column="116" selection-end-line="2" selection-end-column="116" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -456,8 +453,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/converter/ClientDataConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/converter/ClientAccountConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/modelfx/ControllFx.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/MyBatisConnectionFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/EmployeeKeyDAO.java" />
@@ -507,6 +502,8 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/WithdrawMoneyPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dialogs/DialogUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientPersonalData.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/database_scheme/create_schema.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/database_scheme/insert_test_data.sql" />
       </list>
     </option>
   </component>
@@ -651,6 +648,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QuickCash-v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QuickCash-v2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="database_scheme" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QuickCash-v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QuickCash-v2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatisconfig" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="QuickCash-v2" type="b2602c69:ProjectViewProjectNode" />
@@ -843,15 +856,16 @@
       <workItem from="1507569997382" duration="8832000" />
       <workItem from="1507970230476" duration="30139000" />
       <workItem from="1508076996714" duration="23160000" />
-      <workItem from="1508171327313" duration="9967000" />
+      <workItem from="1508171327313" duration="13923000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260986000" />
+    <option name="totallyTimeSpent" value="264942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -863,10 +877,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43818465" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2597809" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2597809" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28477305" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28477305" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -882,6 +896,36 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44913927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43818465" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2597809" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28477305" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -911,21 +955,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/StarterPanelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/Start.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/exceptions/LogException.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/employee/EmployeeData.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1133,20 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientPersonalData.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="34" selection-end-column="13" />
-          <folding>
-            <marker date="1508177656545" expanded="true" signature="912:1042" ph="SELECT FIRST... clientkey" />
-            <marker date="1508177656545" expanded="true" signature="912:1054" ph="SELECT FIRST... clientpersonaldata" />
-            <marker date="1508177656545" expanded="true" signature="912:1100" ph="SELECT FIRST... clientpersonaldata" />
-            <marker date="1508177656545" expanded="true" signature="1189:1331" ph="SELECT FIRST... clientpersonaldata" />
-            <marker date="1508177656545" expanded="true" signature="1433:1748" ph="INSERT INTO clientpersonaldata... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/converter/ClientAccountConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1155,39 +1170,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientContactDetails.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="42" />
-          <folding>
-            <marker date="1508178959974" expanded="true" signature="795:933" ph="SELECT COUNT... clientcontactdetails" />
-            <marker date="1508178959974" expanded="true" signature="795:979" ph="SELECT COUNT... clientcontactdetails" />
-            <marker date="1508178959974" expanded="true" signature="1070:1193" ph="SELECT COUNT... clientcontactdetails" />
-            <marker date="1508178959974" expanded="true" signature="1299:1607" ph="UPDATE clien... " />
-            <marker date="1508178959974" expanded="true" signature="1713:1973" ph="INSERT INTO clientcontactdetails... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientContactDetailsDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="57" column="98" lean-forward="false" selection-start-line="57" selection-start-column="98" selection-end-line="57" selection-end-column="98" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientKey.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="32" selection-end-column="13" />
-          <folding>
-            <marker date="1508173569229" expanded="true" signature="488:537" ph="SELECT LOGIN... clientkey" />
-            <marker date="1508173569229" expanded="true" signature="613:671" ph="SELECT PASSW... clientkey" />
-            <marker date="1508173569229" expanded="true" signature="748:794" ph="SELECT * FRO... clientkey" />
-            <marker date="1508173569229" expanded="true" signature="874:926" ph="SELECT CLIEN... clientkey" />
-            <marker date="1508173569229" expanded="true" signature="1014:1092" ph="INSERT INTO clientkey... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1220,21 +1207,6 @@
         <state relative-caret-position="175">
           <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientAccount.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="36" column="35" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="35" />
-          <folding>
-            <marker date="1508180427714" expanded="true" signature="534:621" ph="SELECT ACCOU... clientaccountbalance" />
-            <marker date="1508180427714" expanded="true" signature="534:666" ph="SELECT ACCOU... clientaccountbalance" />
-            <marker date="1508180427714" expanded="true" signature="762:895" ph="SELECT ACCOU... clientaccountbalance" />
-            <marker date="1508180427714" expanded="true" signature="980:1052" ph="SELECT ACCOU... clientaccountbalance" />
-            <marker date="1508180427714" expanded="true" signature="1151:1270" ph="UPDATE clien... " />
-            <marker date="1508180427714" expanded="true" signature="1362:1514" ph="INSERT INTO clientaccountbalance... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1340,6 +1312,79 @@
             <element signature="e#542#543#0" expanded="true" />
             <element signature="e#570#571#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientContactDetails.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="42" />
+          <folding>
+            <marker date="1508178959974" expanded="true" signature="795:933" ph="SELECT COUNT... clientcontactdetails" />
+            <marker date="1508178959974" expanded="true" signature="795:979" ph="SELECT COUNT... clientcontactdetails" />
+            <marker date="1508178959974" expanded="true" signature="1070:1193" ph="SELECT COUNT... clientcontactdetails" />
+            <marker date="1508178959974" expanded="true" signature="1299:1607" ph="UPDATE clien... " />
+            <marker date="1508178959974" expanded="true" signature="1713:1973" ph="INSERT INTO clientcontactdetails... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientKey.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="52" />
+          <folding>
+            <marker date="1508173569229" expanded="true" signature="488:537" ph="SELECT LOGIN... clientkey" />
+            <marker date="1508173569229" expanded="true" signature="613:671" ph="SELECT PASSW... clientkey" />
+            <marker date="1508173569229" expanded="true" signature="748:794" ph="SELECT * FRO... clientkey" />
+            <marker date="1508173569229" expanded="true" signature="874:926" ph="SELECT CLIEN... clientkey" />
+            <marker date="1508173569229" expanded="true" signature="1014:1092" ph="INSERT INTO clientkey... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientPersonalData.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="57" lean-forward="false" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="57" />
+          <folding>
+            <marker date="1508177656545" expanded="true" signature="912:1042" ph="SELECT FIRST... clientkey" />
+            <marker date="1508177656545" expanded="true" signature="912:1054" ph="SELECT FIRST... clientpersonaldata" />
+            <marker date="1508177656545" expanded="true" signature="912:1100" ph="SELECT FIRST... clientpersonaldata" />
+            <marker date="1508177656545" expanded="true" signature="1189:1331" ph="SELECT FIRST... clientpersonaldata" />
+            <marker date="1508177656545" expanded="true" signature="1433:1748" ph="INSERT INTO clientpersonaldata... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientAccount.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="14" column="61" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="61" />
+          <folding>
+            <marker date="1508180427714" expanded="true" signature="534:621" ph="SELECT ACCOU... clientaccountbalance" />
+            <marker date="1508180427714" expanded="true" signature="534:666" ph="SELECT ACCOU... clientaccountbalance" />
+            <marker date="1508180427714" expanded="true" signature="762:895" ph="SELECT ACCOU... clientaccountbalance" />
+            <marker date="1508180427714" expanded="true" signature="980:1052" ph="SELECT ACCOU... clientaccountbalance" />
+            <marker date="1508180427714" expanded="true" signature="1151:1270" ph="UPDATE clien... " />
+            <marker date="1508180427714" expanded="true" signature="1362:1514" ph="INSERT INTO clientaccountbalance... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/database_scheme/create_schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="159" lean-forward="false" selection-start-line="5" selection-start-column="146" selection-end-line="5" selection-end-column="159" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/database_scheme/insert_test_data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="116" lean-forward="true" selection-start-line="2" selection-start-column="116" selection-end-line="2" selection-end-column="116" />
+          <folding />
         </state>
       </provider>
     </entry>

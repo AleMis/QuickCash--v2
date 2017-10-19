@@ -6,29 +6,29 @@
 <mapper namespace="ClientKey">
 
     <resultMap id="result" type="ClientKey">
-        <result property="client_key_id" column="CLIENT_KEY_ID"/>
-        <result property="login" column="LOGIN"/>
-        <result property="password" column="PASSWORD"/>
+        <result property="client_key_id" column="client_key_id"/>
+        <result property="login" column="login"/>
+        <result property="password" column="password"/>
     </resultMap>
 
     <select id="selectLogin" resultMap="result">
-        SELECT LOGIN FROM clientkey WHERE LOGIN =#{login}
+        SELECT login FROM client_key WHERE login =#{login}
     </select>
 
     <select id="selectPassword" resultMap="result">
-        SELECT PASSWORD FROM clientkey WHERE PASSWORD =#{password}
+        SELECT password FROM client_key WHERE password =#{password}
     </select>
 
     <select id="selectClientKey" resultMap="result">
-        SELECT * FROM clientkey WHERE  LOGIN =#{login}
+        SELECT * FROM client_key WHERE  login =#{login}
     </select>
 
     <select id="selectAllClientKey" resultMap="result">
-        SELECT CLIENT_KEY_ID, LOGIN, PASSWORD FROM clientkey
+        SELECT client_key_id, login, password FROM client_key
     </select>
     
     <insert id="insertClientKey" parameterType="ClientKey">
-        INSERT INTO clientkey (LOGIN, PASSWORD)
+        INSERT INTO client_key (login, password)
         VALUES (#{login}, #{password});
     </insert>
 

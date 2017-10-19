@@ -1,11 +1,9 @@
 package pl.my.quickcash.controllers.client;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientAccountDAO;
+import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientKey;
 
@@ -14,6 +12,9 @@ import java.math.BigDecimal;
 public class WithdrawMoneyPanelController {
     @FXML private TextField amountTextField;
     @FXML private Label statusLabel;
+
+    private static final String UPDATE_CLIENT_ACCOUNT = "ClientAccount.updateClientAccountBalance";
+    private static final String SELECT_CLIENT_ACCUNT = "ClientAccount.selectClientAccount";
 
     private ClientKey clientKey;
 
@@ -36,8 +37,7 @@ public class WithdrawMoneyPanelController {
     }
 
     public void checkAccountBalance() {
-        ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientAccount payer = clientAccountDAO.selectClientAccount(getClientKey().getClient_key_id());
+        ClientAccount payer = (ClientAccount) CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
 
         BigDecimal payerBalance = payer.getAccountBalance();
         BigDecimal noMoney = new BigDecimal(0.00);
@@ -51,8 +51,7 @@ public class WithdrawMoneyPanelController {
         }else {
             BigDecimal payerAcctualBalance = payerBalance.subtract(getAmount());
             payer.setAccountBalance(payerAcctualBalance);
-            clientAccountDAO.updateClientAccountBalance(payer);
-
+            CommunicationDAO.update(UPDATE_CLIENT_ACCOUNT, payer);
             statusLabel.setText("Transfer completed!");
         }
     }

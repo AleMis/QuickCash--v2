@@ -59,38 +59,4 @@ public class ClientKeyDAO {
         System.out.println(pass);
         return pass;
     }
-
-    public ClientKey getClientKey(String login) {
-        ClientKey clientKey = null;
-        SqlSession session = sqlSessionFactory.openSession();
-        try {
-            clientKey = session.selectOne("ClientKey.selectClientKey", login);
-        } finally {
-            session.close();
-        }
-        return clientKey;
-    }
-
-    public List<ClientKey> selectAllClientKey() {
-        List<ClientKey> list = null;
-        SqlSession session = sqlSessionFactory.openSession();
-
-        try {
-            list = session.selectList("ClientKey.selectAllClientKey");
-        } finally {
-            session.close();
-        }
-        return list;
-    }
-
-    public void insertClientKey(ClientKey clientKey) {
-        SqlSession session = sqlSessionFactory.openSession();
-
-        try {
-            session.insert("ClientKey.insertClientKey", clientKey);
-        } finally {
-            session.commit();
-            session.close();
-        }
-    }
 }

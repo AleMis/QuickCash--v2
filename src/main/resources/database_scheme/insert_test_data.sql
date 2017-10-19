@@ -1,20 +1,29 @@
-INSERT INTO quickcash.clientkey (LOGIN, PASSWORD) VALUES('test', '123');
-INSERT INTO quickcash.clientpersonaldata(FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER, CLIENT_KEY_ID)
-VALUES ('Jan', 'Nowak', '90013111111', 'APR00000', 'Poland', 'Mazowieckie', 'Warszawa', 'Ujazdowska', '22', '2', (SELECT CLIENT_KEY_ID FROM  quickcash.clientkey WHERE LOGIN='test'));
-INSERT INTO quickcash.clientcontactdetails(COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD, CLIENT_KEY_ID)
-VALUES('Poland', 'Mazowieckie', 'Warszawa', 'Ujazdowska', '22', '2', (SELECT CLIENT_KEY_ID FROM  quickcash.clientkey WHERE LOGIN='test'));
-INSERT INTO quickcash.clientaccountbalance (ACCOUNT_BALANCE, ACCOUNT_NUMBER, CLIENT_KEY_ID) VALUES(2000, '32112', (SELECT CLIENT_KEY_ID FROM  quickcash.clientkey WHERE LOGIN='test'));
+INSERT INTO quickcash.client_key (login, password)
+VALUES
+('test', '123'),
+('test2', '321');
 
+INSERT INTO quickcash.client_personal_data(first_name, last_name, pesel, id_card, country, voivodeship, city, street, building_number, flat_number, client_key_id)
+VALUES
+('Jan', 'Nowak', '990031113123', 'APR00000', 'Poland', 'Mazowieckie', 'Warszawa', 'Ujazdowska', '22', '2', (SELECT client_key_id FROM  quickcash.client_key WHERE login='test')),
+('Adam', 'Kowalski', '90011144321', 'APR11111', 'Poland', 'Dolnośląskie', 'Wrocław', 'Sokola', '12', '3', (SELECT client_key_id FROM  quickcash.client_key WHERE login='test2'));
 
-INSERT INTO quickcash.clientkey (LOGIN, PASSWORD) VALUES('test2', '321');
-INSERT INTO quickcash.clientpersonaldata(FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER, CLIENT_KEY_ID)
-VALUES ('Adam', 'Kowalski', '90011144321', 'APR11111', 'Poland', 'Dolnośląskie', 'Wrocław', 'Sokola', '12', '3', (SELECT CLIENT_KEY_ID FROM  quickcash.clientkey WHERE LOGIN='test2'));
-INSERT INTO quickcash.clientcontactdetails(COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD, CLIENT_KEY_ID)
-VALUES('Poland', 'Dolnośląskie', 'Wrocław', 'Sokola', '12', '3', (SELECT CLIENT_KEY_ID FROM  quickcash.clientkey WHERE LOGIN='test2'));
-INSERT INTO quickcash.clientaccountbalance (ACCOUNT_BALANCE, ACCOUNT_NUMBER, CLIENT_KEY_ID) VALUES(1000, '22222', (SELECT CLIENT_KEY_ID FROM  quickcash.clientkey WHERE LOGIN='test2'));
+INSERT INTO quickcash.client_contact_details(country_cd, voivodeship_cd, city_cd, street_cd, building_number_cd, flat_number_cd, client_key_id)
+VALUES
+('Poland', 'Mazowieckie', 'Warszawa', 'Ujazdowska', '22', '2', (SELECT client_key_id FROM  quickcash.client_key WHERE login='test')),
+('Poland', 'Dolnośląskie', 'Wrocław', 'Sokola', '12', '3', (SELECT client_key_id FROM  quickcash.client_key WHERE login='test2'));
 
-INSERT INTO quickcash.employeeskey (LOGIN, PASSWORD) VALUES('employee1', '111');
-INSERT INTO quickcash.employessdata (FIRST_NAME, LAST_NAME, EMPLOYEE_POSITION, EMPLOYEE_KEY_ID) VALUES('Marek', 'Nowacki', 'Key Account Manager', (SELECT EMPLOYEE_KEY_ID FROM  quickcash.employeeskey WHERE LOGIN='employee1'));
+INSERT INTO quickcash.client_account_balance (account_balance, account_number, client_key_id)
+VALUES
+(2000, '32112', (SELECT client_key_id FROM  quickcash.client_key WHERE login='test')),
+(1000, '22222', (SELECT client_key_id FROM  quickcash.client_key WHERE login='test2'));
 
-INSERT INTO quickcash.employeeskey (LOGIN, PASSWORD) VALUES('employee2', '222');
-INSERT INTO quickcash.employessdata (FIRST_NAME, LAST_NAME, EMPLOYEE_POSITION, EMPLOYEE_KEY_ID) VALUES('Darek', 'Darkowski', 'CEO', (SELECT EMPLOYEE_KEY_ID FROM  quickcash.employeeskey WHERE LOGIN='employee2'));
+INSERT INTO quickcash.employees_key (login, password)
+VALUES
+  ('employee1', '111'),
+  ('employee2', '222');
+
+INSERT INTO quickcash.employees_data (first_name, last_name, employee_position, employee_key_id)
+VALUES
+('Marek', 'Nowacki', 'Key Account Manager', (SELECT employee_key_id FROM  quickcash.employees_key WHERE login='employee1')),
+('Darek', 'Darkowski', 'CEO', (SELECT employee_key_id FROM  quickcash.employees_key WHERE login='employee2'));

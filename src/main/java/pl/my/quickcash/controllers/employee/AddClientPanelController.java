@@ -2,8 +2,8 @@ package pl.my.quickcash.controllers.employee;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientAccountDAO;
 import pl.my.quickcash.dao.clients.ClientContactDetailsDAO;
 import pl.my.quickcash.dao.clients.ClientKeyDAO;
 import pl.my.quickcash.dao.clients.ClientPersonalDataDAO;
@@ -15,6 +15,11 @@ import java.util.Optional;
 import java.util.Random;
 
 public class AddClientPanelController {
+
+    private static final String INSERT_CLIENT_KEY = "ClientKey.insertClientKey";
+    private static final String GET_CLIENT_KEY_BY_LOGIN = "ClientKey.selectClientKey";
+    private static final String INSERT_CLIENT_ACCOUNT = "ClientAccount.insertClientAccount";
+
     //personal information text fields
     @FXML private TextField firstNameTextField;
     @FXML private TextField idNumberTextField;
@@ -215,9 +220,10 @@ public class AddClientPanelController {
         ClientPersonalDataDAO clientPersonalDataDAO = new ClientPersonalDataDAO(MyBatisConnectionFactory.getSqlSessionFactory());
         ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
         ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        clientKeyDAO.insertClientKey(clientKey);
 
-        ClientKey key = clientKeyDAO.getClientKey(clientKey.getLogin());
+        CommunicationDAO.insert(INSERT_CLIENT_KEY, clientKey);
+
+        ClientKey key = (ClientKey) CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN,clientKey.getLogin());
 
         clientPersonalData.setClient_key_id(key.getClient_key_id());
         clientContactDetails.setClient_key_id(key.getClient_key_id());
@@ -225,7 +231,7 @@ public class AddClientPanelController {
 
         clientPersonalDataDAO.insertClientPersonalData(clientPersonalData);
         clientContactDetailsDAO.insertClientContactDetails(clientContactDetails);
-        clientAccountDAO.insertClientAccount(clientAccount);
+        CommunicationDAO.insert(INSERT_CLIENT_ACCOUNT, clientAccount);
     }
 
     public void enablePersonalInformationTextFields() {

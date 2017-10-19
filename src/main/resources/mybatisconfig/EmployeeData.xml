@@ -6,12 +6,12 @@
 <mapper namespace="EmployeeData">
 
     <resultMap id="result" type="EmployeeData">
-        <result property="firstName" column="FIRST_NAME"/>
-        <result property="lastName" column="LAST_NAME"/>
-        <result property="position" column="EMPLOYEE_POSITION"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+        <result property="position" column="employee_position"/>
     </resultMap>
 
     <select id="selectEmployeeData" resultMap="result">
-        SELECT FIRST_NAME, LAST_NAME, EMPLOYEE_POSITION FROM employessdata WHERE EMPLOYEE_KEY_ID =#{employee_key_id}
+        SELECT first_name, last_name, employee_position FROM employees_data WHERE employee_key_id =#{employee_key_id}
     </select>
 </mapper>

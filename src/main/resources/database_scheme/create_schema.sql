@@ -1,18 +1,17 @@
-CREATE TABLE quickcash.clientkey (CLIENT_KEY_ID INT NOT NULL AUTO_INCREMENT, LOGIN TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, PASSWORD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, PRIMARY KEY (CLIENT_KEY_ID)) ENGINE = InnoDB;
+CREATE TABLE quickcash.client_key (client_key_id SERIAL PRIMARY KEY, login VARCHAR(12) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, password VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL) ENGINE = InnoDB;
 
-CREATE TABLE quickcash.clientpersonaldata (CLIENT_PD_ID INT NOT NULL AUTO_INCREMENT, FIRST_NAME  TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, LAST_NAME  TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PESEL TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, ID_CARD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, COUNTRY TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  VOIVODESHIP TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CITY TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, STREET TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  BUILDING_NUMBER TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, FLAT_NUMBER TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CLIENT_KEY_ID  INT NOT NULL,  PRIMARY KEY (CLIENT_PD_ID), FOREIGN KEY (CLIENT_KEY_ID) REFERENCES quickcash.clientkey(CLIENT_KEY_ID)) ENGINE = InnoDB;
+CREATE TABLE quickcash.client_personal_data (client_pd_id SERIAL PRIMARY KEY, first_name  VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, last_name  VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                                             pesel VARCHAR(11) NOT NULL, id_card VARCHAR(9) NOT NULL, country VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                                             voivodeship VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, city VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, street VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                                             building_number VARCHAR(10) NOT NULL, flat_number VARCHAR(10) NOT NULL, client_key_id  BIGINT UNSIGNED NOT NULL,  FOREIGN KEY (client_key_id) REFERENCES quickcash.client_key(client_key_id)) ENGINE = InnoDB;
 
-CREATE TABLE quickcash.clientcontactdetails (CLIENT_CD_ID INT NOT NULL AUTO_INCREMENT, COUNTRY_CD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, VOIVODESHIP_CD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  CITY_CD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, STREET_CD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, BUILDING_NUMBER_CD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  FLAT_NUMBER_CD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CLIENT_KEY_ID  INT NOT NULL, PRIMARY KEY (CLIENT_CD_ID), FOREIGN KEY (CLIENT_KEY_ID) REFERENCES quickcash.clientkey(CLIENT_KEY_ID)) ENGINE = InnoDB;
+CREATE TABLE quickcash.client_contact_details (client_cd_id SERIAL PRIMARY KEY, country_cd VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, voivodeship_cd VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                                               city_cd VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, street_cd VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, building_number_cd VARCHAR(10) NOT NULL,
+                                               flat_number_cd VARCHAR(30) NOT NULL, client_key_id  BIGINT UNSIGNED NOT NULL, FOREIGN KEY (client_key_id) REFERENCES quickcash.client_key(client_key_id)) ENGINE = InnoDB;
 
-CREATE TABLE quickcash.clientaccountbalance (CLIENT_AB_ID INT NOT NULL AUTO_INCREMENT, ACCOUNT_BALANCE  DECIMAL NOT NULL, ACCOUNT_NUMBER TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CLIENT_KEY_ID INT NOT NULL,PRIMARY KEY (CLIENT_AB_ID), FOREIGN KEY (CLIENT_KEY_ID) REFERENCES quickcash.clientkey(CLIENT_KEY_ID)) ENGINE = InnoDB;
+CREATE TABLE quickcash.client_account_balance (client_ab_id SERIAL PRIMARY KEY, account_balance  DECIMAL(13,2) NOT NULL, account_number VARCHAR(30) NOT NULL, client_key_id BIGINT UNSIGNED NOT NULL, FOREIGN KEY (client_key_id) REFERENCES quickcash.client_key(client_key_id)) ENGINE = InnoDB;
 
-CREATE TABLE quickcash.employeeskey (EMPLOYEE_KEY_ID INT NOT NULL AUTO_INCREMENT, LOGIN TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, PASSWORD TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, PRIMARY KEY (EMPLOYEE_KEY_ID)) ENGINE = InnoDB;
+CREATE TABLE quickcash.employees_key (employee_key_id SERIAL PRIMARY KEY, login VARCHAR(12) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, password VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL) ENGINE = InnoDB;
 
-CREATE TABLE quickcash.employessdata (EMPLOYEE_DATA_ID INT NOT NULL AUTO_INCREMENT, FIRST_NAME TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, LAST_NAME TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  EMPLOYEE_POSITION TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, EMPLOYEE_KEY_ID INT NOT NULL, PRIMARY KEY (EMPLOYEE_DATA_ID), FOREIGN KEY (EMPLOYEE_KEY_ID) REFERENCES quickcash.employeeskey(EMPLOYEE_KEY_ID)) ENGINE = InnoDB;
-
+CREATE TABLE quickcash.employees_data (employee_data_id SERIAL PRIMARY KEY, first_name VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, last_name VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                                       employee_position VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, employee_key_id BIGINT UNSIGNED NOT NULL, FOREIGN KEY (employee_key_id) REFERENCES quickcash.employees_key(employee_key_id)) ENGINE = InnoDB;

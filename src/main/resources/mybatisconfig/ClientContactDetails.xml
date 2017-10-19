@@ -6,39 +6,39 @@
 <mapper namespace="ClientContactDetails">
 
     <resultMap id="result" type="ClientContactDetails">
-        <result property="countryCD" column="COUNTRY_CD"/>
-        <result property="voivodeshipCD" column="VOIVODESHIP_CD"/>
-        <result property="cityCD" column="CITY_CD"/>
-        <result property="streetCD" column="STREET_CD"/>
-        <result property="buildingNumberCD" column="BUILDING_NUMBER_CD"/>
-        <result property="flatNumberCD" column="FLAT_NUMBER_CD"/>
-        <result property="client_key_id" column="CLIENT_KEY_ID"/>
+        <result property="countryCD" column="country_cd"/>
+        <result property="voivodeshipCD" column="voivodeship_cd"/>
+        <result property="cityCD" column="city_cd"/>
+        <result property="streetCD" column="street_cd"/>
+        <result property="buildingNumberCD" column="building_number_cd"/>
+        <result property="flatNumberCD" column="flat_number_cd"/>
+        <result property="client_key_id" column="client_key_id"/>
     </resultMap>
 
     <select id="selectClientContactDetails" resultMap="result">
-        SELECT COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD, CLIENT_KEY_ID
-        FROM clientcontactdetails
-        WHERE CLIENT_KEY_ID =#{client_key_id}
+        SELECT country_cd, voivodeship_cd, city_cd, street_cd, building_number_cd, flat_number_cd, client_key_id
+        FROM client_contact_details
+        WHERE client_key_id =#{client_key_id}
     </select>
 
     <select id="selectAllClientContactDetails" resultMap="result">
-        SELECT COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD
-        FROM clientcontactdetails
+        SELECT country_cd, voivodeship_cd, city_cd, street_cd, building_number_cd, flat_number_cd
+        FROM client_contact_details
     </select>
 
     <update id="updateClientContactDetails" parameterType="ClientContactDetails">
-        UPDATE clientcontactdetails
-        SET COUNTRY_CD = #{countryCD},
-        VOIVODESHIP_CD = #{voivodeshipCD},
-        CITY_CD = #{cityCD},
-        STREET_CD = #{streetCD},
-        BUILDING_NUMBER_CD = #{buildingNumberCD},
-        FLAT_NUMBER_CD = #{flatNumberCD}
-        WHERE CLIENT_KEY_ID =#{client_key_id}
+        UPDATE client_contact_details
+        SET country_cd = #{countryCD},
+            voivodeship_cd = #{voivodeshipCD},
+            city_cd = #{cityCD},
+            street_cd = #{streetCD},
+            building_number_cd = #{buildingNumberCD},
+            flat_number_cd = #{flatNumberCD}
+        WHERE client_key_id =#{client_key_id}
     </update>
 
     <insert id="insertClientContactDetails" parameterType="ClientContactDetails">
-        INSERT INTO clientcontactdetails (COUNTRY_CD, VOIVODESHIP_CD, CITY_CD, STREET_CD, BUILDING_NUMBER_CD, FLAT_NUMBER_CD, CLIENT_KEY_ID)
+        INSERT INTO client_contact_details (country_cd, voivodeship_cd, city_cd, street_cd, building_number_cd, flat_number_cd, client_key_id)
         VALUES (#{countryCD}, #{voivodeshipCD}, #{cityCD}, #{streetCD}, #{buildingNumberCD}, #{flatNumberCD}, #{client_key_id});
     </insert>
 </mapper>

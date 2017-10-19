@@ -6,36 +6,36 @@
 <mapper namespace="ClientAccount">
 
     <resultMap id="result" type="ClientAccount">
-        <result property="accountBalance" column="ACCOUNT_BALANCE"/>
-        <result property="accountNumber" column="ACCOUNT_NUMBER"/>
-        <result property="client_key_id" column="CLIENT_KEY_ID"/>
+        <result property="accountBalance" column="account_balance"/>
+        <result property="accountNumber" column="account_number"/>
+        <result property="client_key_id" column="client_key_id"/>
     </resultMap>
 
     <select id="selectClientAccount" resultMap="result">
-        SELECT ACCOUNT_BALANCE, ACCOUNT_NUMBER, CLIENT_KEY_ID
-        FROM clientaccountbalance
-        WHERE CLIENT_KEY_ID=#{client_key_id}
+        SELECT account_balance, account_number, client_key_id
+        FROM client_account_balance
+        WHERE client_key_id=#{client_key_id}
     </select>
 
     <select id="selectClientAccountByAccountNumber" resultMap="result">
-        SELECT ACCOUNT_BALANCE, ACCOUNT_NUMBER, CLIENT_KEY_ID
-        FROM clientaccountbalance
-        WHERE ACCOUNT_NUMBER=#{accountNumber}
+        SELECT account_balance, account_number, client_key_id
+        FROM client_account_balance
+        WHERE account_number=#{accountNumber}
     </select>
 
     <select id="selectAllClientAccountB" resultMap="result">
-        SELECT ACCOUNT_BALANCE, ACCOUNT_NUMBER
-        FROM clientaccountbalance
+        SELECT account_balance, account_number
+        FROM client_account_balance
     </select>
 
     <update id="updateClientAccountBalance" parameterType="ClientAccount">
-        UPDATE clientaccountbalance
-        SET ACCOUNT_BALANCE =#{accountBalance}
-        WHERE CLIENT_KEY_ID=#{client_key_id}
+        UPDATE client_account_balance
+        SET account_balance =#{accountBalance}
+        WHERE client_key_id=#{client_key_id}
     </update>
 
     <insert id="insertClientAccount" parameterType="ClientAccount">
-        INSERT INTO clientaccountbalance (ACCOUNT_BALANCE, ACCOUNT_NUMBER, CLIENT_KEY_ID)
+        INSERT INTO client_account_balance (account_balance, account_number, client_key_id)
         VALUES (#{accountBalance}, #{accountNumber}, #{client_key_id});
     </insert>
 </mapper>

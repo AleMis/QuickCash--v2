@@ -2,23 +2,23 @@ package pl.my.quickcash.data.client;
 
 
 
+import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientAccountDAO;
 import pl.my.quickcash.dao.clients.ClientContactDetailsDAO;
-import pl.my.quickcash.dao.clients.ClientKeyDAO;
 import pl.my.quickcash.dao.clients.ClientPersonalDataDAO;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ClientsList {
+
+    private static final String SELECT_ALL_CLIENT_KEYS = "ClientKey.selectAllClientKey";
+    private static final String SELECT_ALL_CLIENT_ACCOUNT_B = "ClientAccount.selectAllClientAccountB";
 
     private static List<Client> list = new ArrayList<>();
 
     public static List<Client> createList() {
-        ClientKeyDAO clientKeyDAO = new ClientKeyDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        List<ClientKey> clientKeyList = clientKeyDAO.selectAllClientKey();
+        List<ClientKey> clientKeyList = CommunicationDAO.selectList(SELECT_ALL_CLIENT_KEYS);
 
         for(int i = 0; i<clientKeyList.size(); i++) {
             ClientKey clientKey = clientKeyList.get(i);
@@ -32,11 +32,10 @@ public class ClientsList {
     private static List<ClientData> createClientDataLsit() {
         ClientPersonalDataDAO clientPersonalDataDAO = new ClientPersonalDataDAO(MyBatisConnectionFactory.getSqlSessionFactory());
         ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
 
         List<ClientPersonalData> clientPersonalDataList = clientPersonalDataDAO.selectAllClientPersonalData();
         List<ClientContactDetails> clientContactDetailsList = clientContactDetailsDAO.selectAllClientContactDetails();
-        List<ClientAccount> clientAccountList = clientAccountDAO.selectAllClientAccountB();
+        List<ClientAccount> clientAccountList = CommunicationDAO.selectList(SELECT_ALL_CLIENT_ACCOUNT_B);
 
         List<ClientData> clientDataList = new ArrayList<>();
 

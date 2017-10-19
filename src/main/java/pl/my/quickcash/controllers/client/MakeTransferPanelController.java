@@ -3,8 +3,7 @@ package pl.my.quickcash.controllers.client;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientAccountDAO;
+import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientKey;
 import java.math.BigDecimal;
@@ -14,6 +13,10 @@ public class MakeTransferPanelController {
     @FXML private TextField accountNumberTextField;
     @FXML private TextField amountTextField;
     @FXML private Label statusLabel;
+
+    private static final String UPDATE_CLIENT_ACCOUNT = "ClientAccount.updateClientAccountBalance";
+    private static final String SELECT_CLIENT_ACCOUNT_BY_ACCOUNT_NUMBER = "ClientAccount.selectClientAccountByAccountNumber";
+    private static final String SELECT_CLIENT_ACCUNT = "ClientAccount.selectClientAccount";
 
     private ClientKey clientKey;
     private ClientMainPanelController clientMainPanelController;
@@ -50,8 +53,7 @@ public class MakeTransferPanelController {
     }
 
     public boolean checkAccountNumber() {
-        ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientAccount clientAccount = clientAccountDAO.selectClientAccountByAccountNumber(getAccountNumber());
+        ClientAccount clientAccount = (ClientAccount) CommunicationDAO.selectByObject(SELECT_CLIENT_ACCOUNT_BY_ACCOUNT_NUMBER, getAccountNumber());
         boolean check = false;
         if(!clientAccount.getAccountNumber().equals(null)) {
             check = true;
@@ -60,9 +62,8 @@ public class MakeTransferPanelController {
     }
 
     public void checkAccountBalance() {
-        ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientAccount payer = clientAccountDAO.selectClientAccount(getClientKey().getClient_key_id());
-        ClientAccount reciever = clientAccountDAO.selectClientAccountByAccountNumber(getAccountNumber());
+        ClientAccount payer = (ClientAccount) CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
+        ClientAccount reciever = (ClientAccount) CommunicationDAO.selectByObject(SELECT_CLIENT_ACCOUNT_BY_ACCOUNT_NUMBER, getAccountNumber());
 
         BigDecimal payerBalance = payer.getAccountBalance();
         BigDecimal recieverBalance = reciever.getAccountBalance();
@@ -78,11 +79,11 @@ public class MakeTransferPanelController {
         }else {
             BigDecimal payerAcctualBalance = payerBalance.subtract(getAmountToTransfer());
             payer.setAccountBalance(payerAcctualBalance);
-            clientAccountDAO.updateClientAccountBalance(payer);
+            CommunicationDAO.update(UPDATE_CLIENT_ACCOUNT, payer);
 
             BigDecimal recieverAcctualBalance = recieverBalance.add(getAmountToTransfer());
             reciever.setAccountBalance(recieverAcctualBalance);
-            clientAccountDAO.updateClientAccountBalance(reciever);
+            CommunicationDAO.update(UPDATE_CLIENT_ACCOUNT,reciever);
 
             statusLabel.setText("Transfer completed!");
         }

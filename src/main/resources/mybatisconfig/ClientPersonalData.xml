@@ -6,31 +6,31 @@
 <mapper namespace="ClientPersonalData">
 
     <resultMap id="result" type="ClientPersonalData">
-        <result property="firstName" column="FIRST_NAME"/>
-        <result property="lastName" column="LAST_NAME"/>
-        <result property="pesel" column="PESEL"/>
-        <result property="idCard" column="ID_CARD"/>
-        <result property="country" column="COUNTRY"/>
-        <result property="voivodeship" column="VOIVODESHIP"/>
-        <result property="city" column="CITY"/>
-        <result property="street" column="STREET"/>
-        <result property="buildingNumber" column="BUILDING_NUMBER"/>
-        <result property="flatNumber" column="FLAT_NUMBER"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+        <result property="pesel" column="pesel"/>
+        <result property="idCard" column="id_card"/>
+        <result property="country" column="country"/>
+        <result property="voivodeship" column="voivodeship"/>
+        <result property="city" column="city"/>
+        <result property="street" column="street"/>
+        <result property="buildingNumber" column="building_number"/>
+        <result property="flatNumber" column="flat_number"/>
     </resultMap>
 
     <select id="selectClientPersonalData" resultMap="result">
-        SELECT FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER
-        FROM clientpersonaldata
-        WHERE CLIENT_KEY_ID =#{client_key_id}
+        SELECT first_name, last_name, pesel, id_card, country, voivodeship, city, street, building_number, flat_number
+        FROM client_personal_data
+        WHERE client_key_id =#{client_key_id}
     </select>
 
     <select id="selectAllClientPersonalData" resultMap="result">
-        SELECT FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER
-        FROM clientpersonaldata
+        SELECT first_name, last_name, pesel, id_card, country, voivodeship, city, street, building_number, flat_number
+        FROM client_personal_data
     </select>
 
     <insert id="insertClientPersonalData" parameterType="ClientPersonalData">
-        INSERT INTO clientpersonaldata (FIRST_NAME, LAST_NAME, PESEL, ID_CARD, COUNTRY, VOIVODESHIP, CITY, STREET, BUILDING_NUMBER, FLAT_NUMBER, CLIENT_KEY_ID)
+        INSERT INTO client_personal_data (first_name, last_name, pesel, id_card, country, voivodeship, city, street, building_number, flat_number, client_key_id)
         VALUES (#{firstName}, #{lastName}, #{pesel}, #{idCard}, #{country}, #{voivodeship}, #{city}, #{street}, #{buildingNumber}, #{flatNumber}, #{client_key_id});
     </insert>
 

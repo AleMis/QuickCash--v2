@@ -4,6 +4,7 @@ package pl.my.quickcash.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import java.math.BigInteger;
 import java.util.List;
 
 public class CommunicationDAO {
@@ -55,7 +56,7 @@ public class CommunicationDAO {
         return list;
     }
 
-    public static Object selectById(String statement, int id) {
+    public static Object selectById(String statement, BigInteger id) {
         Object object = null;
         SqlSession session = sqlSessionFactory.openSession();
 

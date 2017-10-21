@@ -5,6 +5,8 @@ import pl.my.quickcash.controllers.modelfx.ClientPersonalDataFx;
 import pl.my.quickcash.data.client.ClientContactDetails;
 import pl.my.quickcash.data.client.ClientPersonalData;
 
+import java.math.BigInteger;
+
 public class ClientContactDetailsConverter {
 
     public static ClientContactDetails convertToClientContactDetails(ClientContactDetailsFx clientContactDetailsFx) {
@@ -14,7 +16,7 @@ public class ClientContactDetailsConverter {
                                                                             clientContactDetailsFx.getStreetCD(),
                                                                             clientContactDetailsFx.getBuildingNumberCD(),
                                                                             clientContactDetailsFx.getFlatNumberCD(),
-                                                                            1);
+                                                                            new BigInteger("0"));
         return clientContactDetails;
     }
 

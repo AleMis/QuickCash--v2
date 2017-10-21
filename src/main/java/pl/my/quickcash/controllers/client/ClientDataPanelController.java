@@ -3,15 +3,17 @@ package pl.my.quickcash.controllers.client;
 import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientContactDetailsDAO;
-import pl.my.quickcash.dao.clients.ClientPersonalDataDAO;
+import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.client.*;
 import pl.my.quickcash.dialogs.DialogUtils;
 
 import java.util.Optional;
 
 public class ClientDataPanelController {
+
+    private static final String UPDATE_CLIENT_CONTACT_DETAILS = "ClientContactDetails.updateClientContactDetails";
+    private static final String SELECT_CLIENT_CONTACT_DETAILS_BY_ID = "ClientContactDetails.selectClientContactDetails";
+    private static final String SELECT_CLIENT_PERSONAL_DATA_BY_ID = "ClientPersonalData.selectClientPersonalData";
 
     @FXML private TextField firstNameTextField;
     @FXML private TextField idNumberTextField;
@@ -49,8 +51,7 @@ public class ClientDataPanelController {
     }
 
     public void initClientPersonalData() {
-        ClientPersonalDataDAO clientPersonalDataDAO = new ClientPersonalDataDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientPersonalData clientPersonalData = clientPersonalDataDAO.selectClientPersonalData(getClientKey().getClient_key_id());
+        ClientPersonalData clientPersonalData = (ClientPersonalData) CommunicationDAO.selectById(SELECT_CLIENT_PERSONAL_DATA_BY_ID, getClientKey().getClient_key_id());
 
         String firstName = clientPersonalData.getFirstName();
         String lastName = clientPersonalData.getLastName();
@@ -78,8 +79,7 @@ public class ClientDataPanelController {
     }
 
     public void initClientContactDetails() {
-        ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientContactDetails clientContactDetails = clientContactDetailsDAO.selectClientContactDetails(getClientKey().getClient_key_id());
+        ClientContactDetails clientContactDetails = (ClientContactDetails) CommunicationDAO.selectById(SELECT_CLIENT_CONTACT_DETAILS_BY_ID, getClientKey().getClient_key_id());
 
         String countryCD = clientContactDetails.getCountryCD();
         String voivodeshipCD = clientContactDetails.getVoivodeshipCD();
@@ -115,8 +115,7 @@ public class ClientDataPanelController {
     }
 
     public void saveChangesInContactDetails() {
-        ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientContactDetails clientContactDetails = clientContactDetailsDAO.selectClientContactDetails(getClientKey().getClient_key_id());
+        ClientContactDetails clientContactDetails = (ClientContactDetails) CommunicationDAO.selectById(SELECT_CLIENT_CONTACT_DETAILS_BY_ID, getClientKey().getClient_key_id());
 
         clientContactDetails.setCountryCD(countryCDTextField.getText());
         clientContactDetails.setVoivodeshipCD(voivodeshipCDTextField.getText());
@@ -125,7 +124,7 @@ public class ClientDataPanelController {
         clientContactDetails.setBuildingNumberCD(buildingNoCDTextField.getText());
         clientContactDetails.setFlatNumberCD(flatNoCDTextField.getText());
 
-        clientContactDetailsDAO.updateClientContactDetails(clientContactDetails);
+        CommunicationDAO.update(UPDATE_CLIENT_CONTACT_DETAILS,clientContactDetails);
         disableEditCDTextFields();
     }
 

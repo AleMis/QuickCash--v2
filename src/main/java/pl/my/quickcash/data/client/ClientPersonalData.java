@@ -1,5 +1,7 @@
 package pl.my.quickcash.data.client;
 
+import java.math.BigInteger;
+
 public class ClientPersonalData {
     private String firstName;
     private String lastName;
@@ -11,7 +13,7 @@ public class ClientPersonalData {
     private String street;
     private String buildingNumber;
     private String flatNumber;
-    private int client_key_id;
+    private BigInteger client_key_id;
 
     public ClientPersonalData(String firstName, String lastName, String pesel, String idCard, String country, String voivodeship, String city, String street, String buildingNumber, String flatNumber) {
         this.firstName = firstName;
@@ -25,7 +27,7 @@ public class ClientPersonalData {
         this.buildingNumber = buildingNumber;
         this.flatNumber = flatNumber;
     }
-    public ClientPersonalData(String firstName, String lastName, String pesel, String idCard, String country, String voivodeship, String city, String street, String buildingNumber, String flatNumber, int client_key_id) {
+    public ClientPersonalData(String firstName, String lastName, String pesel, String idCard, String country, String voivodeship, String city, String street, String buildingNumber, String flatNumber, BigInteger client_key_id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
@@ -121,18 +123,18 @@ public class ClientPersonalData {
         this.flatNumber = flatNumber;
     }
 
-    public int getClient_key_id() {
+    public BigInteger getClient_key_id() {
         return client_key_id;
     }
 
-    public void setClient_key_id(int client_key_id) {
+    public void setClient_key_id(BigInteger client_key_id) {
         this.client_key_id = client_key_id;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ClientPersonalData)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         ClientPersonalData that = (ClientPersonalData) o;
 
@@ -145,7 +147,8 @@ public class ClientPersonalData {
         if (!city.equals(that.city)) return false;
         if (!street.equals(that.street)) return false;
         if (!buildingNumber.equals(that.buildingNumber)) return false;
-        return flatNumber.equals(that.flatNumber);
+        if (!flatNumber.equals(that.flatNumber)) return false;
+        return client_key_id.equals(that.client_key_id);
     }
 
     @Override
@@ -160,6 +163,7 @@ public class ClientPersonalData {
         result = 31 * result + street.hashCode();
         result = 31 * result + buildingNumber.hashCode();
         result = 31 * result + flatNumber.hashCode();
+        result = 31 * result + client_key_id.hashCode();
         return result;
     }
 

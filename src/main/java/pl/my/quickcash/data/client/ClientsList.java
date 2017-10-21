@@ -3,9 +3,6 @@ package pl.my.quickcash.data.client;
 
 
 import pl.my.quickcash.dao.CommunicationDAO;
-import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientContactDetailsDAO;
-import pl.my.quickcash.dao.clients.ClientPersonalDataDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +11,8 @@ public class ClientsList {
 
     private static final String SELECT_ALL_CLIENT_KEYS = "ClientKey.selectAllClientKey";
     private static final String SELECT_ALL_CLIENT_ACCOUNT_B = "ClientAccount.selectAllClientAccountB";
+    private static final String SELECT_ALL_CLIENT_CONTACT_DETAILS = "ClientContactDetails.selectAllClientContactDetails";
+    private static final String SELECT_ALL_CLIENT_PERSONAL_DATA = "ClientPersonalData.selectAllClientPersonalData";
 
     private static List<Client> list = new ArrayList<>();
 
@@ -30,11 +29,8 @@ public class ClientsList {
     }
 
     private static List<ClientData> createClientDataLsit() {
-        ClientPersonalDataDAO clientPersonalDataDAO = new ClientPersonalDataDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-
-        List<ClientPersonalData> clientPersonalDataList = clientPersonalDataDAO.selectAllClientPersonalData();
-        List<ClientContactDetails> clientContactDetailsList = clientContactDetailsDAO.selectAllClientContactDetails();
+        List<ClientPersonalData> clientPersonalDataList =  CommunicationDAO.selectList(SELECT_ALL_CLIENT_PERSONAL_DATA);
+        List<ClientContactDetails> clientContactDetailsList = CommunicationDAO.selectList(SELECT_ALL_CLIENT_CONTACT_DETAILS);
         List<ClientAccount> clientAccountList = CommunicationDAO.selectList(SELECT_ALL_CLIENT_ACCOUNT_B);
 
         List<ClientData> clientDataList = new ArrayList<>();

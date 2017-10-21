@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import pl.my.quickcash.controllers.general.LoginController;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientKeyDAO;
+import pl.my.quickcash.dao.ClientKeyDAO;
 import pl.my.quickcash.data.client.ClientKey;
 
 public class ClientLoginPanelController {

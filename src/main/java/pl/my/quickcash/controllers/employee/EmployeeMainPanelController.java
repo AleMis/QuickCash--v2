@@ -11,8 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import pl.my.quickcash.controllers.modelfx.ControllFx;
-import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.employee.EmployeeDataDAO;
+import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.employee.EmployeeData;
 import pl.my.quickcash.data.employee.EmployeeKey;
 import pl.my.quickcash.dialogs.DialogUtils;
@@ -24,6 +23,7 @@ public class EmployeeMainPanelController {
 
     private static final String ADD_CLIENT_FXML = "/fxml/AddClientPanel.fxml";
     private static final String SHOW_CLIENTSDATABASE_FXML = "/fxml/ClientsDatabasePanel.fxml";
+    private static final String SELECT_EMPLOYEE_BY_ID = "EmployeeData.selectEmployeeData";
 
     private EmployeeKey employeeKey;
 
@@ -42,8 +42,7 @@ public class EmployeeMainPanelController {
     @FXML private Label employeePositionLabel;
 
     public void initSession() {
-        EmployeeDataDAO employeeDataDAO = new EmployeeDataDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        EmployeeData employeeData = employeeDataDAO.selectEmployeeData(getEmployeeKey().getEmployee_key_id());
+        EmployeeData employeeData = (EmployeeData) CommunicationDAO.selectById(SELECT_EMPLOYEE_BY_ID,getEmployeeKey().getEmployee_key_id());
         employeeNameLabel.setText(employeeData.getFirstName() + " " + employeeData.getLastName());
         employeePositionLabel.setText(employeeData.getPosition());
     }
@@ -80,7 +79,6 @@ public class EmployeeMainPanelController {
         controllFx.initDatabase();
         ClientsDatabasePanelController controller = loader.getController();
         controller.setControllFx(controllFx);
-
     }
 
     public void setCaspian() {

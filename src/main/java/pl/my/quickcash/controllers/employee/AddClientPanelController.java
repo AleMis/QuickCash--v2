@@ -3,14 +3,11 @@ package pl.my.quickcash.controllers.employee;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import pl.my.quickcash.dao.CommunicationDAO;
-import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.clients.ClientContactDetailsDAO;
-import pl.my.quickcash.dao.clients.ClientKeyDAO;
-import pl.my.quickcash.dao.clients.ClientPersonalDataDAO;
 import pl.my.quickcash.data.client.*;
 import pl.my.quickcash.data.employee.EmployeeKey;
 import pl.my.quickcash.dialogs.DialogUtils;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Optional;
 import java.util.Random;
 
@@ -19,6 +16,8 @@ public class AddClientPanelController {
     private static final String INSERT_CLIENT_KEY = "ClientKey.insertClientKey";
     private static final String GET_CLIENT_KEY_BY_LOGIN = "ClientKey.selectClientKey";
     private static final String INSERT_CLIENT_ACCOUNT = "ClientAccount.insertClientAccount";
+    private static final String INSERT_CLIENT_CONTACT_DETAILS = "ClientContactDetails.insertClientContactDetails";
+    private static final String INSERT_CLIENT_PERSONAL_DATAT = "ClientPersonalData.insertClientPersonalData";
 
     //personal information text fields
     @FXML private TextField firstNameTextField;
@@ -90,7 +89,7 @@ public class AddClientPanelController {
                         clientPersonalData.getCity(),
                         clientPersonalData.getStreet(),
                         clientPersonalData.getBuildingNumber(),
-                        clientPersonalData.getFlatNumber(), 0);
+                        clientPersonalData.getFlatNumber(), new BigInteger("0"));
 
                         countryCDTextField.setText(clientPersonalData.getCountry());
                         voivodeshipCDTextField.setText(clientPersonalData.getVoivodeship());
@@ -136,7 +135,7 @@ public class AddClientPanelController {
         String flatNo = flatNoTextField.getText();
 
         ClientPersonalData clientPersonalData = new ClientPersonalData(firstName, lastName, pesel, idcard, country,
-                                                                        voivodeship,city,street,buildingNo,flatNo,0);
+                                                                        voivodeship,city,street,buildingNo,flatNo, new BigInteger("0"));
         return clientPersonalData;
     }
 
@@ -216,21 +215,15 @@ public class AddClientPanelController {
     }
 
     public void saveInDatabase() {
-        ClientKeyDAO clientKeyDAO = new ClientKeyDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientPersonalDataDAO clientPersonalDataDAO = new ClientPersonalDataDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientContactDetailsDAO clientContactDetailsDAO = new ClientContactDetailsDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-        ClientAccountDAO clientAccountDAO = new ClientAccountDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-
         CommunicationDAO.insert(INSERT_CLIENT_KEY, clientKey);
-
         ClientKey key = (ClientKey) CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN,clientKey.getLogin());
 
         clientPersonalData.setClient_key_id(key.getClient_key_id());
         clientContactDetails.setClient_key_id(key.getClient_key_id());
         clientAccount.setClient_key_id(key.getClient_key_id());
 
-        clientPersonalDataDAO.insertClientPersonalData(clientPersonalData);
-        clientContactDetailsDAO.insertClientContactDetails(clientContactDetails);
+        CommunicationDAO.insert(INSERT_CLIENT_PERSONAL_DATAT, clientPersonalData);
+        CommunicationDAO.insert(INSERT_CLIENT_CONTACT_DETAILS,clientContactDetails);
         CommunicationDAO.insert(INSERT_CLIENT_ACCOUNT, clientAccount);
     }
 

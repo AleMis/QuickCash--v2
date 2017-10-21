@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import pl.my.quickcash.controllers.general.LoginController;
 import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.employee.EmployeeKeyDAO;
+import pl.my.quickcash.dao.EmployeeKeyDAO;
 import pl.my.quickcash.data.employee.EmployeeKey;
 
 public class EmployeeLoginPanelController {

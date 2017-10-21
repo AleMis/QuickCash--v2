@@ -1,5 +1,7 @@
 package pl.my.quickcash.data.client;
 
+import java.math.BigInteger;
+
 public class ClientContactDetails {
 
     private String countryCD;
@@ -8,9 +10,9 @@ public class ClientContactDetails {
     private String streetCD;
     private String buildingNumberCD;
     private String flatNumberCD;
-    private int client_key_id;
+    private BigInteger client_key_id;
 
-    public ClientContactDetails(String countryCD, String voivodeshipCD, String cityCD, String streetCD, String buildingNumberCD, String flatNumberCD, int client_key_id) {
+    public ClientContactDetails(String countryCD, String voivodeshipCD, String cityCD, String streetCD, String buildingNumberCD, String flatNumberCD, BigInteger client_key_id) {
         this.countryCD = countryCD;
         this.voivodeshipCD = voivodeshipCD;
         this.cityCD = cityCD;
@@ -30,11 +32,11 @@ public class ClientContactDetails {
         this.flatNumberCD = flatNumberCD;
     }
 
-    public int getClient_key_id() {
+    public BigInteger getClient_key_id() {
         return client_key_id;
     }
 
-    public void setClient_key_id(int client_key_id) {
+    public void setClient_key_id(BigInteger client_key_id) {
         this.client_key_id = client_key_id;
     }
 
@@ -89,26 +91,28 @@ public class ClientContactDetails {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ClientContactDetails)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         ClientContactDetails that = (ClientContactDetails) o;
 
-        if (!getCountryCD().equals(that.getCountryCD())) return false;
-        if (!getVoivodeshipCD().equals(that.getVoivodeshipCD())) return false;
-        if (!getCityCD().equals(that.getCityCD())) return false;
-        if (!getStreetCD().equals(that.getStreetCD())) return false;
-        if (!getBuildingNumberCD().equals(that.getBuildingNumberCD())) return false;
-        return getFlatNumberCD().equals(that.getFlatNumberCD());
+        if (!countryCD.equals(that.countryCD)) return false;
+        if (!voivodeshipCD.equals(that.voivodeshipCD)) return false;
+        if (!cityCD.equals(that.cityCD)) return false;
+        if (!streetCD.equals(that.streetCD)) return false;
+        if (!buildingNumberCD.equals(that.buildingNumberCD)) return false;
+        if (!flatNumberCD.equals(that.flatNumberCD)) return false;
+        return client_key_id.equals(that.client_key_id);
     }
 
     @Override
     public int hashCode() {
-        int result = getCountryCD().hashCode();
-        result = 31 * result + getVoivodeshipCD().hashCode();
-        result = 31 * result + getCityCD().hashCode();
-        result = 31 * result + getStreetCD().hashCode();
-        result = 31 * result + getBuildingNumberCD().hashCode();
-        result = 31 * result + getFlatNumberCD().hashCode();
+        int result = countryCD.hashCode();
+        result = 31 * result + voivodeshipCD.hashCode();
+        result = 31 * result + cityCD.hashCode();
+        result = 31 * result + streetCD.hashCode();
+        result = 31 * result + buildingNumberCD.hashCode();
+        result = 31 * result + flatNumberCD.hashCode();
+        result = 31 * result + client_key_id.hashCode();
         return result;
     }
 

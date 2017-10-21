@@ -1,12 +1,14 @@
 package pl.my.quickcash.data.client;
 
+import java.math.BigInteger;
+
 public class ClientKey {
 
-    private int client_key_id;
+    private BigInteger client_key_id;
     private String login;
     private String password;
 
-    public ClientKey(int client_key_id, String login, String password) {
+    public ClientKey(BigInteger client_key_id, String login, String password) {
         this.client_key_id = client_key_id;
         this.login = login;
         this.password = password;
@@ -24,12 +26,12 @@ public class ClientKey {
         return login;
     }
 
-    public int getClient_key_id() {
+    public BigInteger getClient_key_id() {
         return client_key_id;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setClient_key_id(BigInteger client_key_id) {
+        this.client_key_id = client_key_id;
     }
 
     public String getPassword() {
@@ -48,14 +50,14 @@ public class ClientKey {
 
         ClientKey clientKey = (ClientKey) o;
 
-        if (client_key_id != clientKey.client_key_id) return false;
+        if (!client_key_id.equals(clientKey.client_key_id)) return false;
         if (!login.equals(clientKey.login)) return false;
         return password.equals(clientKey.password);
     }
 
     @Override
     public int hashCode() {
-        int result = client_key_id;
+        int result = client_key_id.hashCode();
         result = 31 * result + login.hashCode();
         result = 31 * result + password.hashCode();
         return result;

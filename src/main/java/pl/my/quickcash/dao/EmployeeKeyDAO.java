@@ -1,32 +1,26 @@
-package pl.my.quickcash.dao.clients;
-
+package pl.my.quickcash.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import pl.my.quickcash.data.client.Client;
-import pl.my.quickcash.data.client.ClientAccount;
-import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.data.employee.EmployeeKey;
 
-import java.util.List;
 
-public class ClientKeyDAO {
+public class EmployeeKeyDAO {
 
-    private SqlSessionFactory sqlSessionFactory = null;
+    private static SqlSessionFactory sqlSessionFactory = null;
 
-    public ClientKeyDAO(SqlSessionFactory sqlSessionFactory) {
+    public EmployeeKeyDAO(SqlSessionFactory sqlSessionFactory) {
         this.sqlSessionFactory = sqlSessionFactory;
     }
 
-    @SuppressWarnings("unchecked")
     public String getLoginFromMySQL (String login) {
         String log = null;
-        ClientKey clientKey = null;
+        EmployeeKey employeeKey = null;
         SqlSession session = sqlSessionFactory.openSession();
 
         try {
             try {
-                if (!session.selectOne("ClientKey.selectLogin", login).equals(null)) {
-                    clientKey = session.selectOne("ClientKey.selectLogin", login);
+                if (!session.selectOne("EmployeeKey.selectLogin", login).equals(null)) {
+                    employeeKey = session.selectOne("EmployeeKey.selectLogin", login);
                     log = login;
                 }
             }catch (NullPointerException e) {
@@ -41,13 +35,13 @@ public class ClientKeyDAO {
 
     public String getPasswordFromMySQL (String password) {
         String pass = null;
-        ClientKey clientKey = null;
+        EmployeeKey employeeKey = null;
         SqlSession session = sqlSessionFactory.openSession();
 
         try {
             try {
-                if (!session.selectOne("ClientKey.selectPassword", password).equals(null)) {
-                    clientKey = session.selectOne("ClientKey.selectPassword", password);
+                if (!session.selectOne("EmployeeKey.selectPassword", password).equals(null)) {
+                    employeeKey = session.selectOne("EmployeeKey.selectPassword", password);
                     pass = password;
                 }
             }catch (NullPointerException x) {
@@ -58,5 +52,16 @@ public class ClientKeyDAO {
         }
         System.out.println(pass);
         return pass;
+    }
+
+    public EmployeeKey getEmployeeKey(String login) {
+        EmployeeKey employeeKey = null;
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            employeeKey = session.selectOne("EmployeeKey.selectEmployeeKey", login);
+        } finally {
+            session.close();
+        }
+        return employeeKey;
     }
 }

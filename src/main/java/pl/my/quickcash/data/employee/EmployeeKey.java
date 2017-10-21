@@ -1,12 +1,14 @@
 package pl.my.quickcash.data.employee;
 
+import java.math.BigInteger;
+
 public class EmployeeKey {
 
-    private int employee_key_id;
+    private BigInteger employee_key_id;
     private String login;
     private String password;
 
-    public EmployeeKey(int employee_key_id, String login, String password) {
+    public EmployeeKey(BigInteger employee_key_id, String login, String password) {
         this.employee_key_id = employee_key_id;
         this.login = login;
         this.password = password;
@@ -20,7 +22,7 @@ public class EmployeeKey {
     public EmployeeKey() {
     }
 
-    public int getEmployee_key_id() {
+    public BigInteger getEmployee_key_id() {
         return employee_key_id;
     }
 
@@ -47,14 +49,14 @@ public class EmployeeKey {
 
         EmployeeKey that = (EmployeeKey) o;
 
-        if (employee_key_id != that.employee_key_id) return false;
+        if (!employee_key_id.equals(that.employee_key_id)) return false;
         if (!login.equals(that.login)) return false;
         return password.equals(that.password);
     }
 
     @Override
     public int hashCode() {
-        int result = employee_key_id;
+        int result = employee_key_id.hashCode();
         result = 31 * result + login.hashCode();
         result = 31 * result + password.hashCode();
         return result;

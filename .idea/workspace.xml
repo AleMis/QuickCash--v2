@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df39d7b3-4b6c-4538-91ff-de0010a19ca5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientContactDetailsDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientPersonalDataDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/employee/EmployeeDataDAO.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientKeyDAO.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/ClientKeyDAO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/employee/EmployeeKeyDAO.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/EmployeeKeyDAO.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/ClientKeyDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/EmployeeKeyDAO.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/Main.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeMainPanelController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/CommunicationDAO.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/CommunicationDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientAccount.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientAccount.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientContactDetails.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientContactDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientKey.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientPersonalData.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientPersonalData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientsList.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/client/ClientsList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/converter/ClientContactDetailsConverter.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/converter/ClientContactDetailsConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/employee/EmployeeKey.java" afterPath="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/employee/EmployeeKey.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -56,63 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommunicationDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/CommunicationDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="58" column="67" lean-forward="false" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientContactDetailsConverter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/converter/ClientContactDetailsConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="96" lean-forward="false" selection-start-line="18" selection-start-column="96" selection-end-line="18" selection-end-column="96" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddClientPanelController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="91" column="80" lean-forward="false" selection-start-line="91" selection-start-column="80" selection-end-line="91" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientDataPanelController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientDataPanelController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="53" column="163" lean-forward="false" selection-start-line="53" selection-start-column="163" selection-end-line="53" selection-end-column="163" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientKeyDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/ClientKeyDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EmployeeLoginPanelController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="381">
+              <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -509,7 +442,6 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/StarterPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/general/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/exceptions/LogException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/employee/EmployeeData.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/employee/EmployeeKeyDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientDatabaseDAO.java" />
@@ -525,7 +457,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mybatisconfig/ClientPersonalData.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatisconfig/EmployeeData.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatisconfig/EmployeeKey.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientKeyDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientMainPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/clients/ClientAccountDAO.java" />
@@ -549,6 +480,8 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/AddClientPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/CommunicationDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/converter/ClientContactDetailsConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java" />
       </list>
     </option>
   </component>
@@ -637,16 +570,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="quickcash" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="QuickCash-v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QuickCash-v2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="quickcash" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="employee" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="QuickCash-v2" type="b2602c69:ProjectViewProjectNode" />
@@ -909,12 +832,12 @@
       <workItem from="1508349842654" duration="1723000" />
       <workItem from="1508428928811" duration="1417000" />
       <workItem from="1508439027078" duration="8383000" />
-      <workItem from="1508515056700" duration="5666000" />
+      <workItem from="1508515056700" duration="7948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="286878000" />
+    <option name="totallyTimeSpent" value="289160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
@@ -1106,14 +1029,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/employee/EmployeeDatabaseDAO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/MyBatisConnectionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/MakeTransferPanelController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
@@ -1167,22 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/EmployeeKeyDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1361,16 +1260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/CommunicationDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="58" column="67" lean-forward="false" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/data/converter/ClientContactDetailsConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1379,18 +1268,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/MyBatisConnectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/CommunicationDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="58" column="67" lean-forward="false" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/client/ClientLoginPanelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="60" column="9" lean-forward="true" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/ClientKeyDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="357">
+          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/dao/EmployeeKeyDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/my/quickcash/controllers/employee/EmployeeLoginPanelController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="381">
+          <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
           <folding />
         </state>
       </provider>

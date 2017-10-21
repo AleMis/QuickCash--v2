@@ -8,11 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import pl.my.quickcash.controllers.general.LoginController;
-import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.EmployeeKeyDAO;
+import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.employee.EmployeeKey;
 
 public class EmployeeLoginPanelController {
+
+    private static final String SELECT_EMPLOYEE_KEY = "EmployeeKey.selectEmployeeKey";
 
     @FXML private Pane employeeLoginPanel;
     @FXML private TextField loginTextField;
@@ -37,16 +38,22 @@ public class EmployeeLoginPanelController {
     }
 
     private EmployeeKey authorize() {
-        EmployeeKeyDAO employeeKeyDAO = new EmployeeKeyDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        EmployeeKey employeeKey = null;
+        String login = null;
+        String password = null;
 
-        String login = employeeKeyDAO.getLoginFromMySQL(loginTextField.getText());
-        String password = employeeKeyDAO.getPasswordFromMySQL(passwordField.getText());
-
-        if (!login.equals(null) && !password.equals(null)) {
-            EmployeeKey employeeKey = employeeKeyDAO.getEmployeeKey(login);
-            return employeeKey;
-        } else {
-            return null;
+        try {
+            employeeKey = (EmployeeKey) CommunicationDAO.selectByString(SELECT_EMPLOYEE_KEY, loginTextField.getText());
+            login = employeeKey.getLogin();
+            password = employeeKey.getPassword();
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        } finally {
+            if (!(login == null) && !(password == null)) {
+                return employeeKey;
+            } else {
+                return null;
+            }
         }
     }
 }

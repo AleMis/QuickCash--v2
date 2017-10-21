@@ -9,8 +9,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import pl.my.quickcash.controllers.general.LoginController;
 import pl.my.quickcash.dao.CommunicationDAO;
-import pl.my.quickcash.dao.MyBatisConnectionFactory;
-import pl.my.quickcash.dao.ClientKeyDAO;
 import pl.my.quickcash.data.client.ClientKey;
 
 public class ClientLoginPanelController {
@@ -45,17 +43,21 @@ public class ClientLoginPanelController {
     }
 
     private ClientKey authorize() {
-        ClientKeyDAO clientKeyDAO = new ClientKeyDAO(MyBatisConnectionFactory.getSqlSessionFactory());
-
-        String login = clientKeyDAO.getLoginFromMySQL(loginTextField.getText());
-        String password = clientKeyDAO.getPasswordFromMySQL(passwordField.getText());
-
-        if (!login.equals(null) && !password.equals(null)) {
-            ClientKey clientKey = (ClientKey) CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN, login);
-            return clientKey;
-        } else {
-            return null;
+        ClientKey clientKey = null;
+        String password = null;
+        String login = null;
+        try {
+            clientKey = (ClientKey) CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN, loginTextField.getText());
+            login = clientKey.getLogin();
+            password = clientKey.getPassword();
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        } finally {
+            if (!(login == null) && !(password == null)) {
+                return clientKey;
+            } else {
+                return null;
+            }
         }
     }
-
 }

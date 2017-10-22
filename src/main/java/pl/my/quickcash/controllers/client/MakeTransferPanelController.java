@@ -53,7 +53,7 @@ public class MakeTransferPanelController {
     }
 
     public boolean checkAccountNumber() {
-        ClientAccount clientAccount = (ClientAccount) CommunicationDAO.selectByObject(SELECT_CLIENT_ACCOUNT_BY_ACCOUNT_NUMBER, getAccountNumber());
+        ClientAccount clientAccount = CommunicationDAO.selectByObject(SELECT_CLIENT_ACCOUNT_BY_ACCOUNT_NUMBER, getAccountNumber());
         boolean check = false;
         if(!clientAccount.getAccountNumber().equals(null)) {
             check = true;
@@ -62,8 +62,8 @@ public class MakeTransferPanelController {
     }
 
     public void checkAccountBalance() {
-        ClientAccount payer = (ClientAccount) CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
-        ClientAccount reciever = (ClientAccount) CommunicationDAO.selectByObject(SELECT_CLIENT_ACCOUNT_BY_ACCOUNT_NUMBER, getAccountNumber());
+        ClientAccount payer = CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
+        ClientAccount reciever = CommunicationDAO.selectByObject(SELECT_CLIENT_ACCOUNT_BY_ACCOUNT_NUMBER, getAccountNumber());
 
         BigDecimal payerBalance = payer.getAccountBalance();
         BigDecimal recieverBalance = reciever.getAccountBalance();

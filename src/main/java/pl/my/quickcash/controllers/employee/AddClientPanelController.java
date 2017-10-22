@@ -3,11 +3,18 @@ package pl.my.quickcash.controllers.employee;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import pl.my.quickcash.dao.CommunicationDAO;
-import pl.my.quickcash.data.client.*;
+import pl.my.quickcash.data.client.ClientAccount;
+import pl.my.quickcash.data.client.ClientContactDetails;
+import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.client.ClientPersonalData;
 import pl.my.quickcash.data.employee.EmployeeKey;
 import pl.my.quickcash.dialogs.DialogUtils;
+import pl.my.quickcash.password_security.SecurePassword;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Optional;
 import java.util.Random;
 
@@ -60,12 +67,15 @@ public class AddClientPanelController {
     }
 
     @FXML
-    public void addNewClient() {
+    public void addNewClient() throws InvalidKeySpecException, NoSuchAlgorithmException {
         if(!validationOfPersonalInformationTextFields()) {
             DialogUtils.dialogCheckPersonalInformation();
         }else if (!validationOfContactDetailsTextFields()) {
             DialogUtils.dialogCheckContactDetails();
-        }else if (validationOfPersonalInformationTextFields() && validationOfContactDetailsTextFields()) {
+        }else if(!validationOfClientAccountDetailsTextFields()) {
+            DialogUtils.dialogCheckClientAccountDetails();
+        }
+        else if (validationOfPersonalInformationTextFields() && validationOfContactDetailsTextFields() && validationOfClientAccountDetailsTextFields()) {
             Optional<ButtonType> result = DialogUtils.confirmationDialogForAddingNewClient();
             if(result.get() == ButtonType.OK) {
                 saveInDatabase();
@@ -184,6 +194,16 @@ public class AddClientPanelController {
         }
     }
 
+    private boolean validationOfClientAccountDetailsTextFields() {
+        if(     !loginTextField.getText().trim().isEmpty() &&
+                !passwordTextField.getText().trim().isEmpty() &&
+                !accountNumberTextField.getText().trim().isEmpty()) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     public ClientKey createClientKey() {
         ClientKey clientKey = new ClientKey(createClientLogin(), createClientPassword());
         return clientKey;
@@ -214,7 +234,10 @@ public class AddClientPanelController {
         flatNoCDTextField.clear();
     }
 
-    public void saveInDatabase() {
+    public void saveInDatabase() throws InvalidKeySpecException, NoSuchAlgorithmException {
+        String generatedSecuredPasswordHash = SecurePassword.generateStrongPasswordHash(clientKey.getPassword());
+        clientKey.setPassword(generatedSecuredPasswordHash);
+
         CommunicationDAO.insert(INSERT_CLIENT_KEY, clientKey);
         ClientKey key = (ClientKey) CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN,clientKey.getLogin());
 

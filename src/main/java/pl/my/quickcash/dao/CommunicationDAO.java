@@ -56,38 +56,36 @@ public class CommunicationDAO {
         return list;
     }
 
-    public static Object selectById(String statement, BigInteger id) {
-        Object object = null;
+    public static <T> T selectById(String statement, BigInteger id) {
         SqlSession session = sqlSessionFactory.openSession();
-
+        T result;
         try {
-            object = session.selectOne(statement, id);
+            result = session.selectOne(statement, id);
         }finally {
             session.close();
         }
-        return object;
+        return result;
     }
 
-    public static Object selectByString(String statement, String login) {
-        Object object = null;
+    public static <T> T selectByString(String statement, String login) {
         SqlSession session = sqlSessionFactory.openSession();
-
+        T result;
         try {
-            object = session.selectOne(statement, login);
+            result = session.selectOne(statement, login);
         }finally {
             session.close();
         }
-        return object;
+        return result;
     }
 
-    public static Object selectByObject(String statement, Object object) {
+    public static <T> T selectByObject(String statement, Object object) {
         SqlSession session = sqlSessionFactory.openSession();
-
+        T result;
         try {
-            object = session.selectOne(statement, object);
+            result = session.selectOne(statement, object);
         }finally {
             session.close();
         }
-        return object;
+        return result;
     }
 }

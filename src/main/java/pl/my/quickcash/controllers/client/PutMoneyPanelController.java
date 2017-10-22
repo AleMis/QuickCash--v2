@@ -28,11 +28,11 @@ public class PutMoneyPanelController {
 
     @FXML
     public void putMoney() {
-        ClientAccount account = (ClientAccount) CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
+        ClientAccount account = CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
 
         BigDecimal balance = account.getAccountBalance();
 
-        if (getAmount().equals("0.00") || getAmount().equals(null)) {
+        if ((getAmount().compareTo(BigDecimal.ZERO) ==0) || getAmount().equals(null)) {
             statusLabel.setText("Put the amount!");
         } else {
             BigDecimal acctualBalance = balance.add(getAmount()).setScale(2, BigDecimal.ROUND_CEILING);

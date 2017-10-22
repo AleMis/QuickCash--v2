@@ -70,4 +70,12 @@ public class DialogUtils {
         informationAlert.setContentText("Select check box if Contact Details are the same ase registered data.");
         informationAlert.showAndWait();
     }
+
+    public static void dialogCheckClientAccountDetails() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Adding New Client");
+        informationAlert.setHeaderText("You have to generate Client's Account Details!");
+        informationAlert.setContentText("Click the button to generate Client's Account Details in Client Account Details Lap");
+        informationAlert.showAndWait();
+    }
 }

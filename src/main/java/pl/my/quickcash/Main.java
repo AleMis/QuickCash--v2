@@ -26,6 +26,8 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         TestClient.createTestClients();
+        TestEmployee.createTestClients();
+
         Start start = new Start();
         start.showStarterPanel(stage);
         stage.setScene(Start.scene);

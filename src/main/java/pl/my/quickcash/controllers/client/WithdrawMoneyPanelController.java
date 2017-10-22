@@ -37,7 +37,7 @@ public class WithdrawMoneyPanelController {
     }
 
     public void checkAccountBalance() {
-        ClientAccount payer = (ClientAccount) CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
+        ClientAccount payer = CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
 
         BigDecimal payerBalance = payer.getAccountBalance();
         BigDecimal noMoney = new BigDecimal(0.00);

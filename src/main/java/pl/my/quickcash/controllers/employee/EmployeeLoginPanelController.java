@@ -13,8 +13,11 @@ import pl.my.quickcash.controllers.general.Start;
 import pl.my.quickcash.controllers.general.StarterPanelController;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.employee.EmployeeKey;
+import pl.my.quickcash.password_security.SecurePassword;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 public class EmployeeLoginPanelController {
 
@@ -30,7 +33,14 @@ public class EmployeeLoginPanelController {
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                EmployeeKey employeeKey = authorize();
+                EmployeeKey employeeKey = null;
+                try {
+                    employeeKey = authorize();
+                } catch (InvalidKeySpecException e) {
+                    e.printStackTrace();
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                }
                 if (employeeKey != null) {
                     loginController.employeeAuthenticated(employeeKey);
                 }else {
@@ -40,7 +50,7 @@ public class EmployeeLoginPanelController {
         });
     }
 
-    private EmployeeKey authorize() {
+    private EmployeeKey authorize() throws InvalidKeySpecException, NoSuchAlgorithmException {
         EmployeeKey employeeKey = null;
         String login = null;
         String password = null;
@@ -54,7 +64,7 @@ public class EmployeeLoginPanelController {
         } finally {
             if (login == null) {
                 return null;
-            }else if(!(login == null) && !(password.equals(passwordField.getText()))) {
+            }else if(!(login == null) && !SecurePassword.validatePassword(passwordField.getText(), password)) {
                 return null;
             } else {
                 return employeeKey;

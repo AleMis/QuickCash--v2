@@ -14,4 +14,9 @@
     <select id="selectEmployeeData" resultMap="result">
         SELECT first_name, last_name, employee_position FROM employees_data WHERE employee_key_id =#{employee_key_id}
     </select>
+
+    <insert id="insertEmployeeData" parameterType="EmployeeData">
+        INSERT INTO employees_data (first_name, last_name, employee_position, employee_key_id)
+        VALUES (#{firstName}, #{lastName}, #{position}, #{employee_key_id});
+    </insert>
 </mapper>

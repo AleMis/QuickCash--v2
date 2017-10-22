@@ -23,4 +23,10 @@
         SELECT * FROM employees_key WHERE  login =#{login}
     </select>
 
+    <insert id="insertEmployeeKey" parameterType="EmployeeKey">
+        INSERT INTO employees_key (login, password)
+        VALUES (#{login}, #{password});
+    </insert>
+
+
 </mapper>

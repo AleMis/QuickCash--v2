@@ -49,11 +49,7 @@ public class AddClientPanelController {
     @FXML private PasswordField passwordTextField;
     @FXML private TextField accountBalanceTextField;
     @FXML private TextField accountNumberTextField;
-
     @FXML private CheckBox copyContactDetailsCheckBox;
-
-    @FXML private Button changePasswordButton;
-    @FXML private Button clearFieldsButton;
 
     private EmployeeKey employeeKey;
     private Random theGenerator = new Random();
@@ -126,7 +122,7 @@ public class AddClientPanelController {
             generateNewClientAccount();
 
             loginTextField.setText(clientKey.getLogin());
-            passwordTextField.setText(clientKey.getPassword());
+            passwordTextField.setPromptText(clientKey.getPassword());
             accountNumberTextField.setText(clientAccount.getAccountNumber());
             accountBalanceTextField.setText(String.valueOf(clientAccount.getAccountBalance()));
         }
@@ -239,7 +235,7 @@ public class AddClientPanelController {
         clientKey.setPassword(generatedSecuredPasswordHash);
 
         CommunicationDAO.insert(INSERT_CLIENT_KEY, clientKey);
-        ClientKey key = (ClientKey) CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN,clientKey.getLogin());
+        ClientKey key = CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN,clientKey.getLogin());
 
         clientPersonalData.setClient_key_id(key.getClient_key_id());
         clientContactDetails.setClient_key_id(key.getClient_key_id());

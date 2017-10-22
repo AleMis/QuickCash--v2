@@ -4,18 +4,21 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import pl.my.quickcash.Main;
 import pl.my.quickcash.dialogs.DialogUtils;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class StarterPanelController {
 
     @FXML private Button clientButton;
     @FXML private Button employeeButton;
-    @FXML private Button cancelButton;
 
     private void initialize() {
     }
@@ -49,6 +52,16 @@ public class StarterPanelController {
             Platform.exit();
             System.exit(0);
         }
+    }
+
+    public static void backToStarterPanel() {
+        Start start = new Start();
+        start.showStarterPanel(Main.stage);
+        Main.stage.setScene(Start.scene);
+        Main.stage.setTitle("QUICK CASH APPLICATION");
+        Main.stage.show();
+        Main.stage.setWidth(420);
+        Main.stage.setHeight(180);
     }
 }
 

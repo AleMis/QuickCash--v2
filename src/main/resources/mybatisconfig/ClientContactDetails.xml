@@ -41,4 +41,8 @@
         INSERT INTO client_contact_details (country_cd, voivodeship_cd, city_cd, street_cd, building_number_cd, flat_number_cd, client_key_id)
         VALUES (#{countryCD}, #{voivodeshipCD}, #{cityCD}, #{streetCD}, #{buildingNumberCD}, #{flatNumberCD}, #{client_key_id});
     </insert>
+
+    <delete id="deleteClientContactDetails" parameterType="ClientContactDetails">
+        DELETE FROM client_contact_details WHERE client_key_id =#{client_key_id}
+    </delete>
 </mapper>

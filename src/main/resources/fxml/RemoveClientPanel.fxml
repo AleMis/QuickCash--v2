@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<SplitPane dividerPositions="0.1984924623115578" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="300.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.employee.RemoveClientPanelController">
+   <items>
+      <Pane prefHeight="154.0" prefWidth="598.0">
+         <children>
+            <TextField fx:id="searchField" layoutX="131.0" layoutY="16.0" />
+            <Button fx:id="searchButton" layoutX="292.0" layoutY="16.0" mnemonicParsing="false" onAction="#initializeSearch" text="Search" />
+            <Label layoutX="25.0" layoutY="20.0" text="Search by PESEL" />
+         </children>
+      </Pane>
+      <Pane prefHeight="266.0" prefWidth="598.0">
+         <children>
+            <TextField fx:id="firstNameField" layoutX="102.0" layoutY="23.0" />
+            <TextField fx:id="lastNameField" layoutX="352.0" layoutY="23.0" />
+            <TextField fx:id="peselField" layoutX="102.0" layoutY="55.0" />
+            <TextField fx:id="idCardField" layoutX="352.0" layoutY="55.0" />
+            <TextField fx:id="countryField" layoutX="102.0" layoutY="86.0" />
+            <TextField fx:id="voivodeshipField" layoutX="352.0" layoutY="86.0" />
+            <TextField fx:id="cityField" layoutX="102.0" layoutY="118.0" />
+            <TextField fx:id="streetField" layoutX="352.0" layoutY="118.0" />
+            <Label layoutX="5.0" layoutY="27.0" text="First Name" />
+            <Label layoutX="273.0" layoutY="27.0" text="Last Name" />
+            <Label layoutX="5.0" layoutY="59.0" text="PESEL" />
+            <Label layoutX="273.0" layoutY="59.0" text="ID CARD" />
+            <Label layoutX="5.0" layoutY="90.0" text="Country" />
+            <Label layoutX="273.0" layoutY="90.0" text="Voivodeship" />
+            <Label layoutX="6.0" layoutY="122.0" text="City" />
+            <Label layoutX="274.0" layoutY="122.0" text="Street" />
+            <TextField fx:id="buildingNoField" layoutX="102.0" layoutY="150.0" />
+            <TextField fx:id="flatNoField" layoutX="352.0" layoutY="150.0" />
+            <Label layoutX="274.0" layoutY="154.0" text="Flat Number" />
+            <Label layoutX="5.0" layoutY="154.0" text="Building Number" />
+            <Button fx:id="removeButton" layoutX="212.0" layoutY="183.0" mnemonicParsing="false" onAction="#removeClient" prefHeight="50.0" prefWidth="100.0" text="Remove Client From Database" textAlignment="JUSTIFY" wrapText="true" />
+         </children>
+      </Pane>
+   </items>
+</SplitPane>

@@ -44,8 +44,8 @@ public class LoginController {
             scene.setRoot((Parent) loader.load());
             ClientLoginPanelController controller = loader.<ClientLoginPanelController>getController();
                 controller.initClientKey(this);
-            stage.setHeight(250.0);
-            stage.setWidth(400.0);
+            stage.setHeight(220.0);
+            stage.setWidth(420.0);
         }catch(IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -71,8 +71,8 @@ public class LoginController {
             scene.setRoot((Parent) loader.load());
             EmployeeLoginPanelController controller = loader.<EmployeeLoginPanelController>getController();
             controller.initEmployeeKey(this);
-            stage.setHeight(250.0);
-            stage.setWidth(400.0);
+            stage.setHeight(220.0);
+            stage.setWidth(420.0);
         }catch(IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

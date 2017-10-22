@@ -17,26 +17,19 @@ import static javafx.application.Application.launch;
 
 public class Main extends Application{
 
+    public static final Stage stage = new Stage();
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static void main(String[] args) {
         launch(args);
-
-
-
-
-
-
-
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         TestClient.createTestClients();
-
         Start start = new Start();
-        start.showStarterPanel(primaryStage);
-        primaryStage.setScene(Start.scene);
-        primaryStage.setTitle("QUICK CASH APPLICATION");
-        primaryStage.show();
+        start.showStarterPanel(stage);
+        stage.setScene(Start.scene);
+        stage.setTitle("QUICK CASH APPLICATION");
+        stage.show();
     }
 }

@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import pl.my.quickcash.controllers.general.StarterPanelController;
 import pl.my.quickcash.controllers.modelfx.ControllFx;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.employee.EmployeeData;
@@ -23,6 +24,7 @@ public class EmployeeMainPanelController {
 
     private static final String ADD_CLIENT_FXML = "/fxml/AddClientPanel.fxml";
     private static final String SHOW_CLIENTSDATABASE_FXML = "/fxml/ClientsDatabasePanel.fxml";
+    private static final String REMOVE_CLIENT = "/fxml/RemoveClientPanel.fxml";
     private static final String SELECT_EMPLOYEE_BY_ID = "EmployeeData.selectEmployeeData";
 
     private EmployeeKey employeeKey;
@@ -42,9 +44,10 @@ public class EmployeeMainPanelController {
     @FXML private Label employeePositionLabel;
 
     public void initSession() {
-        EmployeeData employeeData = (EmployeeData) CommunicationDAO.selectById(SELECT_EMPLOYEE_BY_ID,getEmployeeKey().getEmployee_key_id());
+        EmployeeData employeeData = CommunicationDAO.selectById(SELECT_EMPLOYEE_BY_ID,getEmployeeKey().getEmployee_key_id());
         employeeNameLabel.setText(employeeData.getFirstName() + " " + employeeData.getLastName());
         employeePositionLabel.setText(employeeData.getPosition());
+        setModena();
     }
 
     public void closeApplication() {
@@ -69,6 +72,18 @@ public class EmployeeMainPanelController {
     }
 
     @FXML
+    public void initRemoveClient() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(REMOVE_CLIENT));
+        try {
+            employeeBorderPane.setCenter(loader.load());
+            RemoveClientPanelController controller = loader.<RemoveClientPanelController>getController();
+            controller.disableFields();
+        }catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
+    @FXML
     public void initShowClientsDatabase() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(SHOW_CLIENTSDATABASE_FXML));
         Stage stage = new Stage();
@@ -81,17 +96,23 @@ public class EmployeeMainPanelController {
         controller.setControllFx(controllFx);
     }
 
+    @FXML
     public void setCaspian() {
         Application.setUserAgentStylesheet(Application.STYLESHEET_CASPIAN);
     }
 
+    @FXML
     public void setModena() {
         Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
     }
 
+    @FXML
     public void about() {
         DialogUtils.dialogAboutApplication();
     }
 
-
+    @FXML
+    public void logout(){
+        StarterPanelController.backToStarterPanel();
+    }
 }

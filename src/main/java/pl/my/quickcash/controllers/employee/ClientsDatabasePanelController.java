@@ -1,33 +1,22 @@
 package pl.my.quickcash.controllers.employee;
 
-import com.sun.javafx.scene.control.skin.TableColumnHeader;
-import com.sun.javafx.scene.control.skin.VirtualScrollBar;
-import com.sun.rowset.internal.Row;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ListChangeListener;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.geometry.Orientation;
-import javafx.scene.Node;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.ScrollEvent;
-import pl.my.quickcash.controllers.modelfx.ClientDataFx;
-import pl.my.quickcash.controllers.modelfx.ClientFx;
-import pl.my.quickcash.controllers.modelfx.ClientKeyFx;
-import pl.my.quickcash.controllers.modelfx.ControllFx;
 
-import java.awt.print.Book;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import pl.my.quickcash.controllers.modelfx.ClientFx;
+import pl.my.quickcash.controllers.modelfx.ControllFx;
 import java.math.BigDecimal;
-import java.util.Set;
 
 
 public class ClientsDatabasePanelController {
 
+    @FXML private TextField searchField;
     @FXML private TableView<ClientFx> tableView;
     @FXML private TableColumn<ClientFx, String> loginColumn;
     @FXML private TableColumn<ClientFx, String> passwordColumn;
@@ -55,14 +44,14 @@ public class ClientsDatabasePanelController {
     public void setControllFx(ControllFx controllFx) {
         this.controllFx = controllFx;
         tableView.setItems(controllFx.getClientsObservableFxList());
+        initialize(controllFx);
     }
 
     public ClientsDatabasePanelController() {
     }
 
 
-
-    public void initialize() {
+    public void initialize(ControllFx controllFx) {
         tableView.setPrefHeight(520);
         tableView.setPrefWidth(1200);
         tableView.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
@@ -87,5 +76,28 @@ public class ClientsDatabasePanelController {
         flatNumberCD.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().contactDetailsProperty().getValue().flatNumberCDProperty());
         accountBalanceColumn.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().clientAccountsProperty().getValue().accountBalanceProperty());
         accountNumberColumn.setCellValueFactory(cellData -> cellData.getValue().clientDataFxProperty().getValue().clientAccountsProperty().getValue().accountNumberProperty());
+
+        filtrAndSearch(controllFx);
+    }
+
+    public void filtrAndSearch(ControllFx controllFx) {
+        FilteredList<ClientFx> filteredData = new FilteredList<ClientFx>(controllFx.getClientsObservableFxList(), c -> true);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(client -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                if (client.getClientDataFx().getPersonalData().getPesel().contains(newValue)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        SortedList<ClientFx> sortedData = new SortedList<ClientFx>(filteredData);
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+        tableView.setItems(sortedData);
     }
 }

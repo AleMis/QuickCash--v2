@@ -44,6 +44,17 @@ public class CommunicationDAO {
         }
     }
 
+    public static void deleteByID(String statement, BigInteger id) {
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            session.delete(statement, id);
+        }finally {
+            session.commit();
+            session.close();
+        }
+    }
+
     public static <T> List<T> selectList(String statement) {
         List<T> list = null;
         SqlSession session = sqlSessionFactory.openSession();
@@ -67,11 +78,11 @@ public class CommunicationDAO {
         return result;
     }
 
-    public static <T> T selectByString(String statement, String login) {
+    public static <T> T selectByString(String statement, String string) {
         SqlSession session = sqlSessionFactory.openSession();
         T result;
         try {
-            result = session.selectOne(statement, login);
+            result = session.selectOne(statement, string);
         }finally {
             session.close();
         }

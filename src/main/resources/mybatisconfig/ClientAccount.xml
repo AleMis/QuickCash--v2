@@ -38,4 +38,8 @@
         INSERT INTO client_account_balance (account_balance, account_number, client_key_id)
         VALUES (#{accountBalance}, #{accountNumber}, #{client_key_id});
     </insert>
+
+    <delete id="deleteClientAccount" parameterType="ClientAccount">
+        DELETE FROM client_account_balance WHERE client_key_id =#{client_key_id}
+    </delete>
 </mapper>

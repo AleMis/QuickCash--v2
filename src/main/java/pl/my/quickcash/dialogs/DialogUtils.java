@@ -28,7 +28,7 @@ public class DialogUtils {
         Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
         informationAlert.setTitle("About");
         informationAlert.setHeaderText("QuickCash Appliaction 1.0");
-        informationAlert.setContentText("Application is developing by JavaSzaman!");
+        informationAlert.setContentText("Application has been developing by JavaSzaman!");
         informationAlert.showAndWait();
     }
 
@@ -76,6 +76,42 @@ public class DialogUtils {
         informationAlert.setTitle("Adding New Client");
         informationAlert.setHeaderText("You have to generate Client's Account Details!");
         informationAlert.setContentText("Click the button to generate Client's Account Details in Client Account Details Lap");
+        informationAlert.showAndWait();
+    }
+
+    public static void dialogSearchClientEmptyField() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Searching Client");
+        informationAlert.setHeaderText("PESEL field is empty.");
+        informationAlert.showAndWait();
+    }
+
+    public static void dialogSearchClientPeselToShort() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Searching Client");
+        informationAlert.setHeaderText("Incorrect PESEL length!");
+        informationAlert.showAndWait();
+    }
+
+    public static void dialogNoClientFound() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Searching Client");
+        informationAlert.setHeaderText("No client found!");
+        informationAlert.showAndWait();
+    }
+
+    public static Optional<ButtonType> confirmationDialogRemoveClient() {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Client Removing");
+        confirmationAlert.setHeaderText("Do you want to remove this client?");
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+        return result;
+    }
+
+    public static void dialogClientRemoved() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Client Removing");
+        informationAlert.setHeaderText("Client successfully removed!");
         informationAlert.showAndWait();
     }
 }

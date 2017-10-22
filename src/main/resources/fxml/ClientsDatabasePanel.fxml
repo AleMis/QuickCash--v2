@@ -22,10 +22,9 @@
             <items>
                 <Pane prefHeight="106.0" prefWidth="1198.0">
                     <children>
-                        <TextField layoutX="379.0" layoutY="20.0" promptText="pesel" />
-                        <Button layoutX="547.0" layoutY="20.0" mnemonicParsing="false" text="Button" />
-                        <Label layoutX="282.0" layoutY="24.0" text="Search by Pesel:" />
-                        <Button layoutX="76.0" layoutY="20.0" mnemonicParsing="false" text="Load Clients Database" />
+                        <TextField fx:id="searchField" layoutX="109.0" layoutY="20.0" promptText="pesel" />
+                        <Button layoutX="271.0" layoutY="20.0" mnemonicParsing="false" text="Search" />
+                        <Label layoutX="14.0" layoutY="24.0" text="Search by Pesel:" />
                     </children>
                 </Pane>
                 <Pane>

@@ -51,7 +51,7 @@ public class ClientDataPanelController {
     }
 
     public void initClientPersonalData() {
-        ClientPersonalData clientPersonalData = (ClientPersonalData) CommunicationDAO.selectById(SELECT_CLIENT_PERSONAL_DATA_BY_ID, getClientKey().getClient_key_id());
+        ClientPersonalData clientPersonalData = CommunicationDAO.selectById(SELECT_CLIENT_PERSONAL_DATA_BY_ID, getClientKey().getClient_key_id());
 
         String firstName = clientPersonalData.getFirstName();
         String lastName = clientPersonalData.getLastName();

@@ -29,9 +29,19 @@
         FROM client_personal_data
     </select>
 
+    <select id="selectClientByPesel" resultMap="result">
+        SELECT first_name, last_name, pesel, id_card, country, voivodeship, city, street, building_number, flat_number, client_key_id
+        FROM client_personal_data
+        WHERE pesel=#{string}
+    </select>
+
     <insert id="insertClientPersonalData" parameterType="ClientPersonalData">
         INSERT INTO client_personal_data (first_name, last_name, pesel, id_card, country, voivodeship, city, street, building_number, flat_number, client_key_id)
         VALUES (#{firstName}, #{lastName}, #{pesel}, #{idCard}, #{country}, #{voivodeship}, #{city}, #{street}, #{buildingNumber}, #{flatNumber}, #{client_key_id});
     </insert>
+
+    <delete id="deleteClientPersonalData" parameterType="ClientPersonalData">
+        DELETE FROM client_personal_data WHERE client_key_id =#{client_key_id}
+    </delete>
 
 </mapper>

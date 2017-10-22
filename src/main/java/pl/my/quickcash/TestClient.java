@@ -23,10 +23,14 @@ public class TestClient {
         ClientKey client1 = CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN, "test");
         ClientKey client2 = CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN, "test2");
 
-       if(client1 == null && client2 ==null) {
-           createClient1();
-           createClient2();
-       }
+        if (client1 == null && client2 == null) {
+            createClient1();
+            createClient2();
+        } else if ((client1 == null) && !(client2 == null)) {
+            createClient1();
+        } else if (!(client1 == null) && (client2 == null)) {
+            createClient2();
+        }
     }
 
     private static void createClient2() throws InvalidKeySpecException, NoSuchAlgorithmException {

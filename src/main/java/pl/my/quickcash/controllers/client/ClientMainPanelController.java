@@ -7,6 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import pl.my.quickcash.Main;
+import pl.my.quickcash.controllers.general.Start;
+import pl.my.quickcash.controllers.general.StarterPanelController;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientKey;
@@ -20,7 +23,7 @@ public class ClientMainPanelController {
     private static final String PUT_MONEY_FXML = "/fxml/PutMoneyPanel.fxml";
     private static final String WITHDRAW_MONEY_FXML = "/fxml/WithdrawMoneyPanel.fxml";
     private static final String CLIENT_DATA_FXML = "/fxml/ClientDataPanel.fxml";
-    private static final String SELECT_CLIENT_ACCUNT = "ClientAccount.selectClientAccount";
+    private static final String SELECT_CLIENT_ACCOUNT = "ClientAccount.selectClientAccount";
 
     private ClientKey clientKey;
 
@@ -41,6 +44,7 @@ public class ClientMainPanelController {
 
     public void initSession() {
         initializeAccountBalance();
+        setModena();
     }
 
     @FXML
@@ -101,20 +105,28 @@ public class ClientMainPanelController {
         }
     }
 
+    @FXML
     public void setCaspian() {
         Application.setUserAgentStylesheet(Application.STYLESHEET_CASPIAN);
     }
 
+    @FXML
     public void setModena() {
         Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
     }
 
+    @FXML
     public void about() {
         DialogUtils.dialogAboutApplication();
     }
 
+    @FXML
+    public void logout(){
+        StarterPanelController.backToStarterPanel();
+    }
+
     public void initializeAccountBalance() {
-        ClientAccount clientAccount = (ClientAccount) CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
+        ClientAccount clientAccount = CommunicationDAO.selectById(SELECT_CLIENT_ACCOUNT, getClientKey().getClient_key_id());
         accountBalanceTextField.setText(String.valueOf(clientAccount.getAccountBalance()));
         accountBalanceTextField.setEditable(false);
     }

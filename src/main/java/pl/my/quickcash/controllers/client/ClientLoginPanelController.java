@@ -7,12 +7,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import pl.my.quickcash.Main;
 import pl.my.quickcash.controllers.general.LoginController;
+import pl.my.quickcash.controllers.general.Start;
+import pl.my.quickcash.controllers.general.StarterPanelController;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.password_security.SecurePassword;
 
 
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -23,7 +27,6 @@ public class ClientLoginPanelController {
     @FXML private TextField loginTextField;
     @FXML private PasswordField passwordField;
     @FXML private Button loginButton;
-    @FXML private Button cancelButton;
     @FXML private Label statusLabel;
 
 
@@ -71,5 +74,10 @@ public class ClientLoginPanelController {
                 return clientKey;
             }
         }
+    }
+
+    @FXML
+    public void cancel() throws IOException {
+        StarterPanelController.backToStarterPanel();
     }
 }

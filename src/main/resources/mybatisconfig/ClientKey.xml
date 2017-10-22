@@ -12,15 +12,15 @@
     </resultMap>
 
     <select id="selectLogin" resultMap="result">
-        SELECT login FROM client_key WHERE login =#{login}
+        SELECT login FROM client_key WHERE login =#{string}
     </select>
 
     <select id="selectPassword" resultMap="result">
-        SELECT password FROM client_key WHERE password =#{password}
+        SELECT password FROM client_key WHERE password =#{string}
     </select>
 
     <select id="selectClientKey" resultMap="result">
-        SELECT * FROM client_key WHERE  login =#{login}
+        SELECT * FROM client_key WHERE  login =#{string}
     </select>
 
     <select id="selectAllClientKey" resultMap="result">
@@ -31,5 +31,9 @@
         INSERT INTO client_key (login, password)
         VALUES (#{login}, #{password});
     </insert>
+
+    <delete id="deleteClientKey" parameterType="ClientKey">
+        DELETE FROM client_key WHERE client_key_id =#{client_key_id}
+    </delete>
 
 </mapper>

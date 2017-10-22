@@ -7,19 +7,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import pl.my.quickcash.Main;
 import pl.my.quickcash.controllers.general.LoginController;
+import pl.my.quickcash.controllers.general.Start;
+import pl.my.quickcash.controllers.general.StarterPanelController;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.employee.EmployeeKey;
+
+import java.io.IOException;
 
 public class EmployeeLoginPanelController {
 
     private static final String SELECT_EMPLOYEE_KEY = "EmployeeKey.selectEmployeeKey";
 
-    @FXML private Pane employeeLoginPanel;
     @FXML private TextField loginTextField;
     @FXML private TextField passwordField;
     @FXML private Button loginButton;
-    @FXML private Button cancelButton;
     @FXML private Label statusLabel;
 
     public void initEmployeeKey(LoginController loginController) {
@@ -43,17 +46,24 @@ public class EmployeeLoginPanelController {
         String password = null;
 
         try {
-            employeeKey = (EmployeeKey) CommunicationDAO.selectByString(SELECT_EMPLOYEE_KEY, loginTextField.getText());
+            employeeKey = CommunicationDAO.selectByString(SELECT_EMPLOYEE_KEY, loginTextField.getText());
             login = employeeKey.getLogin();
             password = employeeKey.getPassword();
         } catch (NullPointerException e) {
             System.out.println(e);
         } finally {
-            if (!(login == null) && !(password == null)) {
-                return employeeKey;
-            } else {
+            if (login == null) {
                 return null;
+            }else if(!(login == null) && !(password.equals(passwordField.getText()))) {
+                return null;
+            } else {
+                return employeeKey;
             }
         }
+    }
+
+    @FXML
+    public void cancel() throws IOException {
+        StarterPanelController.backToStarterPanel();
     }
 }

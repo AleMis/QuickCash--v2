@@ -4,6 +4,7 @@ package pl.my.quickcash.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -61,6 +62,18 @@ public class CommunicationDAO {
 
         try {
             list = session.selectList(statement);
+        }finally {
+            session.close();
+        }
+        return list;
+    }
+
+    public static <T> List<T> selectListById(String statement, BigInteger id) {
+        List<T> list = null;
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            list = session.selectList(statement, id);
         }finally {
             session.close();
         }

@@ -6,6 +6,9 @@ import javafx.scene.control.TextField;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.client.ClientTransaction;
+import pl.my.quickcash.dialogs.DialogUtils;
+
 import java.math.BigDecimal;
 
 public class PutMoneyPanelController {
@@ -15,8 +18,11 @@ public class PutMoneyPanelController {
 
     private static final String UPDATE_CLIENT_ACCOUNT = "ClientAccount.updateClientAccountBalance";
     private static final String SELECT_CLIENT_ACCUNT = "ClientAccount.selectClientAccount";
+    private static final String SAVE_TRANSACTION = "ClientTransaction.savePutAndWithdrawMoney";
+    private static final String TRANSACTION_TYPE_PUT_MONEY = "Put money";
 
     private ClientKey clientKey;
+    private ClientTransaction clientTransaction;
 
     public ClientKey getClientKey() {
         return clientKey;
@@ -26,24 +32,39 @@ public class PutMoneyPanelController {
         this.clientKey = clientKey;
     }
 
+    public ClientTransaction getClientTransaction() {
+        return clientTransaction;
+    }
+
+    public void setClientTransaction(ClientTransaction clientTransaction) {
+        this.clientTransaction = clientTransaction;
+    }
+
     @FXML
     public void putMoney() {
-        ClientAccount account = CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClient_key_id());
+        ClientAccount client = CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClientKeyId());
+        BigDecimal balance = client.getAccountBalance();
 
-        BigDecimal balance = account.getAccountBalance();
-
-        if ((getAmount().compareTo(BigDecimal.ZERO) ==0) || getAmount().equals(null)) {
+        if ((getAmount().compareTo(BigDecimal.ZERO) ==0) || getAmount() == null) {
             statusLabel.setText("Put the amount!");
         } else {
-            BigDecimal acctualBalance = balance.add(getAmount()).setScale(2, BigDecimal.ROUND_CEILING);
-            account.setAccountBalance(acctualBalance);
-            CommunicationDAO.update(UPDATE_CLIENT_ACCOUNT,account);
-            statusLabel.setText("Transfer completed!");
+            BigDecimal acctualBalance = balance.add(getAmount());
+            client.setAccountBalance(acctualBalance);
+            CommunicationDAO.update(UPDATE_CLIENT_ACCOUNT,client);
+
+            ClientTransaction transaction = new ClientTransaction();
+            clientTransaction = transaction.createTransactionForPutAndWithdrawMoney(getAmount(),client,TRANSACTION_TYPE_PUT_MONEY);
+            saveTransaction(clientTransaction);
+            DialogUtils.dialogTransferCompleted();
         }
     }
 
     public BigDecimal getAmount() {
         BigDecimal amountToTransfer = new BigDecimal(amountTextField.getText()).setScale(2, BigDecimal.ROUND_CEILING);
         return amountToTransfer;
+    }
+
+    private void saveTransaction(ClientTransaction clientTransaction) {
+        CommunicationDAO.insert(SAVE_TRANSACTION, clientTransaction);
     }
 }

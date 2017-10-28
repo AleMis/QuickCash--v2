@@ -8,13 +8,13 @@
     <resultMap id="result" type="ClientAccount">
         <result property="accountBalance" column="account_balance"/>
         <result property="accountNumber" column="account_number"/>
-        <result property="client_key_id" column="client_key_id"/>
+        <result property="clientKeyId" column="client_key_id"/>
     </resultMap>
 
     <select id="selectClientAccount" resultMap="result">
         SELECT account_balance, account_number, client_key_id
         FROM client_account_balance
-        WHERE client_key_id=#{client_key_id}
+        WHERE client_key_id=#{clientKeyId}
     </select>
 
     <select id="selectClientAccountByAccountNumber" resultMap="result">
@@ -31,15 +31,15 @@
     <update id="updateClientAccountBalance" parameterType="ClientAccount">
         UPDATE client_account_balance
         SET account_balance =#{accountBalance}
-        WHERE client_key_id=#{client_key_id}
+        WHERE client_key_id=#{clientKeyId}
     </update>
 
     <insert id="insertClientAccount" parameterType="ClientAccount">
         INSERT INTO client_account_balance (account_balance, account_number, client_key_id)
-        VALUES (#{accountBalance}, #{accountNumber}, #{client_key_id});
+        VALUES (#{accountBalance}, #{accountNumber}, #{clientKeyId});
     </insert>
 
     <delete id="deleteClientAccount" parameterType="ClientAccount">
-        DELETE FROM client_account_balance WHERE client_key_id =#{client_key_id}
+        DELETE FROM client_account_balance WHERE client_key_id =#{clientKeyId}
     </delete>
 </mapper>

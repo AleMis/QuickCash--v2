@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.quickcash.controllers.client.ClientTransactionPanelController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <children>
+        <SplitPane dividerPositions="0.11371237458193979" orientation="VERTICAL" prefHeight="500.0" prefWidth="1080.0">
+            <items>
+                <Pane>
+                    <children>
+                        <TextField fx:id="searchField" layoutX="109.0" layoutY="20.0" promptText="date" />
+                        <Label layoutX="14.0" layoutY="24.0" text="Search by Date:" />
+                    </children>
+                </Pane>
+                <Pane>
+                    <children>
+                        <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <columns>
+                                <TableColumn fx:id="amountColumn" prefWidth="100" text="AMOUNT">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="amount" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="dateColumn" maxWidth="200.0" prefWidth="180.0" text="DATE_OF_TRANSACTION">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="transactionDate" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="timeColumn" prefWidth="180.0" text="TIME_OF_TRANSACTION">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="transactionTime" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="typeOfTransactionColumn" prefWidth="180.0" text="TYPE_OF_TRANSACTION">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="transactionType" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="secondPartyAccountNumberColumn" prefWidth="180.0" text="RECEIVER_ACCOUNT_NUMBER">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="secondPartyAccountNumber" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="secondPartyFirstNameColumn" prefWidth="180.0" text="RECEIVER_FIRST_NAME">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="firstName" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="secondPartyLastNameColumn" prefWidth="180.0" text="RECEIVER_LAST_NAME">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="lastName" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                            <sortOrder>
+                                <fx:reference source="amountColumn">
+                                </fx:reference>
+                                <fx:reference source="dateColumn">
+                                </fx:reference>
+                                <fx:reference source="timeColumn">
+                                </fx:reference>
+                                <fx:reference source="typeOfTransactionColumn">
+                                </fx:reference>
+                                <fx:reference source="secondPartyAccountNumberColumn">
+                                </fx:reference>
+                                <fx:reference source="secondPartyFirstNameColumn">
+                                </fx:reference>
+                                <fx:reference source="secondPartyLastNameColumn">
+                                </fx:reference>
+                            </sortOrder>
+                        </TableView>
+                    </children>
+                </Pane>
+            </items>
+        </SplitPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>

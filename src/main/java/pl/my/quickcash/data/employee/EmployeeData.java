@@ -7,7 +7,7 @@ public class EmployeeData {
     private String firstName;
     private String lastName;
     private String position;
-    private BigInteger employee_key_id;
+    private BigInteger employeeKeyId;
 
     public EmployeeData(String firstName, String lastName, String position) {
         this.firstName = firstName;
@@ -15,11 +15,11 @@ public class EmployeeData {
         this.position = position;
     }
 
-    public EmployeeData(String firstName, String lastName, String position, BigInteger employee_key_id) {
+    public EmployeeData(String firstName, String lastName, String position, BigInteger employeeKeyId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
-        this.employee_key_id = employee_key_id;
+        this.employeeKeyId = employeeKeyId;
     }
 
     public EmployeeData() {
@@ -49,12 +49,12 @@ public class EmployeeData {
         this.position = position;
     }
 
-    public BigInteger getEmployee_key_id() {
-        return employee_key_id;
+    public BigInteger getEmployeeKeyId() {
+        return employeeKeyId;
     }
 
-    public void setEmployee_key_id(BigInteger employee_key_id) {
-        this.employee_key_id = employee_key_id;
+    public void setEmployeeKeyId(BigInteger employeeKeyId) {
+        this.employeeKeyId = employeeKeyId;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class EmployeeData {
         if (!firstName.equals(that.firstName)) return false;
         if (!lastName.equals(that.lastName)) return false;
         if (!position.equals(that.position)) return false;
-        return employee_key_id.equals(that.employee_key_id);
+        return employeeKeyId.equals(that.employeeKeyId);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class EmployeeData {
         int result = firstName.hashCode();
         result = 31 * result + lastName.hashCode();
         result = 31 * result + position.hashCode();
-        result = 31 * result + employee_key_id.hashCode();
+        result = 31 * result + employeeKeyId.hashCode();
         return result;
     }
 

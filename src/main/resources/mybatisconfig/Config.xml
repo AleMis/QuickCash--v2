@@ -11,6 +11,7 @@
         <typeAlias alias="ClientPersonalData" type="pl.my.quickcash.data.client.ClientPersonalData"/>
         <typeAlias alias="ClientAccount" type="pl.my.quickcash.data.client.ClientAccount"/>
         <typeAlias alias="ClientContactDetails" type="pl.my.quickcash.data.client.ClientContactDetails"/>
+        <typeAlias alias="ClientTransaction" type="pl.my.quickcash.data.client.ClientTransaction"/>
     </typeAliases>
 
     <environments default="development">
@@ -32,5 +33,6 @@
         <mapper resource="mybatisconfig/ClientPersonalData.xml"/>
         <mapper resource="mybatisconfig/ClientAccount.xml"/>
         <mapper resource="mybatisconfig/ClientContactDetails.xml"/>
+        <mapper resource="mybatisconfig/ClientTransaction.xml"/>
     </mappers>
 </configuration>

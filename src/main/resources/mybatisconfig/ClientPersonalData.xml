@@ -21,7 +21,7 @@
     <select id="selectClientPersonalData" resultMap="result">
         SELECT first_name, last_name, pesel, id_card, country, voivodeship, city, street, building_number, flat_number
         FROM client_personal_data
-        WHERE client_key_id =#{client_key_id}
+        WHERE client_key_id =#{clientKeyId}
     </select>
 
     <select id="selectAllClientPersonalData" resultMap="result">
@@ -37,11 +37,11 @@
 
     <insert id="insertClientPersonalData" parameterType="ClientPersonalData">
         INSERT INTO client_personal_data (first_name, last_name, pesel, id_card, country, voivodeship, city, street, building_number, flat_number, client_key_id)
-        VALUES (#{firstName}, #{lastName}, #{pesel}, #{idCard}, #{country}, #{voivodeship}, #{city}, #{street}, #{buildingNumber}, #{flatNumber}, #{client_key_id});
+        VALUES (#{firstName}, #{lastName}, #{pesel}, #{idCard}, #{country}, #{voivodeship}, #{city}, #{street}, #{buildingNumber}, #{flatNumber}, #{clientKeyId});
     </insert>
 
     <delete id="deleteClientPersonalData" parameterType="ClientPersonalData">
-        DELETE FROM client_personal_data WHERE client_key_id =#{client_key_id}
+        DELETE FROM client_personal_data WHERE client_key_id =#{clientKeyId}
     </delete>
 
 </mapper>

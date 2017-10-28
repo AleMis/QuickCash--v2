@@ -6,7 +6,7 @@
 <mapper namespace="EmployeeKey">
 
     <resultMap id="result" type="EmployeeKey">
-        <result property="employee_key_id" column="employee_key_id"/>
+        <result property="employeeKeyId" column="employee_key_id"/>
         <result property="login" column="login"/>
         <result property="password" column="password"/>
     </resultMap>
@@ -16,7 +16,7 @@
     </select>
 
     <select id="selectPassword" resultMap="result">
-        SELECT password FROM employees_key WHERE PASSWORD =#{password}
+        SELECT password FROM employees_key WHERE password =#{password}
     </select>
 
     <select id="selectEmployeeKey" resultMap="result">

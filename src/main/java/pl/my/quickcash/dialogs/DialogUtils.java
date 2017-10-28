@@ -114,4 +114,11 @@ public class DialogUtils {
         informationAlert.setHeaderText("Client successfully removed!");
         informationAlert.showAndWait();
     }
+
+    public static void dialogTransferCompleted() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Transfer");
+        informationAlert.setHeaderText("Transfer completed!");
+        informationAlert.showAndWait();
+    }
 }

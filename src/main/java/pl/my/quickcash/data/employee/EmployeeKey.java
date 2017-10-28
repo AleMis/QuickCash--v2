@@ -4,12 +4,12 @@ import java.math.BigInteger;
 
 public class EmployeeKey {
 
-    private BigInteger employee_key_id;
+    private BigInteger employeeKeyId;
     private String login;
     private String password;
 
-    public EmployeeKey(BigInteger employee_key_id, String login, String password) {
-        this.employee_key_id = employee_key_id;
+    public EmployeeKey(BigInteger employeeKeyId, String login, String password) {
+        this.employeeKeyId = employeeKeyId;
         this.login = login;
         this.password = password;
     }
@@ -22,8 +22,12 @@ public class EmployeeKey {
     public EmployeeKey() {
     }
 
-    public BigInteger getEmployee_key_id() {
-        return employee_key_id;
+    public BigInteger getEmployeeKeyId() {
+        return employeeKeyId;
+    }
+
+    public void setEmployeeKeyId(BigInteger employeeKeyId) {
+        this.employeeKeyId = employeeKeyId;
     }
 
     public String getLogin() {
@@ -49,14 +53,14 @@ public class EmployeeKey {
 
         EmployeeKey that = (EmployeeKey) o;
 
-        if (!employee_key_id.equals(that.employee_key_id)) return false;
+        if (!employeeKeyId.equals(that.employeeKeyId)) return false;
         if (!login.equals(that.login)) return false;
         return password.equals(that.password);
     }
 
     @Override
     public int hashCode() {
-        int result = employee_key_id.hashCode();
+        int result = employeeKeyId.hashCode();
         result = 31 * result + login.hashCode();
         result = 31 * result + password.hashCode();
         return result;
@@ -65,7 +69,7 @@ public class EmployeeKey {
     @Override
     public String toString() {
         StringBuilder print = new StringBuilder(32);
-        print.append(employee_key_id);
+        print.append(employeeKeyId);
         print.append("; ");
         print.append(login);
         print.append("; ");

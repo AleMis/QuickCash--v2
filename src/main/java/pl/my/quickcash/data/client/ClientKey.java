@@ -4,12 +4,12 @@ import java.math.BigInteger;
 
 public class ClientKey {
 
-    private BigInteger client_key_id;
+    private BigInteger clientKeyId;
     private String login;
     private String password;
 
-    public ClientKey(BigInteger client_key_id, String login, String password) {
-        this.client_key_id = client_key_id;
+    public ClientKey(BigInteger clientKeyId, String login, String password) {
+        this.clientKeyId = clientKeyId;
         this.login = login;
         this.password = password;
     }
@@ -22,16 +22,20 @@ public class ClientKey {
     public ClientKey(){
     }
 
+    public BigInteger getClientKeyId() {
+        return clientKeyId;
+    }
+
+    public void setClientKeyId(BigInteger clientKeyId) {
+        this.clientKeyId = clientKeyId;
+    }
+
     public String getLogin() {
         return login;
     }
 
-    public BigInteger getClient_key_id() {
-        return client_key_id;
-    }
-
-    public void setClient_key_id(BigInteger client_key_id) {
-        this.client_key_id = client_key_id;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
@@ -49,14 +53,14 @@ public class ClientKey {
 
         ClientKey clientKey = (ClientKey) o;
 
-        if (!client_key_id.equals(clientKey.client_key_id)) return false;
+        if (!clientKeyId.equals(clientKey.clientKeyId)) return false;
         if (!login.equals(clientKey.login)) return false;
         return password.equals(clientKey.password);
     }
 
     @Override
     public int hashCode() {
-        int result = client_key_id.hashCode();
+        int result = clientKeyId.hashCode();
         result = 31 * result + login.hashCode();
         result = 31 * result + password.hashCode();
         return result;
@@ -65,7 +69,7 @@ public class ClientKey {
     @Override
     public String toString() {
         StringBuilder print = new StringBuilder(32);
-        print.append(client_key_id);
+        print.append(clientKeyId);
         print.append("; ");
         print.append(login);
         print.append("; ");

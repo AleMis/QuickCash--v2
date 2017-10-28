@@ -68,6 +68,7 @@ public class RemoveClientPanelController {
             if(result.get() == ButtonType.OK) {
                 clearFields();
                 remove(clientPersonalData);
+                DialogUtils.dialogClientRemoved();
             }
         }
 
@@ -119,9 +120,9 @@ public class RemoveClientPanelController {
     }
 
     private void remove(ClientPersonalData clientPersonalData) {
-        CommunicationDAO.deleteByID(DELETE_CLIENT_PERSONAL_DATA, clientPersonalData.getClient_key_id());
-        CommunicationDAO.deleteByID(DELETE_CLIENT_CONTACT_DETAILS, clientPersonalData.getClient_key_id());
-        CommunicationDAO.deleteByID(DELETE_CLIENT_ACCOUNT, clientPersonalData.getClient_key_id());
-        CommunicationDAO.deleteByID(DELETE_CLIENT_KEY, clientPersonalData.getClient_key_id());
+        CommunicationDAO.deleteByID(DELETE_CLIENT_PERSONAL_DATA, clientPersonalData.getClientKeyId());
+        CommunicationDAO.deleteByID(DELETE_CLIENT_CONTACT_DETAILS, clientPersonalData.getClientKeyId());
+        CommunicationDAO.deleteByID(DELETE_CLIENT_ACCOUNT, clientPersonalData.getClientKeyId());
+        CommunicationDAO.deleteByID(DELETE_CLIENT_KEY, clientPersonalData.getClientKeyId());
     }
 }

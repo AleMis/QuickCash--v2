@@ -12,9 +12,9 @@
       <TextField fx:id="amountTextField" layoutX="121.0" layoutY="98.0" />
       <Label layoutX="11.0" layoutY="65.0" text="Account Number" />
       <Label layoutX="51.0" layoutY="102.0" text="Amount" />
-      <Label fx:id="statusLabel" layoutX="51.0" layoutY="131.0" text="Status" />
       <Button fx:id="makeTransferButton" layoutX="102.0" layoutY="176.0" mnemonicParsing="false" onAction="#makeTransfer" prefHeight="50.0" prefWidth="100.0" text="Make Transfer" />
       <Label layoutX="8.0" layoutY="14.0" prefHeight="43.0" prefWidth="287.0" text="Put the account number and amount of money which you want to transfer." textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="statusLabel" layoutX="51.0" layoutY="133.0" text="Status" />
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

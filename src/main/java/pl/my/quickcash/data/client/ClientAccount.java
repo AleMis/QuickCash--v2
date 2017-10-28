@@ -7,25 +7,17 @@ public class ClientAccount {
 
     private BigDecimal accountBalance;
     private String accountNumber;
-    private BigInteger client_key_id;
+    private BigInteger clientKeyId;
 
-    public ClientAccount(BigDecimal accountBalance, String accountNumber, BigInteger client_key_id) {
-        this.accountBalance = accountBalance.setScale(2, BigDecimal.ROUND_CEILING);
+    public ClientAccount(BigDecimal accountBalance, String accountNumber, BigInteger clientKeyId) {
+        this.accountBalance = accountBalance;
         this.accountNumber = accountNumber;
-        this.client_key_id = client_key_id;
+        this.clientKeyId = clientKeyId;
     }
 
     public ClientAccount(BigDecimal accountBalance, String accountNumber) {
-        this.accountBalance = accountBalance.setScale(2, BigDecimal.ROUND_CEILING);
+        this.accountBalance = accountBalance;
         this.accountNumber = accountNumber;
-    }
-
-    public BigInteger getClient_key_id() {
-        return client_key_id;
-    }
-
-    public void setClient_key_id(BigInteger client_key_id) {
-        this.client_key_id = client_key_id;
     }
 
     public BigDecimal getAccountBalance() {
@@ -40,8 +32,16 @@ public class ClientAccount {
         return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumberL) {
-        this.accountNumber = accountNumberL;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public BigInteger getClientKeyId() {
+        return clientKeyId;
+    }
+
+    public void setClientKeyId(BigInteger clientKeyId) {
+        this.clientKeyId = clientKeyId;
     }
 
     @Override
@@ -53,14 +53,14 @@ public class ClientAccount {
 
         if (!accountBalance.equals(that.accountBalance)) return false;
         if (!accountNumber.equals(that.accountNumber)) return false;
-        return client_key_id.equals(that.client_key_id);
+        return clientKeyId.equals(that.clientKeyId);
     }
 
     @Override
     public int hashCode() {
         int result = accountBalance.hashCode();
         result = 31 * result + accountNumber.hashCode();
-        result = 31 * result + client_key_id.hashCode();
+        result = 31 * result + clientKeyId.hashCode();
         return result;
     }
 

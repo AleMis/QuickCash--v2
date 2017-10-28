@@ -1,8 +1,5 @@
 package pl.my.quickcash.controllers.employee;
 
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
@@ -11,7 +8,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import pl.my.quickcash.controllers.modelfx.ClientFx;
 import pl.my.quickcash.controllers.modelfx.ControllFx;
+
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 public class ClientsDatabasePanelController {
@@ -80,7 +79,7 @@ public class ClientsDatabasePanelController {
         filtrAndSearch(controllFx);
     }
 
-    public void filtrAndSearch(ControllFx controllFx) {
+   private void filtrAndSearch(ControllFx controllFx) {
         FilteredList<ClientFx> filteredData = new FilteredList<ClientFx>(controllFx.getClientsObservableFxList(), c -> true);
 
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {

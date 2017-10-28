@@ -6,7 +6,7 @@
 <mapper namespace="ClientKey">
 
     <resultMap id="result" type="ClientKey">
-        <result property="client_key_id" column="client_key_id"/>
+        <result property="clientKeyId" column="client_key_id"/>
         <result property="login" column="login"/>
         <result property="password" column="password"/>
     </resultMap>
@@ -33,7 +33,7 @@
     </insert>
 
     <delete id="deleteClientKey" parameterType="ClientKey">
-        DELETE FROM client_key WHERE client_key_id =#{client_key_id}
+        DELETE FROM client_key WHERE client_key_id =#{clientKeyId}
     </delete>
 
 </mapper>

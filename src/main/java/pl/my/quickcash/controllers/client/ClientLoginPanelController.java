@@ -17,6 +17,7 @@ import pl.my.quickcash.password_security.SecurePassword;
 
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -41,9 +42,7 @@ public class ClientLoginPanelController {
                 ClientKey clientKey = null;
                 try {
                     clientKey = authorize();
-                } catch (InvalidKeySpecException e) {
-                    e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
+                } catch (GeneralSecurityException e) {
                     e.printStackTrace();
                 }
                 if (clientKey != null) {
@@ -55,16 +54,15 @@ public class ClientLoginPanelController {
         });
     }
 
-    private ClientKey authorize() throws InvalidKeySpecException, NoSuchAlgorithmException {
+    private ClientKey authorize() throws GeneralSecurityException {
         ClientKey clientKey = null;
         String password = null;
         String login = null;
+
         try {
             clientKey = CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN, loginTextField.getText());
             login = clientKey.getLogin();
             password = clientKey.getPassword();
-        } catch (NullPointerException e) {
-            System.out.println(e);
         } finally {
             if (login == null) {
                 return null;

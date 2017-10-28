@@ -3,15 +3,8 @@ package pl.my.quickcash;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import pl.my.quickcash.controllers.general.Start;
-import sun.security.provider.SHA;
-
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-import java.util.Base64;
-import java.util.Random;
+import pl.my.quickcash.sample_users.SampleClient;
+import pl.my.quickcash.sample_users.SampleEmployee;
 
 import static javafx.application.Application.launch;
 
@@ -21,12 +14,13 @@ public class Main extends Application{
 
     public static void main(String[] args) {
         launch(args);
+
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        TestClient.createTestClients();
-        TestEmployee.createTestClients();
+        SampleClient.createTestClients();
+        SampleEmployee.createTestClients();
 
         Start start = new Start();
         start.showStarterPanel(stage);

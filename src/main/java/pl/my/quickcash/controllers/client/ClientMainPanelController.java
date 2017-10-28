@@ -4,17 +4,22 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import pl.my.quickcash.Main;
-import pl.my.quickcash.controllers.general.Start;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import pl.my.quickcash.controllers.employee.ClientsDatabasePanelController;
 import pl.my.quickcash.controllers.general.StarterPanelController;
+import pl.my.quickcash.controllers.modelfx.ControllFx;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.client.ClientAccount;
 import pl.my.quickcash.data.client.ClientKey;
+import pl.my.quickcash.data.client.ClientTransaction;
 import pl.my.quickcash.dialogs.DialogUtils;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class ClientMainPanelController {
@@ -23,12 +28,11 @@ public class ClientMainPanelController {
     private static final String PUT_MONEY_FXML = "/fxml/PutMoneyPanel.fxml";
     private static final String WITHDRAW_MONEY_FXML = "/fxml/WithdrawMoneyPanel.fxml";
     private static final String CLIENT_DATA_FXML = "/fxml/ClientDataPanel.fxml";
+    private static final String SHOW_CLIENT_TRANSACTION_HISTORY_FXML = "/fxml/ClientTransactionPanel.fxml";
     private static final String SELECT_CLIENT_ACCOUNT = "ClientAccount.selectClientAccount";
 
     private ClientKey clientKey;
-
-    private void initialize() {
-    }
+    private ControllFx controllFx = new ControllFx();
 
     public ClientKey getClientKey() {
         return clientKey;
@@ -95,8 +99,23 @@ public class ClientMainPanelController {
         } catch (Exception e) {
             e.getStackTrace();
         }
-
     }
+
+    @FXML
+    public void initClientTransactionHistory() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(SHOW_CLIENT_TRANSACTION_HISTORY_FXML));
+        Stage stage = new Stage();
+        Pane pane = loader.load();
+        Scene scene = new Scene(pane);
+        stage.setScene(scene);
+        stage.show();
+        controllFx.setClientKey(getClientKey());
+        controllFx.initClientTransactionHistory();
+        ClientTransactionPanelController controller = loader.getController();
+        controller.setControllFx(controllFx);
+    }
+
+
     public void closeApplication() {
         Optional<ButtonType> result = DialogUtils.confirmationDialogForCloseApp();
         if(result.get()==ButtonType.OK){
@@ -126,7 +145,7 @@ public class ClientMainPanelController {
     }
 
     public void initializeAccountBalance() {
-        ClientAccount clientAccount = CommunicationDAO.selectById(SELECT_CLIENT_ACCOUNT, getClientKey().getClient_key_id());
+        ClientAccount clientAccount = CommunicationDAO.selectById(SELECT_CLIENT_ACCOUNT, getClientKey().getClientKeyId());
         accountBalanceTextField.setText(String.valueOf(clientAccount.getAccountBalance()));
         accountBalanceTextField.setEditable(false);
     }

@@ -44,7 +44,7 @@ public class EmployeeMainPanelController {
     @FXML private Label employeePositionLabel;
 
     public void initSession() {
-        EmployeeData employeeData = CommunicationDAO.selectById(SELECT_EMPLOYEE_BY_ID,getEmployeeKey().getEmployee_key_id());
+        EmployeeData employeeData = CommunicationDAO.selectById(SELECT_EMPLOYEE_BY_ID,getEmployeeKey().getEmployeeKeyId());
         employeeNameLabel.setText(employeeData.getFirstName() + " " + employeeData.getLastName());
         employeePositionLabel.setText(employeeData.getPosition());
         setModena();

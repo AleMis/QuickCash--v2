@@ -17,22 +17,27 @@
    <left>
       <VBox prefHeight="375.0" prefWidth="146.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="makeTransferButton" mnemonicParsing="false" onAction="#initMakeTransfer" prefHeight="80.0" prefWidth="150.0" text="Make a transfer">
+            <Button fx:id="makeTransferButton" mnemonicParsing="false" onAction="#initMakeTransfer" prefHeight="60.0" prefWidth="150.0" text="Make a transfer">
                <VBox.margin>
                   <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="putMoneyButton" mnemonicParsing="false" onAction="#initPutMoney" prefHeight="80.0" prefWidth="150.0" text="Put the money">
+            <Button fx:id="putMoneyButton" mnemonicParsing="false" onAction="#initPutMoney" prefHeight="60.0" prefWidth="150.0" text="Put the money">
                <VBox.margin>
                   <Insets bottom="10.0" left="5.0" right="5.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="withdrawMoneyButton" mnemonicParsing="false" onAction="#initWithdrawMoney" prefHeight="80.0" prefWidth="150.0" text="Withdraw the money">
+            <Button fx:id="withdrawMoneyButton" mnemonicParsing="false" onAction="#initWithdrawMoney" prefHeight="60.0" prefWidth="150.0" text="Withdraw the money">
                <VBox.margin>
                   <Insets bottom="10.0" left="5.0" right="5.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="personalData" mnemonicParsing="false" onAction="#initCheckPersonalData" prefHeight="80.0" prefWidth="150.0" text="Personal Data">
+            <Button fx:id="personalData" mnemonicParsing="false" onAction="#initCheckPersonalData" prefHeight="60.0" prefWidth="150.0" text="Personal Data">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="transactionHistory" mnemonicParsing="false" onAction="#initClientTransactionHistory" prefHeight="60.0" prefWidth="150.0" text="Transaction History">
                <VBox.margin>
                   <Insets bottom="10.0" left="5.0" right="5.0" />
                </VBox.margin>

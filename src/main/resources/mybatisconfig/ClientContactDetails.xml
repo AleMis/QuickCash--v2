@@ -12,13 +12,13 @@
         <result property="streetCD" column="street_cd"/>
         <result property="buildingNumberCD" column="building_number_cd"/>
         <result property="flatNumberCD" column="flat_number_cd"/>
-        <result property="client_key_id" column="client_key_id"/>
+        <result property="clientKeyId" column="client_key_id"/>
     </resultMap>
 
     <select id="selectClientContactDetails" resultMap="result">
         SELECT country_cd, voivodeship_cd, city_cd, street_cd, building_number_cd, flat_number_cd, client_key_id
         FROM client_contact_details
-        WHERE client_key_id =#{client_key_id}
+        WHERE client_key_id =#{clientKeyId}
     </select>
 
     <select id="selectAllClientContactDetails" resultMap="result">
@@ -34,15 +34,15 @@
             street_cd = #{streetCD},
             building_number_cd = #{buildingNumberCD},
             flat_number_cd = #{flatNumberCD}
-        WHERE client_key_id =#{client_key_id}
+        WHERE client_key_id =#{clientKeyId}
     </update>
 
     <insert id="insertClientContactDetails" parameterType="ClientContactDetails">
         INSERT INTO client_contact_details (country_cd, voivodeship_cd, city_cd, street_cd, building_number_cd, flat_number_cd, client_key_id)
-        VALUES (#{countryCD}, #{voivodeshipCD}, #{cityCD}, #{streetCD}, #{buildingNumberCD}, #{flatNumberCD}, #{client_key_id});
+        VALUES (#{countryCD}, #{voivodeshipCD}, #{cityCD}, #{streetCD}, #{buildingNumberCD}, #{flatNumberCD}, #{clientKeyId});
     </insert>
 
     <delete id="deleteClientContactDetails" parameterType="ClientContactDetails">
-        DELETE FROM client_contact_details WHERE client_key_id =#{client_key_id}
+        DELETE FROM client_contact_details WHERE client_key_id =#{clientKeyId}
     </delete>
 </mapper>

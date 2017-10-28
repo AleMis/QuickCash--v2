@@ -1,7 +1,6 @@
-package pl.my.quickcash;
+package pl.my.quickcash.sample_users;
 
 import pl.my.quickcash.dao.CommunicationDAO;
-import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.data.employee.EmployeeData;
 import pl.my.quickcash.data.employee.EmployeeKey;
 import pl.my.quickcash.password_security.SecurePassword;
@@ -10,7 +9,7 @@ import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-public class TestEmployee {
+public class SampleEmployee {
 
     private static final String GET_EMPLOYEE_KEY_BY_LOGIN = "EmployeeKey.selectEmployeeKey";
     private static final String INSERT_EMPLOYEE_KEY = "EmployeeKey.insertEmployeeKey";
@@ -44,7 +43,7 @@ public class TestEmployee {
         String firstName = "Marek";
         String lastName = "Nowacki";
         String position = "Key Account Manager";
-        BigInteger employee_key_id = employee.getEmployee_key_id();
+        BigInteger employee_key_id = employee.getEmployeeKeyId();
 
         EmployeeData employeeData = new EmployeeData(firstName, lastName, position,employee_key_id);
 
@@ -64,7 +63,7 @@ public class TestEmployee {
         String firstName = "Darek";
         String lastName = "Darkowski";
         String position = "CEO";
-        BigInteger employee_key_id = employee.getEmployee_key_id();
+        BigInteger employee_key_id = employee.getEmployeeKeyId();
 
         EmployeeData employeeData = new EmployeeData(firstName, lastName, position,employee_key_id);
 

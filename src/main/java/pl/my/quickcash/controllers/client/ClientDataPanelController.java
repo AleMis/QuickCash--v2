@@ -51,7 +51,7 @@ public class ClientDataPanelController {
     }
 
     public void initClientPersonalData() {
-        ClientPersonalData clientPersonalData = CommunicationDAO.selectById(SELECT_CLIENT_PERSONAL_DATA_BY_ID, getClientKey().getClient_key_id());
+        ClientPersonalData clientPersonalData = CommunicationDAO.selectById(SELECT_CLIENT_PERSONAL_DATA_BY_ID, getClientKey().getClientKeyId());
 
         String firstName = clientPersonalData.getFirstName();
         String lastName = clientPersonalData.getLastName();
@@ -79,7 +79,7 @@ public class ClientDataPanelController {
     }
 
     public void initClientContactDetails() {
-        ClientContactDetails clientContactDetails = CommunicationDAO.selectById(SELECT_CLIENT_CONTACT_DETAILS_BY_ID, getClientKey().getClient_key_id());
+        ClientContactDetails clientContactDetails = CommunicationDAO.selectById(SELECT_CLIENT_CONTACT_DETAILS_BY_ID, getClientKey().getClientKeyId());
 
         String countryCD = clientContactDetails.getCountryCD();
         String voivodeshipCD = clientContactDetails.getVoivodeshipCD();
@@ -115,7 +115,7 @@ public class ClientDataPanelController {
     }
 
     public void saveChangesInContactDetails() {
-        ClientContactDetails clientContactDetails = CommunicationDAO.selectById(SELECT_CLIENT_CONTACT_DETAILS_BY_ID, getClientKey().getClient_key_id());
+        ClientContactDetails clientContactDetails = CommunicationDAO.selectById(SELECT_CLIENT_CONTACT_DETAILS_BY_ID, getClientKey().getClientKeyId());
 
         clientContactDetails.setCountryCD(countryCDTextField.getText());
         clientContactDetails.setVoivodeshipCD(voivodeshipCDTextField.getText());

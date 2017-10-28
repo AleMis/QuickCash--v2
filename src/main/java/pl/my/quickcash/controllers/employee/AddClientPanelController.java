@@ -3,10 +3,7 @@ package pl.my.quickcash.controllers.employee;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import pl.my.quickcash.dao.CommunicationDAO;
-import pl.my.quickcash.data.client.ClientAccount;
-import pl.my.quickcash.data.client.ClientContactDetails;
-import pl.my.quickcash.data.client.ClientKey;
-import pl.my.quickcash.data.client.ClientPersonalData;
+import pl.my.quickcash.data.client.*;
 import pl.my.quickcash.data.employee.EmployeeKey;
 import pl.my.quickcash.dialogs.DialogUtils;
 import pl.my.quickcash.password_security.SecurePassword;
@@ -46,7 +43,7 @@ public class AddClientPanelController {
     @FXML private TextField flatNoCDTextField;
     //account details text fields
     @FXML private TextField loginTextField;
-    @FXML private PasswordField passwordTextField;
+    @FXML private TextField passwordTextField;
     @FXML private TextField accountBalanceTextField;
     @FXML private TextField accountNumberTextField;
     @FXML private CheckBox copyContactDetailsCheckBox;
@@ -70,10 +67,10 @@ public class AddClientPanelController {
             DialogUtils.dialogCheckContactDetails();
         }else if(!validationOfClientAccountDetailsTextFields()) {
             DialogUtils.dialogCheckClientAccountDetails();
-        }
-        else if (validationOfPersonalInformationTextFields() && validationOfContactDetailsTextFields() && validationOfClientAccountDetailsTextFields()) {
+            System.out.println(accountNumberTextField.getText());
+        }else {
             Optional<ButtonType> result = DialogUtils.confirmationDialogForAddingNewClient();
-            if(result.get() == ButtonType.OK) {
+            if (result.get() == ButtonType.OK) {
                 saveInDatabase();
                 DialogUtils.dialogNewClienAdded();
             }
@@ -122,7 +119,7 @@ public class AddClientPanelController {
             generateNewClientAccount();
 
             loginTextField.setText(clientKey.getLogin());
-            passwordTextField.setPromptText(clientKey.getPassword());
+            passwordTextField.setText(clientKey.getPassword());
             accountNumberTextField.setText(clientAccount.getAccountNumber());
             accountBalanceTextField.setText(String.valueOf(clientAccount.getAccountBalance()));
         }
@@ -147,7 +144,7 @@ public class AddClientPanelController {
 
     public void generateNewClientAccount() {
         String accountNumber = createAccountNumber();
-        BigDecimal accountBalance = new BigDecimal("0.00").setScale(2, BigDecimal.ROUND_CEILING);
+        BigDecimal accountBalance = new BigDecimal("0.00");
         clientAccount = new ClientAccount(accountBalance, accountNumber);
     }
 
@@ -194,8 +191,14 @@ public class AddClientPanelController {
         if(     !loginTextField.getText().trim().isEmpty() &&
                 !passwordTextField.getText().trim().isEmpty() &&
                 !accountNumberTextField.getText().trim().isEmpty()) {
+            System.out.println(loginTextField.getText());
+            System.out.println(passwordTextField.getText());
+            System.out.println(accountNumberTextField.getText());
             return true;
         }else {
+            System.out.println(loginTextField.getText());
+            System.out.println(passwordTextField.getText());
+            System.out.println(accountNumberTextField.getText());
             return false;
         }
     }
@@ -237,39 +240,13 @@ public class AddClientPanelController {
         CommunicationDAO.insert(INSERT_CLIENT_KEY, clientKey);
         ClientKey key = CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN,clientKey.getLogin());
 
-        clientPersonalData.setClient_key_id(key.getClient_key_id());
-        clientContactDetails.setClient_key_id(key.getClient_key_id());
-        clientAccount.setClient_key_id(key.getClient_key_id());
+        clientPersonalData.setClientKeyId(key.getClientKeyId());
+        clientContactDetails.setClientKeyId(key.getClientKeyId());
+        clientAccount.setClientKeyId(key.getClientKeyId());
 
         CommunicationDAO.insert(INSERT_CLIENT_PERSONAL_DATAT, clientPersonalData);
         CommunicationDAO.insert(INSERT_CLIENT_CONTACT_DETAILS,clientContactDetails);
         CommunicationDAO.insert(INSERT_CLIENT_ACCOUNT, clientAccount);
-    }
-
-    public void enablePersonalInformationTextFields() {
-        firstNameTextField.setEditable(true);
-        lastNameTextField.setEditable(true);
-        peselTextField.setEditable(true);
-        idNumberTextField.setEditable(true);
-        countryTextField.setEditable(true);
-        voivodeshipTextField.setEditable(true);
-        cityTextField.setEditable(true);
-        streetTextField.setEditable(true);
-        buildingNoTextField.setEditable(true);
-        flatNoTextField.setEditable(true);
-    }
-
-    public void disablePersonalInformationTextFields() {
-        firstNameTextField.setEditable(false);
-        lastNameTextField.setEditable(false);
-        peselTextField.setEditable(false);
-        idNumberTextField.setEditable(false);
-        countryTextField.setEditable(false);
-        voivodeshipTextField.setEditable(false);
-        cityTextField.setEditable(false);
-        streetTextField.setEditable(false);
-        buildingNoTextField.setEditable(false);
-        flatNoTextField.setEditable(false);
     }
 
     public void enableContactDetailsTextFields() {

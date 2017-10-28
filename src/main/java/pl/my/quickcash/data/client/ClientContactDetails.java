@@ -10,16 +10,16 @@ public class ClientContactDetails {
     private String streetCD;
     private String buildingNumberCD;
     private String flatNumberCD;
-    private BigInteger client_key_id;
+    private BigInteger clientKeyId;
 
-    public ClientContactDetails(String countryCD, String voivodeshipCD, String cityCD, String streetCD, String buildingNumberCD, String flatNumberCD, BigInteger client_key_id) {
+    public ClientContactDetails(String countryCD, String voivodeshipCD, String cityCD, String streetCD, String buildingNumberCD, String flatNumberCD, BigInteger clientKeyId) {
         this.countryCD = countryCD;
         this.voivodeshipCD = voivodeshipCD;
         this.cityCD = cityCD;
         this.streetCD = streetCD;
         this.buildingNumberCD = buildingNumberCD;
         this.flatNumberCD = flatNumberCD;
-        this.client_key_id = client_key_id;
+        this.clientKeyId = clientKeyId;
     }
 
 
@@ -30,14 +30,6 @@ public class ClientContactDetails {
         this.streetCD = streetCD;
         this.buildingNumberCD = buildingNumberCD;
         this.flatNumberCD = flatNumberCD;
-    }
-
-    public BigInteger getClient_key_id() {
-        return client_key_id;
-    }
-
-    public void setClient_key_id(BigInteger client_key_id) {
-        this.client_key_id = client_key_id;
     }
 
     public String getCountryCD() {
@@ -88,6 +80,14 @@ public class ClientContactDetails {
         this.flatNumberCD = flatNumberCD;
     }
 
+    public BigInteger getClientKeyId() {
+        return clientKeyId;
+    }
+
+    public void setClientKeyId(BigInteger clientKeyId) {
+        this.clientKeyId = clientKeyId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,7 +101,7 @@ public class ClientContactDetails {
         if (!streetCD.equals(that.streetCD)) return false;
         if (!buildingNumberCD.equals(that.buildingNumberCD)) return false;
         if (!flatNumberCD.equals(that.flatNumberCD)) return false;
-        return client_key_id.equals(that.client_key_id);
+        return clientKeyId.equals(that.clientKeyId);
     }
 
     @Override
@@ -112,7 +112,7 @@ public class ClientContactDetails {
         result = 31 * result + streetCD.hashCode();
         result = 31 * result + buildingNumberCD.hashCode();
         result = 31 * result + flatNumberCD.hashCode();
-        result = 31 * result + client_key_id.hashCode();
+        result = 31 * result + clientKeyId.hashCode();
         return result;
     }
 

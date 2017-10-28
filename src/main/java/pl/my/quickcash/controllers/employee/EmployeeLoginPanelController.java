@@ -16,6 +16,7 @@ import pl.my.quickcash.data.employee.EmployeeKey;
 import pl.my.quickcash.password_security.SecurePassword;
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -36,9 +37,7 @@ public class EmployeeLoginPanelController {
                 EmployeeKey employeeKey = null;
                 try {
                     employeeKey = authorize();
-                } catch (InvalidKeySpecException e) {
-                    e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
+                }  catch (GeneralSecurityException e) {
                     e.printStackTrace();
                 }
                 if (employeeKey != null) {
@@ -50,7 +49,7 @@ public class EmployeeLoginPanelController {
         });
     }
 
-    private EmployeeKey authorize() throws InvalidKeySpecException, NoSuchAlgorithmException {
+    private EmployeeKey authorize() throws GeneralSecurityException {
         EmployeeKey employeeKey = null;
         String login = null;
         String password = null;
@@ -59,8 +58,6 @@ public class EmployeeLoginPanelController {
             employeeKey = CommunicationDAO.selectByString(SELECT_EMPLOYEE_KEY, loginTextField.getText());
             login = employeeKey.getLogin();
             password = employeeKey.getPassword();
-        } catch (NullPointerException e) {
-            System.out.println(e);
         } finally {
             if (login == null) {
                 return null;

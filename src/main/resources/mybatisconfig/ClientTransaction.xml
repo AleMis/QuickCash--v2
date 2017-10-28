@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ClientTransaction">
+
+    <resultMap id="result" type="ClientTransaction">
+        <result property="amount" column="amount"/>
+        <result property="clientAccountNumber" column="client_account_number"/>
+        <result property="secondPartyAccountNumber" column="second_party_account_number"/>
+        <result property="transactionType" column="transaction_type"/>
+        <result property="transactionDate" column="transaction_date"/>
+        <result property="transactionTime" column="transaction_time"/>
+        <result property="clientKeyId" column="client_key_id"/>
+        <result property="secondPartyKeyId" column="second_party_key_id"/>
+        <result property="secondPartyFirstName" column="second_party_first_name"/>
+        <result property="secondPartyLastName" column="second_party_last_name"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="result">
+        SELECT amount, client_account_number, second_party_account_number, transaction_type, transaction_date, transaction_time, client_key_id, second_party_key_id, second_party_first_name, second_party_last_name
+        FROM client_transactions_history
+        WHERE client_key_id=#{clientKeyId}
+    </select>
+
+    <insert id="saveTransfer" parameterType="ClientTransaction">
+        INSERT INTO client_transactions_history (amount, client_account_number, second_party_account_number, transaction_type, transaction_date, transaction_time, client_key_id, second_party_key_id, second_Party_First_Name, second_Party_Last_Name)
+        VALUES (#{amount}, #{clientAccountNumber}, #{secondPartyAccountNumber}, #{transactionType}, #{transactionDate}, #{transactionTime},#{clientKeyId},#{secondPartyKeyId},#{secondPartyFirstName},#{secondPartyLastName} )
+    </insert>
+
+    <insert id="savePutAndWithdrawMoney" parameterType="ClientTransaction">
+        INSERT INTO client_transactions_history (amount, client_account_number, transaction_type, transaction_date, transaction_time, client_key_id)
+        VALUES (#{amount}, #{clientAccountNumber}, #{transactionType}, #{transactionDate}, #{transactionTime},#{clientKeyId})
+    </insert>
+
+</mapper>

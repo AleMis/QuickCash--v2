@@ -23,15 +23,6 @@ public class DialogUtils {
         return result;
     }
 
-
-    public static void dialogAboutApplication() {
-        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
-        informationAlert.setTitle("About");
-        informationAlert.setHeaderText("QuickCash Appliaction 1.0");
-        informationAlert.setContentText("Application has been developing by JavaSzaman!");
-        informationAlert.showAndWait();
-    }
-
     public static Optional<ButtonType> confirmationDialogForContactDetails() {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Changes in contact details");
@@ -40,13 +31,28 @@ public class DialogUtils {
         return result;
     }
 
-
     public static Optional<ButtonType> confirmationDialogForAddingNewClient() {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Adding New Client");
         confirmationAlert.setHeaderText("Do you want to add new client?");
         Optional<ButtonType> result = confirmationAlert.showAndWait();
         return result;
+    }
+
+    public static Optional<ButtonType> confirmationDialogRemoveClient() {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Client Removing");
+        confirmationAlert.setHeaderText("Do you want to remove this client?");
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+        return result;
+    }
+
+    public static void dialogAboutApplication() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("About");
+        informationAlert.setHeaderText("QuickCash Appliaction 1.0");
+        informationAlert.setContentText("Application has been developing by JavaSzaman!");
+        informationAlert.showAndWait();
     }
 
     public static void dialogNewClienAdded() {
@@ -100,13 +106,7 @@ public class DialogUtils {
         informationAlert.showAndWait();
     }
 
-    public static Optional<ButtonType> confirmationDialogRemoveClient() {
-        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmationAlert.setTitle("Client Removing");
-        confirmationAlert.setHeaderText("Do you want to remove this client?");
-        Optional<ButtonType> result = confirmationAlert.showAndWait();
-        return result;
-    }
+
 
     public static void dialogClientRemoved() {
         Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);

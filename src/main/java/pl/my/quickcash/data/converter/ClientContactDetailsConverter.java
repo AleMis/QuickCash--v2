@@ -1,9 +1,7 @@
 package pl.my.quickcash.data.converter;
 
 import pl.my.quickcash.controllers.modelfx.ClientContactDetailsFx;
-import pl.my.quickcash.controllers.modelfx.ClientPersonalDataFx;
 import pl.my.quickcash.data.client.ClientContactDetails;
-import pl.my.quickcash.data.client.ClientPersonalData;
 
 import java.math.BigInteger;
 

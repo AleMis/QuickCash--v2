@@ -4,24 +4,17 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import pl.my.quickcash.Main;
 import pl.my.quickcash.dialogs.DialogUtils;
-
-import java.io.IOException;
 import java.util.Optional;
 
 public class StarterPanelController {
 
     @FXML private Button clientButton;
     @FXML private Button employeeButton;
-
-    private void initialize() {
-    }
 
     public void runAsClient(Stage stage) {
         clientButton.setOnAction(new EventHandler<ActionEvent>() {

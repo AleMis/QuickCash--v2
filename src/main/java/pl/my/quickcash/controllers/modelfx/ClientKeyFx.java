@@ -1,8 +1,6 @@
 package pl.my.quickcash.controllers.modelfx;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import pl.my.quickcash.data.client.ClientKey;
 
 public class ClientKeyFx {
 

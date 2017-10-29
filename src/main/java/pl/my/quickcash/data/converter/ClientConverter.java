@@ -2,7 +2,6 @@ package pl.my.quickcash.data.converter;
 
 import pl.my.quickcash.controllers.modelfx.ClientFx;
 import pl.my.quickcash.data.client.Client;
-import pl.my.quickcash.data.client.ClientData;
 
 public class ClientConverter {
 

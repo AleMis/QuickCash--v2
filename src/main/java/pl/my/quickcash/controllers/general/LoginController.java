@@ -1,5 +1,5 @@
 package pl.my.quickcash.controllers.general;
-;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,12 +10,16 @@ import pl.my.quickcash.controllers.employee.EmployeeLoginPanelController;
 import pl.my.quickcash.controllers.employee.EmployeeMainPanelController;
 import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.data.employee.EmployeeKey;
-
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LoginController {
+
+    private static final String EMPLOYEE_MAIN_PANEL_FXML = "/fxml/EmployeeMainPanel.fxml";
+    private static final String EMPLOYEE_LOGIN_PANEL_FXML = "/fxml/EmployeeLoginPanel.fxml";
+    private static final String CLIENT_MAIN_PANEL_FXML = "/fxml/ClientMainPanel.fxml";
+    private static final String CLIENT_LOGIN_PANEL_FXML = "/fxml/ClientLoginPanel.fxml";
 
     private Scene scene;
     private Stage stage;
@@ -40,7 +44,7 @@ public class LoginController {
 
     public void showClientLoginPanel(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ClientLoginPanel.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(CLIENT_LOGIN_PANEL_FXML));
             scene.setRoot((Parent) loader.load());
             ClientLoginPanelController controller = loader.<ClientLoginPanelController>getController();
                 controller.initClientKey(this);
@@ -53,7 +57,7 @@ public class LoginController {
 
     private void showClientMainPanel(ClientKey clientKey, Stage stage) {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ClientMainPanel.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(CLIENT_MAIN_PANEL_FXML));
             Start.scene.setRoot((Parent) loader.load());
             ClientMainPanelController controller = loader.<ClientMainPanelController>getController();
             controller.setClientKey(clientKey);
@@ -67,7 +71,7 @@ public class LoginController {
 
     public void showEmployeeLoginPanel(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/EmployeeLoginPanel.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(EMPLOYEE_LOGIN_PANEL_FXML));
             scene.setRoot((Parent) loader.load());
             EmployeeLoginPanelController controller = loader.<EmployeeLoginPanelController>getController();
             controller.initEmployeeKey(this);
@@ -80,7 +84,7 @@ public class LoginController {
 
     private void showEmployeeMainPanel(EmployeeKey employeeKey, Stage stage) {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/EmployeeMainPanel.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(EMPLOYEE_MAIN_PANEL_FXML));
             Start.scene.setRoot((Parent) loader.load());
             EmployeeMainPanelController controller = loader.<EmployeeMainPanelController>getController();
             controller.setEmployeeKey(employeeKey);

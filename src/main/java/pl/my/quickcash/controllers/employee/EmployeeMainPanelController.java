@@ -23,7 +23,7 @@ import java.util.Optional;
 public class EmployeeMainPanelController {
 
     private static final String ADD_CLIENT_FXML = "/fxml/AddClientPanel.fxml";
-    private static final String SHOW_CLIENTSDATABASE_FXML = "/fxml/ClientsDatabasePanel.fxml";
+    private static final String SHOW_CLIENTS_DATABASE_FXML = "/fxml/ClientsDatabasePanel.fxml";
     private static final String REMOVE_CLIENT = "/fxml/RemoveClientPanel.fxml";
     private static final String SELECT_EMPLOYEE_BY_ID = "EmployeeData.selectEmployeeData";
 
@@ -85,7 +85,7 @@ public class EmployeeMainPanelController {
 
     @FXML
     public void initShowClientsDatabase() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(SHOW_CLIENTSDATABASE_FXML));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(SHOW_CLIENTS_DATABASE_FXML));
         Stage stage = new Stage();
         Pane pane = loader.load();
         Scene scene = new Scene(pane);

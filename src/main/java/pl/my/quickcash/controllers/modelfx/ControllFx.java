@@ -2,18 +2,12 @@ package pl.my.quickcash.controllers.modelfx;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import pl.my.quickcash.controllers.employee.LoadClientDatabase;
 import pl.my.quickcash.data.client.*;
 import pl.my.quickcash.data.converter.ClientConverter;
-import pl.my.quickcash.data.converter.ClientDataConverter;
-import pl.my.quickcash.data.converter.ClientKeyConverter;
 import pl.my.quickcash.data.converter.ClientTransactionConverter;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ControllFx {
 

@@ -16,7 +16,7 @@ public class LoadClientDatabase {
         if (loadClientDatabaseInstance == null) {
             loadClientDatabaseInstance = ClientsList.createList();
         }
-         return loadClientDatabaseInstance;
+        return loadClientDatabaseInstance;
     }
 }
 

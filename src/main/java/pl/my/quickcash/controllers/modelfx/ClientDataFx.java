@@ -2,9 +2,6 @@ package pl.my.quickcash.controllers.modelfx;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import pl.my.quickcash.data.client.ClientAccount;
-import pl.my.quickcash.data.client.ClientContactDetails;
-import pl.my.quickcash.data.client.ClientPersonalData;
 
 public class ClientDataFx {
 

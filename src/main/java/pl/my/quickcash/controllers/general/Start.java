@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class Start {
 
+    private static final String STARTER_PANEL_FXML = "/fxml/StarterPanel.fxml";
+
     public static Scene scene;
     public Start() {
       Start.scene = new Scene(new StackPane());
@@ -17,7 +19,7 @@ public class Start {
 
     public void showStarterPanel(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/StarterPanel.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(STARTER_PANEL_FXML));
             Start.scene.setRoot((Parent) loader.load());
             StarterPanelController controller = loader.<StarterPanelController>getController();
             controller.runAsClient(stage);

@@ -121,4 +121,11 @@ public class DialogUtils {
         informationAlert.setHeaderText("Transfer completed!");
         informationAlert.showAndWait();
     }
+
+    public static void dialogTheSameAccountNumber() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Transfer");
+        informationAlert.setHeaderText("Account number is the same as Your account number!");
+        informationAlert.showAndWait();
+    }
 }

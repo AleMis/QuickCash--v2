@@ -26,9 +26,9 @@ public class SampleClient {
         if (client1 == null && client2 == null) {
             createClient1();
             createClient2();
-        } else if ((client1 == null) && !(client2 == null)) {
+        } else if (client1 == null) {
             createClient1();
-        } else if (!(client1 == null) && (client2 == null)) {
+        } else if (client2 == null) {
             createClient2();
         }
     }

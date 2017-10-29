@@ -16,13 +16,14 @@ public class WithdrawMoneyPanelController {
     @FXML private Label statusLabel;
 
     private static final String UPDATE_CLIENT_ACCOUNT = "ClientAccount.updateClientAccountBalance";
-    private static final String SELECT_CLIENT_ACCUNT = "ClientAccount.selectClientAccount";
+    private static final String SELECT_CLIENT_ACCOUNT = "ClientAccount.selectClientAccount";
     private static final String SAVE_TRANSACTION = "ClientTransaction.savePutAndWithdrawMoney";
     private static final String TRANSACTION_TYPE_WITHDRAW_MONEY = "Withdraw money";
     private static final String ACCOUNT_BALANCE_0_PLN = "Account Balance equal PLN 0.00";
     private static final String ACCOUNT_BALANCE = "Account Balance equal PLN ";
     private static final String NOT_ENOUGH_FUNDS = "Not enough funds on your account!";
 
+    private UpdateAccountBalance  updateAccountBalance = new UpdateAccountBalance();
     private ClientKey clientKey;
     private ClientTransaction clientTransaction;
 
@@ -53,7 +54,7 @@ public class WithdrawMoneyPanelController {
     }
 
     public void checkAccountBalance() {
-        ClientAccount client = CommunicationDAO.selectById(SELECT_CLIENT_ACCUNT, getClientKey().getClientKeyId());
+        ClientAccount client = CommunicationDAO.selectById(SELECT_CLIENT_ACCOUNT, getClientKey().getClientKeyId());
 
         BigDecimal payerBalance = client.getAccountBalance();
         BigDecimal noMoney = new BigDecimal(0.00);
@@ -72,7 +73,7 @@ public class WithdrawMoneyPanelController {
             ClientTransaction transaction = new ClientTransaction();
             clientTransaction = transaction.createTransactionForPutAndWithdrawMoney(getAmount(),client, TRANSACTION_TYPE_WITHDRAW_MONEY);
             saveTransaction(clientTransaction);
-
+            updateAccountBalance.updateAccountBalance(getClientKey());
             DialogUtils.dialogTransferCompleted();
         }
     }

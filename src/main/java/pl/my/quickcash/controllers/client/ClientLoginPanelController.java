@@ -7,29 +7,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import pl.my.quickcash.Main;
 import pl.my.quickcash.controllers.general.LoginController;
-import pl.my.quickcash.controllers.general.Start;
 import pl.my.quickcash.controllers.general.StarterPanelController;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.client.ClientKey;
 import pl.my.quickcash.password_security.SecurePassword;
-
-
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 public class ClientLoginPanelController {
 
     private static final String GET_CLIENT_KEY_BY_LOGIN = "ClientKey.selectClientKey";
+    private static final String INCORRECT_LOGIN_AND_PASSWORD = "Incorrect login or password!";
 
     @FXML private TextField loginTextField;
     @FXML private PasswordField passwordField;
     @FXML private Button loginButton;
     @FXML private Label statusLabel;
-
 
     public void initialize() {
     }
@@ -48,7 +42,7 @@ public class ClientLoginPanelController {
                 if (clientKey != null) {
                     loginController.clientAuthenticated(clientKey);
                 }else {
-                    statusLabel.setText("Incorrect login or password!");
+                    statusLabel.setText(INCORRECT_LOGIN_AND_PASSWORD);
                 }
             }
         });
@@ -57,16 +51,13 @@ public class ClientLoginPanelController {
     private ClientKey authorize() throws GeneralSecurityException {
         ClientKey clientKey = null;
         String password = null;
-        String login = null;
 
-        try {
-            clientKey = CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN, loginTextField.getText());
-            login = clientKey.getLogin();
+        clientKey = CommunicationDAO.selectByString(GET_CLIENT_KEY_BY_LOGIN, loginTextField.getText());
+        if(clientKey == null) {
+            return null;
+        }else {
             password = clientKey.getPassword();
-        } finally {
-            if (login == null) {
-                return null;
-            } else if (!(login == null) && !SecurePassword.validatePassword(passwordField.getText(), password)){
+            if (!SecurePassword.validatePassword(passwordField.getText(), password)) {
                 return null;
             } else {
                 return clientKey;

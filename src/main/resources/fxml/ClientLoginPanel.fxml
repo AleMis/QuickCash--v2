@@ -14,6 +14,6 @@
       <Label layoutX="77.0" layoutY="69.0" text="Password" />
       <Button fx:id="loginButton" layoutX="130.0" layoutY="129.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Sign In" />
       <Button fx:id="cancelButton" layoutX="242.0" layoutY="129.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="80.0" text="Cancel" />
-      <Label fx:id="statusLabel" layoutX="210.0" layoutY="102.0" text="Status" />
+      <Label fx:id="statusLabel" layoutX="161.0" layoutY="101.0" text="Status" />
    </children>
 </Pane>

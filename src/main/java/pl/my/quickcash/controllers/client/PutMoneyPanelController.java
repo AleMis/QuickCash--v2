@@ -21,6 +21,7 @@ public class PutMoneyPanelController {
     private static final String SAVE_TRANSACTION = "ClientTransaction.savePutAndWithdrawMoney";
     private static final String TRANSACTION_TYPE_PUT_MONEY = "Put money";
 
+    private UpdateAccountBalance  updateAccountBalance = new UpdateAccountBalance();
     private ClientKey clientKey;
     private ClientTransaction clientTransaction;
 
@@ -55,6 +56,7 @@ public class PutMoneyPanelController {
             ClientTransaction transaction = new ClientTransaction();
             clientTransaction = transaction.createTransactionForPutAndWithdrawMoney(getAmount(),client,TRANSACTION_TYPE_PUT_MONEY);
             saveTransaction(clientTransaction);
+            updateAccountBalance.updateAccountBalance(getClientKey());
             DialogUtils.dialogTransferCompleted();
         }
     }

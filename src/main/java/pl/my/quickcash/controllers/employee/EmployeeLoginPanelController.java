@@ -6,23 +6,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import pl.my.quickcash.Main;
 import pl.my.quickcash.controllers.general.LoginController;
-import pl.my.quickcash.controllers.general.Start;
 import pl.my.quickcash.controllers.general.StarterPanelController;
 import pl.my.quickcash.dao.CommunicationDAO;
 import pl.my.quickcash.data.employee.EmployeeKey;
 import pl.my.quickcash.password_security.SecurePassword;
-
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 public class EmployeeLoginPanelController {
 
     private static final String SELECT_EMPLOYEE_KEY = "EmployeeKey.selectEmployeeKey";
+    private static final String INCORRECT_LOGIN_AND_PASSWORD = "Incorrect login or password!";
 
     @FXML private TextField loginTextField;
     @FXML private TextField passwordField;
@@ -43,7 +38,7 @@ public class EmployeeLoginPanelController {
                 if (employeeKey != null) {
                     loginController.employeeAuthenticated(employeeKey);
                 }else {
-                    statusLabel.setText("Incorrect login or password!");
+                    statusLabel.setText(INCORRECT_LOGIN_AND_PASSWORD);
                 }
             }
         });
@@ -51,17 +46,14 @@ public class EmployeeLoginPanelController {
 
     private EmployeeKey authorize() throws GeneralSecurityException {
         EmployeeKey employeeKey = null;
-        String login = null;
         String password = null;
 
-        try {
-            employeeKey = CommunicationDAO.selectByString(SELECT_EMPLOYEE_KEY, loginTextField.getText());
-            login = employeeKey.getLogin();
+        employeeKey = CommunicationDAO.selectByString(SELECT_EMPLOYEE_KEY, loginTextField.getText());
+        if(employeeKey == null) {
+            return null;
+        }else {
             password = employeeKey.getPassword();
-        } finally {
-            if (login == null) {
-                return null;
-            }else if(!(login == null) && !SecurePassword.validatePassword(passwordField.getText(), password)) {
+            if (!SecurePassword.validatePassword(passwordField.getText(), password)) {
                 return null;
             } else {
                 return employeeKey;

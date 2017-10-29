@@ -45,7 +45,6 @@ public class ClientMainPanelController {
     @FXML private BorderPane clientBorderPane;
     @FXML private TextField accountBalanceTextField;
 
-
     public void initSession() {
         initializeAccountBalance();
         setModena();
@@ -58,7 +57,7 @@ public class ClientMainPanelController {
             clientBorderPane.setCenter(loader.load());
             MakeTransferPanelController controller = loader.<MakeTransferPanelController>getController();
             controller.setClientKey(getClientKey());
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.getStackTrace();
         }
     }
@@ -82,7 +81,6 @@ public class ClientMainPanelController {
             clientBorderPane.setCenter(loader.load());
             WithdrawMoneyPanelController controller = loader.<WithdrawMoneyPanelController>getController();
             controller.setClientKey(getClientKey());
-            clientBorderPane.getStylesheets().add(getClass().getClassLoader().getResource("/fxml/ClientDataPanel.css").toString());
         } catch (Exception e) {
             e.getStackTrace();
         }

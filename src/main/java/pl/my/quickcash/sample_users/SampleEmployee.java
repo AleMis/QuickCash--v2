@@ -23,9 +23,9 @@ public class SampleEmployee {
         if (employee1 == null && employee2 == null) {
             createEmployee1();
             createEmployee2();
-        } else if ((employee1 == null) && !(employee2 == null)) {
+        } else if (employee1 == null) {
             createEmployee1();
-        } else if (!(employee1 == null) && (employee2 == null)) {
+        } else if (employee2 == null) {
             createEmployee2();
         }
     }
